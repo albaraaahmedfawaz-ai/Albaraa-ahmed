@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 متجر الكتب - أهدِ كتاباً لمن تحب</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e2a03f;
+            --accent-hover: #c78a2e;
+            --gold: #d4a853;
+            --light: #f5f0e8;
+            --white: #fffef9;
+            --text: #2c2416;
+            --text-light: #6b5e4a;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.18);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tajawal', 'Arial', sans-serif;
+            background: #fdfaf3;
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* ============ شريط التنقل ============ */
+        .navbar {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid #e8dfd0;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+            max-width: 1300px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .logo span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #fdf3e0;
+            color: var(--accent);
+        }
+        .cart-icon-wrapper {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            border-radius: 30px;
+            background: #fdf3e0;
+            transition: var(--transition);
+            user-select: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .cart-icon-wrapper:hover {
+            background: #fbe8c8;
+            transform: scale(1.04);
+        }
+        .cart-count {
+            background: #c0392b;
+            color: #fff;
+            font-size: 0.7rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            top: -4px;
+            left: -4px;
+        }
+
+        /* ============ قسم الترحيب ============ */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 40%, #3d2c1e 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(226, 160, 63, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 250px;
+            height: 250px;
+            background: rgba(212, 168, 83, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            font-weight: 900;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 650px;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .btn-hero {
+            display: inline-block;
+            background: var(--accent);
+            color: #1a1a2e;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 6px 20px rgba(226, 160, 63, 0.35);
+        }
+        .hero .btn-hero:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(226, 160, 63, 0.45);
+        }
+
+        /* ============ شريط البحث والتصفية ============ */
+        .search-filter-bar {
+            max-width: 1300px;
+            margin: -28px auto 30px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-filter-bar input {
+            flex: 1 1 280px;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: 2px solid #e0d5c0;
+            font-size: 1rem;
+            background: #fff;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            font-family: inherit;
+            min-width: 200px;
+        }
+        .search-filter-bar input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(226, 160, 63, 0.1);
+        }
+        .search-filter-bar select {
+            padding: 14px 18px;
+            border-radius: 30px;
+            border: 2px solid #e0d5c0;
+            font-size: 1rem;
+            background: #fff;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-family: inherit;
+            transition: var(--transition);
+            min-width: 150px;
+        }
+        .search-filter-bar select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* ============ بطاقات الكتب ============ */
+        .books-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        .book-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ede4d3;
+            position: relative;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        .book-card .book-cover {
+            height: 260px;
+            background: linear-gradient(135deg, #f5efe0, #e8dcc8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .book-card .book-cover .cover-icon {
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        .book-card:hover .book-cover .cover-icon {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+        .book-card .book-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .book-card .book-title {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+        .book-card .book-author {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .book-card .book-desc {
+            font-size: 0.85rem;
+            color: #7a6e5c;
+            line-height: 1.5;
+            flex: 1;
+            margin: 4px 0;
+        }
+        .book-card .book-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 18px 16px;
+            gap: 8px;
+        }
+        .book-card .price {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        .book-card .btn-add {
+            background: var(--accent);
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .book-card .btn-add:hover {
+            background: var(--accent-hover);
+            transform: scale(1.03);
+        }
+        .book-card .btn-add.added {
+            background: #27ae60;
+            color: #fff;
+            animation: pulse 0.5s ease;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.12);
+            }
+        }
+        .badge-category {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(26, 26, 46, 0.8);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ============ سلة التسوق الجانبية ============ */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .cart-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            left: -450px;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: #fff;
+            z-index: 2001;
+            box-shadow: -4px 0 30px rgba(0, 0, 0, 0.2);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-radius: 0 0 0 20px;
+        }
+        .cart-sidebar.open {
+            left: 0;
+        }
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cart-header h3 {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-close-cart {
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #999;
+            transition: var(--transition);
+            padding: 6px;
+            border-radius: 50%;
+        }
+        .btn-close-cart:hover {
+            color: #333;
+            background: #f5f5f5;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .cart-empty {
+            text-align: center;
+            padding: 50px 20px;
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: #fdfaf3;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid #eee;
+        }
+        .cart-item .ci-icon {
+            font-size: 2.5rem;
+            min-width: 50px;
+            text-align: center;
+        }
+        .cart-item .ci-info {
+            flex: 1;
+        }
+        .cart-item .ci-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .cart-item .ci-price {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .cart-item .btn-remove {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .cart-item .btn-remove:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+        .cart-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #eee;
+            background: #fdfaf3;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .btn-checkout {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .btn-checkout:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 8px 24px rgba(226, 160, 63, 0.3);
+        }
+        .btn-clear-cart {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            color: #999;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        .btn-clear-cart:hover {
+            color: #e74c3c;
+        }
+
+        /* ============ نموذج الإهداء ============ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 20px;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 30px 24px;
+            width: 100%;
+            max-width: 520px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .modal h2 {
+            text-align: center;
+            margin-bottom: 6px;
+            font-size: 1.6rem;
+        }
+        .modal .modal-sub {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .modal .form-group {
+            margin-bottom: 14px;
+        }
+        .modal label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 25px;
+            border: 2px solid #e0d5c0;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: #fefefe;
+        }
+        .modal textarea {
+            border-radius: 16px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .modal input:focus,
+        .modal textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(226, 160, 63, 0.08);
+        }
+        .modal .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            margin-top: 6px;
+        }
+        .modal .btn-submit:hover {
+            background: #219a52;
+            box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+        }
+        .modal .btn-cancel {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            font-family: inherit;
+        }
+        .modal .btn-cancel:hover {
+            color: #e74c3c;
+        }
+        .modal .gift-summary {
+            background: #fdfaf3;
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            border: 1px dashed #d4c5a0;
+        }
+        .modal .gift-summary strong {
+            color: var(--accent);
+        }
+
+        /* ============ رسالة نجاح ============ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #27ae60;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            z-index: 4000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ============ تذييل ============ */
+        .footer {
+            background: var(--primary);
+            color: #ccc;
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        .footer span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ============ تجاوب ============ */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 14px;
+            }
+            .book-card .book-cover {
+                height: 180px;
+                font-size: 3rem;
+            }
+            .book-card .book-title {
+                font-size: 0.95rem;
+            }
+            .cart-sidebar {
+                max-width: 100%;
+                left: -105%;
+            }
+            .cart-sidebar.open {
+                left: 0;
+            }
+            .navbar .container {
+                justify-content: center;
+                gap: 8px;
+            }
+            .search-filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ شريط التنقل ============ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">📚 <span>متجر</span> الكتب</a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">الرئيسية</a></li>
+                <li><a href="#books-section">الكتب</a></li>
+                <li><a href="#how-it-works">كيف يعمل؟</a></li>
+            </ul>
+            <div class="cart-icon-wrapper" onclick="toggleCart()" title="سلة الإهداء">
+                🎁 سلة الإهداء <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ قسم الترحيب ============ -->
+    <section class="hero">
+        <h1>📖 أهدِ كتاباً لمن تحب</h1>
+        <p>اختر من مجموعتنا المميزة من الكتب العربية، أضفها إلى سلة الإهداء، وسنقوم بتوصيلها كهدية رائعة لمن تختار.</p>
+        <a href="#books-section" class="btn-hero">✨ تصفح الكتب الآن</a>
+    </section>
+
+    <!-- ============ شريط البحث والتصفية ============ -->
+    <div class="search-filter-bar" id="books-section">
+        <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب أو مؤلف...">
+        <select id="categoryFilter">
+            <option value="all">📂 جميع الفئات</option>
+            <option value="رواية">📖 رواية</option>
+            <option value="تنمية بشرية">🧠 تنمية بشرية</option>
+            <option value="تاريخ">🏛️ تاريخ</option>
+            <option value="علوم">🔬 علوم</option>
+            <option value="دين">🕌 دين</option>
+            <option value="شعر">🎵 شعر</option>
+        </select>
+    </div>
+
+    <!-- ============ قسم الكتب ============ -->
+    <section class="books-section">
+        <h2 class="section-title">📚 مجموعتنا المختارة</h2>
+        <p class="section-subtitle">كتب رائعة تصلح كهدية قيمة في أي مناسبة</p>
+        <div class="books-grid" id="booksGrid">
+            <!-- الكتب تُحقن عبر JavaScript -->
+        </div>
+    </section>
+
+    <!-- ============ قسم "كيف يعمل" ============ -->
+    <section class="books-section" id="how-it-works" style="text-align:center;">
+        <h2 class="section-title">🎁 كيف تهدي كتاباً؟</h2>
+        <p class="section-subtitle">ثلاث خطوات بسيطة لإسعاد من تحب</p>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:900px;margin:0 auto;">
+            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
+                <div style="font-size:3rem;">1️⃣</div>
+                <h4 style="margin:8px 0;">اختر الكتب</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">تصفح المجموعة وأضف الكتب التي تعجبك إلى سلة الإهداء.</p>
+            </div>
+            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
+                <div style="font-size:3rem;">2️⃣</div>
+                <h4 style="margin:8px 0;">أدخل بيانات المهدى إليه</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">املأ اسم الشخص وعنوانه ورسالة إهداء جميلة.</p>
+            </div>
+            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
+                <div style="font-size:3rem;">3️⃣</div>
+                <h4 style="margin:8px 0;">أرسل الهدية</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">نحن نتولى التوصيل، وسيصل الكتاب كهدية أنيقة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ تذييل ============ -->
+    <footer class="footer">
+        <p>© 2026 <span>متجر الكتب</span> - جميع الحقوق محفوظة | أهدِ معرفةً، أهدِ حباً 📚</p>
+    </footer>
+
+    <!-- ============ سلة التسوق الجانبية ============ -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>🎁 سلة الإهداء</h3>
+            <button class="btn-close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">السلة فارغة. أضف كتباً لتبدأ الإهداء! 📚</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cartTotal">0.00 د.أ</span>
+            </div>
+            <button class="btn-checkout" onclick="openGiftModal()" id="btnCheckout" disabled>🎀 إهداء الكتب الآن</button>
+            <button class="btn-clear-cart" onclick="clearCart()">🗑️ إفراغ السلة</button>
+        </div>
+    </div>
+
+    <!-- ============ نافذة الإهداء ============ -->
+    <div class="modal-overlay" id="giftModalOverlay">
+        <div class="modal">
+            <h2>🎀 نموذج الإهداء</h2>
+            <p class="modal-sub">املأ بيانات الشخص الذي تريد إهداءه الكتب</p>
+            <div class="gift-summary" id="giftSummary">
+                <strong>الكتب المختارة:</strong> <span id="giftBookList">-</span><br>
+                <strong>المجموع:</strong> <span id="giftTotalAmount">0.00 د.أ</span>
+            </div>
+            <div class="form-group">
+                <label>👤 اسم المهدى إليه</label>
+                <input type="text" id="recipientName" placeholder="أدخل الاسم الكامل">
+            </div>
+            <div class="form-group">
+                <label>📍 عنوان التوصيل</label>
+                <textarea id="recipientAddress" placeholder="أدخل العنوان بالتفصيل (المدينة، الحي، الشارع...)"></textarea>
+            </div>
+            <div class="form-group">
+                <label>📞 رقم الهاتف</label>
+                <input type="tel" id="recipientPhone" placeholder="أدخل رقم الهاتف للتواصل">
+            </div>
+            <div class="form-group">
+                <label>💌 رسالة الإهداء</label>
+                <textarea id="giftMessage" placeholder="اكتب رسالة جميلة تصل مع الهدية... (اختياري)"></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitGift()">🎁 تأكيد وإرسال الهدية</button>
+            <button class="btn-cancel" onclick="closeGiftModal()">إلغاء</button>
+        </div>
+    </div>
+
+    <!-- ============ رسالة نجاح ============ -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ============ بيانات الكتب ============
+        const booksData = [{
+            id: 1,
+            title: 'ألف ليلة وليلة',
+            author: 'تراث شعبي',
+            category: 'رواية',
+            price: 18.50,
+            desc: 'حكايات خالدة من التراث العربي، مليئة بالتشويق والمغامرة.',
+            icon: '📖'
+        }, {
+            id: 2,
+            title: 'العادات السبع للناس الأكثر فعالية',
+            author: 'ستيفن كوفي',
+            category: 'تنمية بشرية',
+            price: 22.00,
+            desc: 'دليل عملي لتطوير الذات وتحقيق النجاح الشخصي والمهني.',
+            icon: '🧠'
+        }, {
+            id: 3,
+            title: 'مقدمة ابن خلدون',
+            author: 'ابن خلدون',
+            category: 'تاريخ',
+            price: 25.00,
+            desc: 'أحد أعظم الكتب في علم الاجتماع والتاريخ، رؤية ثاقبة للحضارات.',
+            icon: '🏛️'
+        }, {
+            id: 4,
+            title: 'الكون في قشرة جوز',
+            author: 'ستيفن هوكينغ',
+            category: 'علوم',
+            price: 20.00,
+            desc: 'رحلة شيقة في أعماق الكون والفيزياء النظرية بأسلوب مبسط.',
+            icon: '🔬'
+        }, {
+            id: 5,
+            title: 'القرآن الكريم',
+            author: 'الله سبحانه وتعالى',
+            category: 'دين',
+            price: 30.00,
+            desc: 'المصحف الشريف بغلاف فاخر، هدية روحانية لا تُقدّر بثمن.',
+            icon: '🕌'
+        }, {
+            id: 6,
+            title: 'ديوان المتنبي',
+            author: 'أبو الطيب المتنبي',
+            category: 'شعر',
+            price: 16.00,
+            desc: 'أجمل قصائد شاعر العربية الأكبر، حكمة وفخر وجمال.',
+            icon: '🎵'
+        }, {
+            id: 7,
+            title: 'رجال من الشمس',
+            author: 'غسان كنفاني',
+            category: 'رواية',
+            price: 14.00,
+            desc: 'رواية مؤثرة عن القضية الفلسطينية، من روائع الأدب العربي الحديث.',
+            icon: '📖'
+        }, {
+            id: 8,
+            title: 'فكر كرجل أعمال',
+            author: 'كريس جيليبو',
+            category: 'تنمية بشرية',
+            price: 19.00,
+            desc: 'كيف تبدأ مشروعك الصغير وتحقق الاستقلال المالي.',
+            icon: '💼'
+        }, {
+            id: 9,
+            title: 'تاريخ الخلفاء',
+            author: 'السيوطي',
+            category: 'تاريخ',
+            price: 21.00,
+            desc: 'سرد شامل لتاريخ الخلفاء الراشدين والدول الإسلامية.',
+            icon: '📜'
+        }, {
+            id: 10,
+            title: 'الفيزياء للمبتدئين',
+            author: 'كارلو روفيلي',
+            category: 'علوم',
+            price: 17.50,
+            desc: 'مدخل ساحر إلى عالم الفيزياء الحديثة بأسلوب شاعري.',
+            icon: '⚛️'
+        }, {
+            id: 11,
+            title: 'رياض الصالحين',
+            author: 'الإمام النووي',
+            category: 'دين',
+            price: 24.00,
+            desc: 'مجموعة من الأحاديث النبوية الصحيحة في الأخلاق والعبادات.',
+            icon: '🕋'
+        }, {
+            id: 12,
+            title: 'ديوان نزار قباني',
+            author: 'نزار قباني',
+            category: 'شعر',
+            price: 15.00,
+            desc: 'أجمل قصائد الحب والغزل من شاعر المرأة والجمال.',
+            icon: '💕'
+        }];
+
+        // ============ حالة التطبيق ============
+        let cart = JSON.parse(localStorage.getItem('bookGiftCart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('bookGiftCart', JSON.stringify(cart));
+        }
+
+        // ============ عرض الكتب ============
+        function renderBooks(filteredBooks = null) {
+            const grid = document.getElementById('booksGrid');
+            const books = filteredBooks || booksData;
+            grid.innerHTML = books.map(book => `
+            <div class="book-card" data-id="${book.id}" data-category="${book.category}">
+              <div class="book-cover">
+                <span class="cover-icon">${book.icon}</span>
+                <span class="badge-category">${book.category}</span>
+              </div>
+              <div class="book-info">
+                <h3 class="book-title">${book.title}</h3>
+                <p class="book-author">✍️ ${book.author}</p>
+                <p class="book-desc">${book.desc}</p>
+              </div>
+              <div class="book-footer">
+                <span class="price">${book.price.toFixed(2)} د.أ</span>
+                <button class="btn-add" onclick="addToCart(${book.id}, this)">🎁 أضف للإهداء</button>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // ============ إضافة للسلة ============
+        function addToCart(bookId, btnElement) {
+            const book = booksData.find(b => b.id === bookId);
+            if (!book) return;
+            const existing = cart.find(item => item.id === bookId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...book, quantity: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            // تأثير الزر
+            btnElement.classList.add('added');
+            btnElement.textContent = '✅ تمت الإضافة';
+            setTimeout(() => {
+                btnElement.classList.remove('added');
+                btnElement.textContent = '🎁 أضف للإهداء';
+            }, 1500);
+            showToast(`✅ أُضيف "${book.title}" إلى سلة الإهداء`);
+        }
+
+        // ============ إزالة من السلة ============
+        function removeFromCart(bookId) {
+            cart = cart.filter(item => item.id !== bookId);
+            saveCart();
+            updateCartUI();
+            renderCartItems();
+        }
+
+        // ============ تحديث واجهة السلة ============
+        function updateCartUI() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartTotal').textContent = total.toFixed(2) + ' د.أ';
+            document.getElementById('btnCheckout').disabled = cart.length === 0;
+            if (cart.length === 0) {
+                document.getElementById('btnCheckout').style.opacity = '0.5';
+                document.getElementById('btnCheckout').style.cursor = 'not-allowed';
+            } else {
+                document.getElementById('btnCheckout').style.opacity = '1';
+                document.getElementById('btnCheckout').style.cursor = 'pointer';
+            }
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="cart-empty">السلة فارغة. أضف كتباً لتبدأ الإهداء! 📚</p>';
+            } else {
+                container.innerHTML = cart.map(item => `
+              <div class="cart-item">
+                <div class="ci-icon">${item.icon}</div>
+                <div class="ci-info">
+                  <div class="ci-title">${item.title}</div>
+                  <div>الكمية: ${item.quantity}</div>
+                  <div class="ci-price">${(item.price * item.quantity).toFixed(2)} د.أ</div>
+                </div>
+                <button class="btn-remove" onclick="removeFromCart(${item.id})">✕</button>
+              </div>
+            `).join('');
+            }
+            updateCartUI();
+        }
+
+        // ============ فتح/إغلاق السلة ============
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            const isOpen = sidebar.classList.contains('open');
+            if (isOpen) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('open');
+            } else {
+                renderCartItems();
+                sidebar.classList.add('open');
+                overlay.classList.add('open');
+            }
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            if (confirm('هل أنت متأكد من إفراغ سلة الإهداء؟')) {
+                cart = [];
+                saveCart();
+                updateCartUI();
+                renderCartItems();
+                showToast('🗑️ تم إفراغ السلة');
+            }
+        }
+
+        // ============ نافذة الإهداء ============
+        function openGiftModal() {
+            if (cart.length === 0) {
+                showToast('⚠️ أضف بعض الكتب أولاً إلى سلة الإهداء');
+                return;
+            }
+            // ملء الملخص
+            const bookNames = cart.map(item => item.title).join('، ');
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('giftBookList').textContent = bookNames;
+            document.getElementById('giftTotalAmount').textContent = total.toFixed(2) + ' د.أ';
+            // فتح النافذة
+            document.getElementById('giftModalOverlay').classList.add('open');
+            // إغلاق السلة الجانبية
+            document.getElementById('cartSidebar').classList.remove('open');
+            document.getElementById('cartOverlay').classList.remove('open');
+        }
+
+        function closeGiftModal() {
+            document.getElementById('giftModalOverlay').classList.remove('open');
+            // تنظيف الحقول
+            document.getElementById('recipientName').value = '';
+            document.getElementById('recipientAddress').value = '';
+            document.getElementById('recipientPhone').value = '';
+            document.getElementById('giftMessage').value = '';
+        }
+
+        function submitGift() {
+            const name = document.getElementById('recipientName').value.trim();
+            const address = document.getElementById('recipientAddress').value.trim();
+            const phone = document.getElementById('recipientPhone').value.trim();
+            if (!name || !address || !phone) {
+                showToast('⚠️ الرجاء ملء جميع الحقول المطلوبة (الاسم، العنوان، الهاتف)');
+                return;
+            }
+            const message = document.getElementById('giftMessage').value.trim();
+            const bookNames = cart.map(item => item.title).join('، ');
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // محاكاة إرسال الطلب
+            console.log('=== طلب إهداء جديد ===');
+            console.log('المهدى إليه:', name);
+            console.log('العنوان:', address);
+            console.log('الهاتف:', phone);
+            console.log('الكتب:', bookNames);
+            console.log('المجموع:', total.toFixed(2), 'د.أ');
+            console.log('رسالة الإهداء:', message || 'لا توجد');
+            console.log('=======================');
+
+            // إظهار رسالة نجاح
+            showToast(`🎉 تم إرسال الهدية بنجاح إلى ${name}! سنقوم بتوصيل ${bookNames} قريباً.`);
+            // إفراغ السلة
+            cart = [];
+            saveCart();
+            updateCartUI();
+            renderCartItems();
+            closeGiftModal();
+        }
+
+        // ============ رسالة منبثقة ============
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        // ============ البحث والتصفية ============
+        function filterBooks() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            let filtered = booksData;
+            if (category !== 'all') {
+                filtered = filtered.filter(book => book.category === category);
+            }
+            if (searchTerm) {
+                filtered = filtered.filter(book =>
+                    book.title.toLowerCase().includes(searchTerm) ||
+                    book.author.toLowerCase().includes(searchTerm) ||
+                    book.category.toLowerCase().includes(searchTerm) ||
+                    book.desc.toLowerCase().includes(searchTerm)
+                );
+            }
+            renderBooks(filtered);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterBooks);
+        document.getElementById('categoryFilter').addEventListener('change', filterBooks);
+
+        // ============ إغلاق النوافذ بزر Escape ============
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('giftModalOverlay').classList.contains('open')) {
+                    closeGiftModal();
+                } else if (document.getElementById('cartSidebar').classList.contains('open')) {
+                    toggleCart();
+                }
+            }
+        });
+
+        // ============ تهيئة الصفحة ============
+        function init() {
+            renderBooks();
+            updateCartUI();
+            renderCartItems();
+        }
+        init();
+    </script>
+</body>
+</html>
