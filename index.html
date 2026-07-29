@@ -3,126 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع طالب العلم الشرعي</title>
+    <title>البراء أحمد فواز | مكتبة وفوائد طالب العلم</title>
+    <!-- استدعاء خط Cairo المميز من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* تنسيقات بسيطة لتحسين شكل الموقع */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --primary-color: #1b365d; /* أزرق كحلي فخم */
+            --secondary-color: #c59b27; /* ذهبي دافئ */
+            --text-color: #2b2b2b;
+            --text-light: #6c757d;
+            --border-color: #e9ecef;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
         }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* هيدر الموقع */
         header {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 20px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 60px 20px;
             text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            box-shadow: var(--shadow);
         }
-        nav {
-            background-color: #34495e;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
+
+        header .avatar {
+            width: 90px;
+            height: 90px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            font-size: 36px;
             font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            border: 3px solid var(--secondary-color);
         }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        header p.subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        header p.bio {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* شريط التنقل */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
         nav a:hover {
-            color: #f1c40f;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
         }
+
+        /* الحاوية الرئيسية */
         .container {
-            width: 80%;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        section {
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-        }
-        .book-item, .tip-item {
-            background: #f4f4f4;
-            margin: 10px 0;
-            padding: 15px;
-            border-right: 4px solid #2c3e50;
-            border-radius: 4px;
-        }
-        footer {
+
+        /* عناوين الأقسام */
+        .section-title {
             text-align: center;
-            padding: 15px;
-            background-color: #2c3e50;
-            color: white;
-            margin-top: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* شبكة الكروت (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* بطاقات الكتب والنصائح */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* أزرار التحميل والتواصل */
+        .btn {
+            display: inline-block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0f2341;
+        }
+
+        .btn-gold {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        .btn-gold:hover {
+            background-color: #a37f1e;
+        }
+
+        /* قسم التواصل */
+        .contact-box {
+            background-color: var(--card-bg);
+            border: 2px dashed var(--secondary-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            direction: ltr;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* تجاوب مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { padding: 10px 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- هيدر التعريف -->
     <header>
-        <h1>مكتبة وفوائد طالب العلم</h1>
-        <p>موقع مخصص لنشر الكتب والنصائح والفوائد العلمية الشرعية</p>
+        <div class="avatar">ب</div>
+        <h1>البراء أحمد فواز</h1>
+        <p class="subtitle">طالب علم شرعي ومؤلف</p>
+        <p class="bio">مرحباً بك في موقعي الشخصي، أشارك فيه مؤلفاتي والكتب المقترحة، مع مدونات ونصائح تهم كل طالب علم شرعي.</p>
     </header>
 
+    <!-- شريط القائمة -->
     <nav>
-        <a href="#about">عن الموقع</a>
-        <a href="#books">الكتب والملفات</a>
-        <a href="#tips">نصائح وفوائد</a>
+        <ul>
+            <li><a href="#books">المؤلفات والكتب</a></li>
+            <li><a href="#tips">توجيهات وفوائد</a></li>
+            <li><a href="#contact">التواصل والتليجرام</a></li>
+        </ul>
     </nav>
 
+    <!-- المحتوى الرئيسي -->
     <div class="container">
-        
-        <!-- قسم التعريف -->
-        <section id="about">
-            <h2>مرحباً بك</h2>
-            <p>هذا الموقع أجمَع فيه بعض مؤلفاتي، والكتب التي أرجو أن ينتفع بها طالب العلم، بالإضافة إلى مدونات ونصائح تهم كل سالك لطريق العلم الشرعي.</p>
-        </section>
 
         <!-- قسم الكتب -->
         <section id="books">
-            <h2>قسم الكتب والمؤلفات</h2>
-            
-            <div class="book-item">
-                <h3>الكتاب الأول: اسم الكتاب هنا</h3>
-                <p>وصف قصير عن الكتاب وما يحتويه من مباحث وعوايد علمية.</p>
-                <a href="#" download>تحميل الكتاب (PDF)</a>
+            <div class="section-title">
+                <h2>الكتب والمؤلفات</h2>
             </div>
+            <div class="grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>الكتاب الأول: اسم الكتاب هنا</h3>
+                        <p>ملخص وجيز عن موضوع الكتاب وأهم المسائل والمباحث العلمية التي يناقشها بالتفصيل.</p>
+                    </div>
+                    <a href="#" class="btn" download>تحميل النسخة (PDF)</a>
+                </div>
 
-            <div class="book-item">
-                <h3>الكتاب الثاني: اسم الكتاب هنا</h3>
-                <p>وصف قصير عن الكتاب وما يحتويه من مباحث وعوايد علمية.</p>
-                <a href="#" download>تحميل الكتاب (PDF)</a>
+                <div class="card">
+                    <div>
+                        <h3>الكتاب الثاني: اسم الكتاب هنا</h3>
+                        <p>شرح أو تحرير لبعض المسائل العلمية الفقهية/الحديثية الميسرة لطلاب العلم.</p>
+                    </div>
+                    <a href="#" class="btn" download>تحميل النسخة (PDF)</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>دليل طالب العلم المبتدئ</h3>
+                        <p>تجميع لأهم المتون والكتب التي يحتاجها السالك في بداية طريقه العلمي.</p>
+                    </div>
+                    <a href="#" class="btn" download>تحميل النسخة (PDF)</a>
+                </div>
+
             </div>
         </section>
 
         <!-- قسم النصائح والفوائد -->
         <section id="tips">
-            <h2>نصائح وفوائد لطالب العلم</h2>
-            
-            <div class="tip-item">
-                <h3>إخلاص النية في طلب العلم</h3>
-                <p>أول ما يجب على طالب العلم أن يعتني به هو تصحيح النية، فإنما الأعمال بالنيات.</p>
+            <div class="section-title">
+                <h2>توجيهات وفوائد منهجية</h2>
             </div>
+            <div class="grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>إخلاص النية وطهارة القلب</h3>
+                        <p>العلم عبادة القلب، وأول متطلبات القبول هو تجريد النية لله تعالى والبعد عن حظوظ النفس والشهرة.</p>
+                    </div>
+                </div>
 
-            <div class="tip-item">
-                <h3>التدرج في الأخذ</h3>
-                <p>لا تأخذ العلم جملة واحدة، بل ابدأ بالمختصرات ثم التوسعات لتثبت المسائل في ذهنك.</p>
+                <div class="card">
+                    <div>
+                        <h3>التدرج والضبط</h3>
+                        <p>من حرم الأصول حرم الوصول؛ احرص على إتقان المختصرات والتأسيس المتين قبل الانتقال للمطولات.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>الجمع بين العلم والعمل</h3>
+                        <p>زكاة العلم العمل به، والخوف من الله هو ثمرة العلم الحقيقية التي ينبغي أن تظهر على سمت الطالب.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- قسم التواصل -->
+        <section id="contact">
+            <div class="section-title">
+                <h2>التواصل والاتصال</h2>
+            </div>
+            <div class="contact-box">
+                <h3>للاستفسارات والطلبات العلمية</h3>
+                <p>يمكنك التواصل المباشر مع الشيخ البراء أحمد فواز عبر الهاتف أو الواتساب:</p>
+                <div class="phone-number">0556287891</div>
+                <div>
+                    <a href="https://wa.me/966556287891" target="_blank" class="btn btn-gold">مراسلة عبر الواتساب</a>
+                </div>
             </div>
         </section>
 
     </div>
 
+    <!-- الفوتر -->
     <footer>
-        <p>جميع الحقوق محفوظة © - موقع طالب العلم الشرعي</p>
+        <p>جميع الحقوق محفوظة © للموقع الشخصي للشيخ البراء أحمد فواز</p>
     </footer>
 
 </body>
