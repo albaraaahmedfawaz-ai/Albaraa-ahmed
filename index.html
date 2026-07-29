@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 متجر الكتب - أهدِ كتاباً لمن تحب</title>
+    <title>📚 متجر إهداء الكتب الشرعية - أهدِ كتاباً لمن تحب</title>
     <style>
         :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #e2a03f;
-            --accent-hover: #c78a2e;
-            --gold: #d4a853;
-            --light: #f5f0e8;
-            --white: #fffef9;
-            --text: #2c2416;
-            --text-light: #6b5e4a;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.18);
+            --primary: #1b2a4a;
+            --secondary: #0f172a;
+            --accent: #d4a373;
+            --accent-hover: #bc8a5f;
+            --gold: #c5a059;
+            --light: #fefae0;
+            --white: #ffffff;
+            --text: #2b2d42;
+            --text-light: #5c677d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.15);
             --radius: 16px;
             --radius-sm: 10px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Segoe UI', 'Tajawal', 'Arial', sans-serif;
-            background: #fdfaf3;
+            background: #f8f6f0;
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
@@ -43,8 +43,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-            border-bottom: 1px solid #e8dfd0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 2px solid #eae3d2;
         }
         .navbar .container {
             display: flex;
@@ -57,7 +57,7 @@
             gap: 12px;
         }
         .logo {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary);
             text-decoration: none;
@@ -67,7 +67,7 @@
             white-space: nowrap;
         }
         .logo span {
-            color: var(--accent);
+            color: var(--gold);
         }
         .nav-links {
             display: flex;
@@ -87,33 +87,34 @@
         }
         .nav-links a:hover,
         .nav-links a.active {
-            background: #fdf3e0;
-            color: var(--accent);
+            background: #f4ece1;
+            color: var(--primary);
         }
         .cart-icon-wrapper {
             position: relative;
             cursor: pointer;
-            font-size: 1.5rem;
-            padding: 8px 12px;
+            font-size: 1.1rem;
+            padding: 10px 18px;
             border-radius: 30px;
-            background: #fdf3e0;
+            background: #f4ece1;
             transition: var(--transition);
             user-select: none;
             white-space: nowrap;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary);
+            border: 1px solid #e2d7c5;
         }
         .cart-icon-wrapper:hover {
-            background: #fbe8c8;
-            transform: scale(1.04);
+            background: #ebdcc9;
+            transform: scale(1.03);
         }
         .cart-count {
-            background: #c0392b;
+            background: #b93829;
             color: #fff;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             width: 22px;
             height: 22px;
             border-radius: 50%;
@@ -122,16 +123,17 @@
             justify-content: center;
             font-weight: bold;
             position: absolute;
-            top: -4px;
-            left: -4px;
+            top: -6px;
+            left: -6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
         /* ============ قسم الترحيب ============ */
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 40%, #3d2c1e 100%);
+            background: linear-gradient(135deg, #1b2a4a 0%, #283d66 50%, #3a2e2b 100%);
             color: #fff;
             text-align: center;
-            padding: 60px 20px 50px;
+            padding: 70px 20px 60px;
             position: relative;
             overflow: hidden;
         }
@@ -142,60 +144,51 @@
             right: -80px;
             width: 300px;
             height: 300px;
-            background: rgba(226, 160, 63, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: -60px;
-            width: 250px;
-            height: 250px;
-            background: rgba(212, 168, 83, 0.08);
+            background: rgba(212, 163, 115, 0.12);
             border-radius: 50%;
             pointer-events: none;
         }
         .hero h1 {
-            font-size: 2.6rem;
-            margin-bottom: 12px;
+            font-size: 2.5rem;
+            margin-bottom: 14px;
             position: relative;
             z-index: 1;
             font-weight: 900;
+            color: #fefae0;
         }
         .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 650px;
-            margin: 0 auto 20px;
+            font-size: 1.15rem;
+            opacity: 0.92;
+            max-width: 680px;
+            margin: 0 auto 24px;
             position: relative;
             z-index: 1;
+            line-height: 1.8;
         }
         .hero .btn-hero {
             display: inline-block;
-            background: var(--accent);
-            color: #1a1a2e;
-            padding: 14px 32px;
+            background: var(--gold);
+            color: #1b2a4a;
+            padding: 14px 34px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.05rem;
             transition: var(--transition);
             position: relative;
             z-index: 1;
-            box-shadow: 0 6px 20px rgba(226, 160, 63, 0.35);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
         }
         .hero .btn-hero:hover {
-            background: var(--accent-hover);
+            background: #d4ad5d;
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(226, 160, 63, 0.45);
+            box-shadow: 0 12px 28px rgba(197, 160, 89, 0.45);
         }
 
         /* ============ شريط البحث والتصفية ============ */
         .search-filter-bar {
             max-width: 1300px;
-            margin: -28px auto 30px;
+            margin: -28px auto 35px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
@@ -209,59 +202,59 @@
             flex: 1 1 280px;
             padding: 14px 20px;
             border-radius: 30px;
-            border: 2px solid #e0d5c0;
+            border: 2px solid #e2d7c5;
             font-size: 1rem;
             background: #fff;
             box-shadow: var(--shadow);
             transition: var(--transition);
             font-family: inherit;
-            min-width: 200px;
+            min-width: 220px;
         }
         .search-filter-bar input:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(226, 160, 63, 0.1);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.15);
         }
         .search-filter-bar select {
-            padding: 14px 18px;
+            padding: 14px 20px;
             border-radius: 30px;
-            border: 2px solid #e0d5c0;
+            border: 2px solid #e2d7c5;
             font-size: 1rem;
             background: #fff;
             box-shadow: var(--shadow);
             cursor: pointer;
             font-family: inherit;
             transition: var(--transition);
-            min-width: 150px;
+            min-width: 180px;
         }
         .search-filter-bar select:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--gold);
         }
 
         /* ============ بطاقات الكتب ============ */
         .books-section {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px 40px;
+            padding: 0 20px 50px;
         }
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.1rem;
+            margin-bottom: 8px;
             color: var(--primary);
             font-weight: 800;
         }
         .section-subtitle {
             text-align: center;
             color: var(--text-light);
-            margin-bottom: 30px;
-            font-size: 1rem;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
         }
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 26px;
         }
         .book-card {
             background: #fff;
@@ -271,109 +264,100 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            border: 1px solid #ede4d3;
+            border: 1px solid #eae2d1;
             position: relative;
         }
         .book-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
-            border-color: var(--accent);
+            border-color: var(--gold);
         }
         .book-card .book-cover {
-            height: 260px;
-            background: linear-gradient(135deg, #f5efe0, #e8dcc8);
+            height: 220px;
+            background: linear-gradient(135deg, #f5efe3, #e6d8c3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 4.5rem;
             position: relative;
             overflow: hidden;
         }
         .book-card .book-cover .cover-icon {
-            opacity: 0.7;
             transition: var(--transition);
         }
         .book-card:hover .book-cover .cover-icon {
-            opacity: 1;
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
         .book-card .book-info {
-            padding: 18px;
+            padding: 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
         .book-card .book-title {
             font-weight: 800;
             font-size: 1.15rem;
             color: var(--primary);
-            line-height: 1.4;
+            line-height: 1.5;
         }
         .book-card .book-author {
-            color: var(--text-light);
+            color: #8c6a2d;
+            font-weight: 700;
             font-size: 0.9rem;
+            line-height: 1.4;
         }
         .book-card .book-desc {
-            font-size: 0.85rem;
-            color: #7a6e5c;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.6;
             flex: 1;
-            margin: 4px 0;
+            margin-top: 4px;
         }
         .book-card .book-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 18px 16px;
-            gap: 8px;
+            padding: 12px 20px 20px;
+            gap: 10px;
+            border-top: 1px solid #faf5ec;
         }
         .book-card .price {
             font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--accent);
+            font-size: 1.25rem;
+            color: var(--primary);
         }
         .book-card .btn-add {
-            background: var(--accent);
-            color: #1a1a2e;
+            background: var(--gold);
+            color: #1b2a4a;
             border: none;
             padding: 10px 18px;
             border-radius: 25px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.9rem;
             transition: var(--transition);
             white-space: nowrap;
             font-family: inherit;
         }
         .book-card .btn-add:hover {
-            background: var(--accent-hover);
+            background: #b8934d;
             transform: scale(1.03);
         }
         .book-card .btn-add.added {
             background: #27ae60;
             color: #fff;
-            animation: pulse 0.5s ease;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.12);
-            }
         }
         .badge-category {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(26, 26, 46, 0.8);
-            color: #fff;
+            top: 14px;
+            right: 14px;
+            background: rgba(27, 42, 74, 0.88);
+            color: #fefae0;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             z-index: 2;
             backdrop-filter: blur(4px);
         }
@@ -385,7 +369,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
@@ -408,7 +392,6 @@
             transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            border-radius: 0 0 0 20px;
         }
         .cart-sidebar.open {
             left: 0;
@@ -419,9 +402,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: #fcf9f2;
         }
         .cart-header h3 {
             font-size: 1.3rem;
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -429,16 +414,16 @@
         .btn-close-cart {
             background: none;
             border: none;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #999;
+            color: #888;
             transition: var(--transition);
-            padding: 6px;
+            padding: 4px 10px;
             border-radius: 50%;
         }
         .btn-close-cart:hover {
             color: #333;
-            background: #f5f5f5;
+            background: #eae2d1;
         }
         .cart-items {
             flex: 1;
@@ -451,21 +436,21 @@
         .cart-empty {
             text-align: center;
             padding: 50px 20px;
-            color: #aaa;
-            font-size: 1.1rem;
+            color: #888;
+            font-size: 1.05rem;
         }
         .cart-item {
             display: flex;
             gap: 12px;
             align-items: center;
-            background: #fdfaf3;
-            padding: 12px;
+            background: #fdfbf7;
+            padding: 12px 14px;
             border-radius: var(--radius-sm);
-            border: 1px solid #eee;
+            border: 1px solid #ebe3d5;
         }
         .cart-item .ci-icon {
-            font-size: 2.5rem;
-            min-width: 50px;
+            font-size: 2.2rem;
+            min-width: 45px;
             text-align: center;
         }
         .cart-item .ci-info {
@@ -474,21 +459,24 @@
         .cart-item .ci-title {
             font-weight: 700;
             font-size: 0.95rem;
+            color: var(--primary);
+            line-height: 1.3;
+            margin-bottom: 4px;
         }
         .cart-item .ci-price {
-            color: var(--accent);
-            font-weight: 700;
+            color: var(--gold);
+            font-weight: 800;
         }
         .cart-item .btn-remove {
             background: #e74c3c;
             color: #fff;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
         .cart-item .btn-remove:hover {
@@ -496,39 +484,40 @@
             transform: scale(1.1);
         }
         .cart-footer {
-            padding: 16px 20px;
+            padding: 18px 20px;
             border-top: 1px solid #eee;
-            background: #fdfaf3;
+            background: #fcf9f2;
         }
         .cart-total {
             display: flex;
             justify-content: space-between;
             font-weight: 800;
             font-size: 1.2rem;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            color: var(--primary);
         }
         .btn-checkout {
             width: 100%;
             padding: 14px;
-            background: var(--accent);
-            color: #1a1a2e;
+            background: var(--gold);
+            color: #1b2a4a;
             border: none;
             border-radius: 30px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.05rem;
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
         }
         .btn-checkout:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 8px 24px rgba(226, 160, 63, 0.3);
+            background: #b8934d;
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
         }
         .btn-clear-cart {
             width: 100%;
             padding: 10px;
             background: transparent;
-            color: #999;
+            color: #888;
             border: none;
             cursor: pointer;
             font-size: 0.85rem;
@@ -547,7 +536,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
             z-index: 3000;
             display: flex;
             align-items: center;
@@ -564,9 +553,9 @@
         .modal {
             background: #fff;
             border-radius: var(--radius);
-            padding: 30px 24px;
+            padding: 32px 26px;
             width: 100%;
-            max-width: 520px;
+            max-width: 540px;
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
@@ -576,43 +565,45 @@
             text-align: center;
             margin-bottom: 6px;
             font-size: 1.6rem;
+            color: var(--primary);
         }
         .modal .modal-sub {
             text-align: center;
             color: var(--text-light);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
         }
         .modal .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .modal label {
             display: block;
             font-weight: 700;
-            margin-bottom: 4px;
-            font-size: 0.9rem;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+            color: var(--primary);
         }
         .modal input,
         .modal textarea {
             width: 100%;
-            padding: 12px 14px;
-            border-radius: 25px;
-            border: 2px solid #e0d5c0;
-            font-size: 1rem;
+            padding: 12px 16px;
+            border-radius: 20px;
+            border: 2px solid #e2d7c5;
+            font-size: 0.98rem;
             font-family: inherit;
             transition: var(--transition);
-            background: #fefefe;
+            background: #fcfbf9;
         }
         .modal textarea {
             border-radius: 16px;
             resize: vertical;
-            min-height: 80px;
+            min-height: 85px;
         }
         .modal input:focus,
         .modal textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(226, 160, 63, 0.08);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.12);
         }
         .modal .btn-submit {
             width: 100%;
@@ -621,12 +612,12 @@
             color: #fff;
             border: none;
             border-radius: 30px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
-            margin-top: 6px;
+            margin-top: 8px;
         }
         .modal .btn-submit:hover {
             background: #219a52;
@@ -637,10 +628,10 @@
             padding: 10px;
             background: transparent;
             border: none;
-            color: #999;
+            color: #888;
             cursor: pointer;
             font-size: 0.9rem;
-            margin-top: 4px;
+            margin-top: 6px;
             font-family: inherit;
         }
         .modal .btn-cancel:hover {
@@ -649,13 +640,14 @@
         .modal .gift-summary {
             background: #fdfaf3;
             border-radius: var(--radius-sm);
-            padding: 14px;
-            margin-bottom: 16px;
-            font-size: 0.9rem;
-            border: 1px dashed #d4c5a0;
+            padding: 16px;
+            margin-bottom: 18px;
+            font-size: 0.92rem;
+            border: 1px dashed #c5a059;
+            line-height: 1.7;
         }
         .modal .gift-summary strong {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         /* ============ رسالة نجاح ============ */
@@ -665,7 +657,7 @@
             right: 30px;
             background: #27ae60;
             color: #fff;
-            padding: 16px 24px;
+            padding: 16px 26px;
             border-radius: 30px;
             font-weight: 700;
             z-index: 4000;
@@ -674,6 +666,7 @@
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
+            max-width: 90%;
         }
         .toast.show {
             transform: translateY(0);
@@ -683,14 +676,15 @@
         /* ============ تذييل ============ */
         .footer {
             background: var(--primary);
-            color: #ccc;
+            color: #cbd5e1;
             text-align: center;
-            padding: 24px 20px;
-            font-size: 0.9rem;
-            margin-top: 20px;
+            padding: 28px 20px;
+            font-size: 0.92rem;
+            margin-top: 30px;
+            border-top: 3px solid var(--gold);
         }
         .footer span {
-            color: var(--accent);
+            color: var(--gold);
             font-weight: 700;
         }
 
@@ -703,15 +697,15 @@
                 font-size: 1rem;
             }
             .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 14px;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 16px;
             }
             .book-card .book-cover {
-                height: 180px;
-                font-size: 3rem;
+                height: 170px;
+                font-size: 3.5rem;
             }
             .book-card .book-title {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             .cart-sidebar {
                 max-width: 100%;
@@ -722,7 +716,7 @@
             }
             .navbar .container {
                 justify-content: center;
-                gap: 8px;
+                gap: 10px;
             }
             .search-filter-bar {
                 flex-direction: column;
@@ -736,11 +730,11 @@
     <!-- ============ شريط التنقل ============ -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">📚 <span>متجر</span> الكتب</a>
+            <a href="#" class="logo">📖 <span>متجر</span> إهداء الكتب الشرعية</a>
             <ul class="nav-links">
                 <li><a href="#" class="active">الرئيسية</a></li>
-                <li><a href="#books-section">الكتب</a></li>
-                <li><a href="#how-it-works">كيف يعمل؟</a></li>
+                <li><a href="#books-section">المكتبة</a></li>
+                <li><a href="#how-it-works">كيف تهدي؟</a></li>
             </ul>
             <div class="cart-icon-wrapper" onclick="toggleCart()" title="سلة الإهداء">
                 🎁 سلة الإهداء <span class="cart-count" id="cartCount">0</span>
@@ -750,29 +744,27 @@
 
     <!-- ============ قسم الترحيب ============ -->
     <section class="hero">
-        <h1>📖 أهدِ كتاباً لمن تحب</h1>
-        <p>اختر من مجموعتنا المميزة من الكتب العربية، أضفها إلى سلة الإهداء، وسنقوم بتوصيلها كهدية رائعة لمن تختار.</p>
+        <h1>📖 أهدِ علماً نافعاً لمن تحب</h1>
+        <p>تخيّر من أنفع الكتب والرسائل العلمية، أضفها لسلة الإهداء، وسنتولى تغليفها وإيصالها كهدية قيمة لأحبابك ليصلك الأجر والأثر.</p>
         <a href="#books-section" class="btn-hero">✨ تصفح الكتب الآن</a>
     </section>
 
     <!-- ============ شريط البحث والتصفية ============ -->
     <div class="search-filter-bar" id="books-section">
-        <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب أو مؤلف...">
+        <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب، مؤلف، أو موضوع...">
         <select id="categoryFilter">
-            <option value="all">📂 جميع الفئات</option>
-            <option value="رواية">📖 رواية</option>
-            <option value="تنمية بشرية">🧠 تنمية بشرية</option>
-            <option value="تاريخ">🏛️ تاريخ</option>
-            <option value="علوم">🔬 علوم</option>
-            <option value="دين">🕌 دين</option>
-            <option value="شعر">🎵 شعر</option>
+            <option value="all">📂 جميع التصنيفات</option>
+            <option value="عقيدة">🕌 عقيدة وتوحيد</option>
+            <option value="فتاوى وعلوم شرعية">📚 فتاوى وعلوم شرعية</option>
+            <option value="فقه وأصول">📖 فقه وأصول</option>
+            <option value="أخلاق وآداب">🏡 أخلاق وآداب</option>
         </select>
     </div>
 
     <!-- ============ قسم الكتب ============ -->
     <section class="books-section">
-        <h2 class="section-title">📚 مجموعتنا المختارة</h2>
-        <p class="section-subtitle">كتب رائعة تصلح كهدية قيمة في أي مناسبة</p>
+        <h2 class="section-title">📚 الإصدارات والكتب المتاحة</h2>
+        <p class="section-subtitle">مجموعة مختارة من كتب أئمة وعلماء أهَلِ السُّنَّة والجماعة</p>
         <div class="books-grid" id="booksGrid">
             <!-- الكتب تُحقن عبر JavaScript -->
         </div>
@@ -781,29 +773,29 @@
     <!-- ============ قسم "كيف يعمل" ============ -->
     <section class="books-section" id="how-it-works" style="text-align:center;">
         <h2 class="section-title">🎁 كيف تهدي كتاباً؟</h2>
-        <p class="section-subtitle">ثلاث خطوات بسيطة لإسعاد من تحب</p>
+        <p class="section-subtitle">ثلاث خطوات بسيطة لنشر العلم وإهداء الأجر</p>
         <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:900px;margin:0 auto;">
-            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
-                <div style="font-size:3rem;">1️⃣</div>
-                <h4 style="margin:8px 0;">اختر الكتب</h4>
-                <p style="font-size:0.9rem;color:var(--text-light);">تصفح المجموعة وأضف الكتب التي تعجبك إلى سلة الإهداء.</p>
+            <div style="flex:1 1 220px;background:#fff;padding:26px;border-radius:16px;box-shadow:var(--shadow);border:1px solid #eae2d1;">
+                <div style="font-size:2.8rem;margin-bottom:8px;">1️⃣</div>
+                <h4 style="margin:8px 0;color:var(--primary);">اختر الكتاب</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">تصفح الكتب القيمة وأضف ما تحب إلى سلة الإهداء.</p>
             </div>
-            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
-                <div style="font-size:3rem;">2️⃣</div>
-                <h4 style="margin:8px 0;">أدخل بيانات المهدى إليه</h4>
-                <p style="font-size:0.9rem;color:var(--text-light);">املأ اسم الشخص وعنوانه ورسالة إهداء جميلة.</p>
+            <div style="flex:1 1 220px;background:#fff;padding:26px;border-radius:16px;box-shadow:var(--shadow);border:1px solid #eae2d1;">
+                <div style="font-size:2.8rem;margin-bottom:8px;">2️⃣</div>
+                <h4 style="margin:8px 0;color:var(--primary);">بيانات المهدى إليه</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">أدخل اسم المستلم وعنوانه مع رسالة إهداء إيمانية جميلة.</p>
             </div>
-            <div style="flex:1 1 200px;background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);">
-                <div style="font-size:3rem;">3️⃣</div>
-                <h4 style="margin:8px 0;">أرسل الهدية</h4>
-                <p style="font-size:0.9rem;color:var(--text-light);">نحن نتولى التوصيل، وسيصل الكتاب كهدية أنيقة.</p>
+            <div style="flex:1 1 220px;background:#fff;padding:26px;border-radius:16px;box-shadow:var(--shadow);border:1px solid #eae2d1;">
+                <div style="font-size:2.8rem;margin-bottom:8px;">3️⃣</div>
+                <h4 style="margin:8px 0;color:var(--primary);">التوصيل والإرسال</h4>
+                <p style="font-size:0.9rem;color:var(--text-light);">نتولى التغليف والتوصيل بأبهى صورة لتصل الهدية لصاحبها.</p>
             </div>
         </div>
     </section>
 
     <!-- ============ تذييل ============ -->
     <footer class="footer">
-        <p>© 2026 <span>متجر الكتب</span> - جميع الحقوق محفوظة | أهدِ معرفةً، أهدِ حباً 📚</p>
+        <p>© 2026 <span>متجر إهداء الكتب الشرعية</span> | خير ما أُهدي علمٌ يُنتفع به 📚</p>
     </footer>
 
     <!-- ============ سلة التسوق الجانبية ============ -->
@@ -829,135 +821,85 @@
     <!-- ============ نافذة الإهداء ============ -->
     <div class="modal-overlay" id="giftModalOverlay">
         <div class="modal">
-            <h2>🎀 نموذج الإهداء</h2>
-            <p class="modal-sub">املأ بيانات الشخص الذي تريد إهداءه الكتب</p>
+            <h2>🎀 نموذج إهداء الكتب</h2>
+            <p class="modal-sub">أدخل بيانات المهدى إليه وسيصل الكتاب مع كارت إهداء أنيق</p>
             <div class="gift-summary" id="giftSummary">
                 <strong>الكتب المختارة:</strong> <span id="giftBookList">-</span><br>
-                <strong>المجموع:</strong> <span id="giftTotalAmount">0.00 د.أ</span>
+                <strong>المجموع الكلي:</strong> <span id="giftTotalAmount">0.00 د.أ</span>
             </div>
             <div class="form-group">
-                <label>👤 اسم المهدى إليه</label>
-                <input type="text" id="recipientName" placeholder="أدخل الاسم الكامل">
+                <label>👤 اسم المهدى إليه (الكامل)</label>
+                <input type="text" id="recipientName" placeholder="مثال: أ. محمد أحمد">
             </div>
             <div class="form-group">
-                <label>📍 عنوان التوصيل</label>
-                <textarea id="recipientAddress" placeholder="أدخل العنوان بالتفصيل (المدينة، الحي، الشارع...)"></textarea>
+                <label>📍 عنوان التوصيل التفصيلي</label>
+                <textarea id="recipientAddress" placeholder="المدينة، الحي، الشارع، أو أي تفاصيل للوصول..."></textarea>
             </div>
             <div class="form-group">
-                <label>📞 رقم الهاتف</label>
-                <input type="tel" id="recipientPhone" placeholder="أدخل رقم الهاتف للتواصل">
+                <label>📞 رقم هاتف المستلم</label>
+                <input type="tel" id="recipientPhone" placeholder="أدخل رقم الهاتف للتواصل عند التوصيل">
             </div>
             <div class="form-group">
-                <label>💌 رسالة الإهداء</label>
-                <textarea id="giftMessage" placeholder="اكتب رسالة جميلة تصل مع الهدية... (اختياري)"></textarea>
+                <label>💌 رسالة الإهداء (تُطبع في كارت الهدية)</label>
+                <textarea id="giftMessage" placeholder="اكتب دعوة طيبة أو رسالة إهداء ترفق مع الكتاب... (اختياري)"></textarea>
             </div>
             <button class="btn-submit" onclick="submitGift()">🎁 تأكيد وإرسال الهدية</button>
             <button class="btn-cancel" onclick="closeGiftModal()">إلغاء</button>
         </div>
     </div>
 
-    <!-- ============ رسالة نجاح ============ -->
+    <!-- ============ رسالة منبثقة ============ -->
     <div class="toast" id="toast"></div>
 
     <script>
-        // ============ بيانات الكتب ============
-        const booksData = [{
-            id: 1,
-            title: 'ألف ليلة وليلة',
-            author: 'تراث شعبي',
-            category: 'رواية',
-            price: 18.50,
-            desc: 'حكايات خالدة من التراث العربي، مليئة بالتشويق والمغامرة.',
-            icon: '📖'
-        }, {
-            id: 2,
-            title: 'العادات السبع للناس الأكثر فعالية',
-            author: 'ستيفن كوفي',
-            category: 'تنمية بشرية',
-            price: 22.00,
-            desc: 'دليل عملي لتطوير الذات وتحقيق النجاح الشخصي والمهني.',
-            icon: '🧠'
-        }, {
-            id: 3,
-            title: 'مقدمة ابن خلدون',
-            author: 'ابن خلدون',
-            category: 'تاريخ',
-            price: 25.00,
-            desc: 'أحد أعظم الكتب في علم الاجتماع والتاريخ، رؤية ثاقبة للحضارات.',
-            icon: '🏛️'
-        }, {
-            id: 4,
-            title: 'الكون في قشرة جوز',
-            author: 'ستيفن هوكينغ',
-            category: 'علوم',
-            price: 20.00,
-            desc: 'رحلة شيقة في أعماق الكون والفيزياء النظرية بأسلوب مبسط.',
-            icon: '🔬'
-        }, {
-            id: 5,
-            title: 'القرآن الكريم',
-            author: 'الله سبحانه وتعالى',
-            category: 'دين',
-            price: 30.00,
-            desc: 'المصحف الشريف بغلاف فاخر، هدية روحانية لا تُقدّر بثمن.',
-            icon: '🕌'
-        }, {
-            id: 6,
-            title: 'ديوان المتنبي',
-            author: 'أبو الطيب المتنبي',
-            category: 'شعر',
-            price: 16.00,
-            desc: 'أجمل قصائد شاعر العربية الأكبر، حكمة وفخر وجمال.',
-            icon: '🎵'
-        }, {
-            id: 7,
-            title: 'رجال من الشمس',
-            author: 'غسان كنفاني',
-            category: 'رواية',
-            price: 14.00,
-            desc: 'رواية مؤثرة عن القضية الفلسطينية، من روائع الأدب العربي الحديث.',
-            icon: '📖'
-        }, {
-            id: 8,
-            title: 'فكر كرجل أعمال',
-            author: 'كريس جيليبو',
-            category: 'تنمية بشرية',
-            price: 19.00,
-            desc: 'كيف تبدأ مشروعك الصغير وتحقق الاستقلال المالي.',
-            icon: '💼'
-        }, {
-            id: 9,
-            title: 'تاريخ الخلفاء',
-            author: 'السيوطي',
-            category: 'تاريخ',
-            price: 21.00,
-            desc: 'سرد شامل لتاريخ الخلفاء الراشدين والدول الإسلامية.',
-            icon: '📜'
-        }, {
-            id: 10,
-            title: 'الفيزياء للمبتدئين',
-            author: 'كارلو روفيلي',
-            category: 'علوم',
-            price: 17.50,
-            desc: 'مدخل ساحر إلى عالم الفيزياء الحديثة بأسلوب شاعري.',
-            icon: '⚛️'
-        }, {
-            id: 11,
-            title: 'رياض الصالحين',
-            author: 'الإمام النووي',
-            category: 'دين',
-            price: 24.00,
-            desc: 'مجموعة من الأحاديث النبوية الصحيحة في الأخلاق والعبادات.',
-            icon: '🕋'
-        }, {
-            id: 12,
-            title: 'ديوان نزار قباني',
-            author: 'نزار قباني',
-            category: 'شعر',
-            price: 15.00,
-            desc: 'أجمل قصائد الحب والغزل من شاعر المرأة والجمال.',
-            icon: '💕'
-        }];
+        // ============ بيانات الكتب الخمسة ============
+        const booksData = [
+            {
+                id: 1,
+                title: 'مجموع فتاوى ومقالات متنوعة (الجزء 24)',
+                author: 'تأليف: عبد العزيز بن عبد الله بن باز (رحمه الله)',
+                category: 'فتاوى وعلوم شرعية',
+                price: 25.00,
+                desc: 'يشمل هذا الجزء كتاب العلم وكتاب التفسير، ويضم تحقيقات وفتاوى علمية جامعة وتفسيراً لآيات القرآن الكريم.',
+                icon: '📚'
+            },
+            {
+                id: 2,
+                title: 'فتاوى نور على الدرب - الجزء الأول (العقيدة)',
+                author: 'أجوبة: عبد العزيز بن عبد الله بن باز (إعداد: د. عبد الله الطيار)',
+                category: 'عقيدة',
+                price: 22.00,
+                desc: 'مجموعة الفتاوى العقدية القيمة المفرغة من برنامج نور على الدرب الشهير، إجابات وافية وميسرة في مسائل الإيمان.',
+                icon: '🕌'
+            },
+            {
+                id: 3,
+                title: 'شرح رسالة الدلائل في حكم موالاة أهل الإشراك',
+                author: 'للشيخ سليمان بن عبد الله | شرح: فضيلة الشيخ د. صالح الفوزان',
+                category: 'عقيدة',
+                price: 18.00,
+                desc: 'شرح ميسر ومبسط لأهم مسائل الولاء والبراء وتوضيح أحكام موالاة المشركين ببراهين الكتاب والسنة.',
+                icon: '📜'
+            },
+            {
+                id: 4,
+                title: 'طلوع الفجر الصادق بين تحديد القرآن وإطلاق اللغة',
+                author: 'تأليف: أ.د. إبراهيم بن محمد الصبيحي',
+                category: 'فقه وأصول',
+                price: 20.00,
+                desc: 'دراسة علمية فقهية محققة تبحث مسألة تحديد وقت الفجر الصادق بين النصوص الشرعية والتطبيقات اللغوية والفلكية.',
+                icon: '🌅'
+            },
+            {
+                id: 5,
+                title: 'لفت الأنظار إلى حقوق الجار',
+                author: 'تأليف: سليمان بن شتيوي المهدوي العوفي',
+                category: 'أخلاق وآداب',
+                price: 15.00,
+                desc: 'رسالة تربوية خفيفة تبرز المفهوم الإسلامي للحرص على الجار، وتجمع الأحاديث والآداب المتعلقة بالإحسان إليه.',
+                icon: '🏡'
+            }
+        ];
 
         // ============ حالة التطبيق ============
         let cart = JSON.parse(localStorage.getItem('bookGiftCart')) || [];
@@ -970,6 +912,12 @@
         function renderBooks(filteredBooks = null) {
             const grid = document.getElementById('booksGrid');
             const books = filteredBooks || booksData;
+            
+            if (books.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #777;">لم يتم العثور على كتب تطابق البحث.</div>';
+                return;
+            }
+
             grid.innerHTML = books.map(book => `
             <div class="book-card" data-id="${book.id}" data-category="${book.category}">
               <div class="book-cover">
@@ -978,7 +926,7 @@
               </div>
               <div class="book-info">
                 <h3 class="book-title">${book.title}</h3>
-                <p class="book-author">✍️ ${book.author}</p>
+                <p class="book-author">${book.author}</p>
                 <p class="book-desc">${book.desc}</p>
               </div>
               <div class="book-footer">
@@ -1001,6 +949,7 @@
             }
             saveCart();
             updateCartUI();
+            
             // تأثير الزر
             btnElement.classList.add('added');
             btnElement.textContent = '✅ تمت الإضافة';
@@ -1025,13 +974,16 @@
             document.getElementById('cartCount').textContent = count;
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             document.getElementById('cartTotal').textContent = total.toFixed(2) + ' د.أ';
-            document.getElementById('btnCheckout').disabled = cart.length === 0;
+            
+            const btnCheckout = document.getElementById('btnCheckout');
             if (cart.length === 0) {
-                document.getElementById('btnCheckout').style.opacity = '0.5';
-                document.getElementById('btnCheckout').style.cursor = 'not-allowed';
+                btnCheckout.disabled = true;
+                btnCheckout.style.opacity = '0.5';
+                btnCheckout.style.cursor = 'not-allowed';
             } else {
-                document.getElementById('btnCheckout').style.opacity = '1';
-                document.getElementById('btnCheckout').style.cursor = 'pointer';
+                btnCheckout.disabled = false;
+                btnCheckout.style.opacity = '1';
+                btnCheckout.style.cursor = 'pointer';
             }
         }
 
@@ -1045,7 +997,7 @@
                 <div class="ci-icon">${item.icon}</div>
                 <div class="ci-info">
                   <div class="ci-title">${item.title}</div>
-                  <div>الكمية: ${item.quantity}</div>
+                  <div style="font-size: 0.85rem; color: #666;">الكمية: ${item.quantity}</div>
                   <div class="ci-price">${(item.price * item.quantity).toFixed(2)} د.أ</div>
                 </div>
                 <button class="btn-remove" onclick="removeFromCart(${item.id})">✕</button>
@@ -1088,10 +1040,11 @@
                 return;
             }
             // ملء الملخص
-            const bookNames = cart.map(item => item.title).join('، ');
+            const bookNames = cart.map(item => `${item.title} (${item.quantity})`).join('، ');
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             document.getElementById('giftBookList').textContent = bookNames;
             document.getElementById('giftTotalAmount').textContent = total.toFixed(2) + ' د.أ';
+            
             // فتح النافذة
             document.getElementById('giftModalOverlay').classList.add('open');
             // إغلاق السلة الجانبية
@@ -1120,18 +1073,9 @@
             const bookNames = cart.map(item => item.title).join('، ');
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            // محاكاة إرسال الطلب
-            console.log('=== طلب إهداء جديد ===');
-            console.log('المهدى إليه:', name);
-            console.log('العنوان:', address);
-            console.log('الهاتف:', phone);
-            console.log('الكتب:', bookNames);
-            console.log('المجموع:', total.toFixed(2), 'د.أ');
-            console.log('رسالة الإهداء:', message || 'لا توجد');
-            console.log('=======================');
-
             // إظهار رسالة نجاح
-            showToast(`🎉 تم إرسال الهدية بنجاح إلى ${name}! سنقوم بتوصيل ${bookNames} قريباً.`);
+            showToast(`🎉 تم إرسال طلب الإهداء بنجاح إلى ${name}! جزاكم الله خيراً.`);
+            
             // إفراغ السلة
             cart = [];
             saveCart();
@@ -1148,7 +1092,7 @@
             clearTimeout(toast._timeout);
             toast._timeout = setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3500);
+            }, 3800);
         }
 
         // ============ البحث والتصفية ============
@@ -1156,9 +1100,11 @@
             const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
             const category = document.getElementById('categoryFilter').value;
             let filtered = booksData;
+            
             if (category !== 'all') {
                 filtered = filtered.filter(book => book.category === category);
             }
+            
             if (searchTerm) {
                 filtered = filtered.filter(book =>
                     book.title.toLowerCase().includes(searchTerm) ||
