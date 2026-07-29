@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البراء أحمد فواز | مكتبة وفوائد طالب العلم</title>
+    <title>البراء أحمد فواز | المنصة العلمية ومكتبة طالب العلم</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,10 +12,10 @@
         :root {
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --primary-color: #0f172a;       /* كحلي ملكي داكن جداً */
+            --primary-color: #0f172a;       /* كحلي ملكي داكن */
             --primary-light: #1e293b;
-            --secondary-color: #c59b27;     /* ذهبي ملكي فاخر */
-            --secondary-light: #e6c65d;    /* ذهبي فاتح دافئ */
+            --secondary-color: #c59b27;     /* ذهبي ملكي */
+            --secondary-light: #e6c65d;    /* ذهبي فاتح */
             --secondary-dark: #967415;     /* ذهبي عميق */
             --text-color: #1e293b;
             --text-light: #475569;
@@ -64,7 +64,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 110px;
         }
 
         body {
@@ -78,7 +78,6 @@
             cursor: default;
         }
 
-        /* ============ مؤشر مخصص ============ */
         .cursor-glow {
             position: fixed;
             pointer-events: none;
@@ -94,7 +93,6 @@
             will-change: left, top;
         }
 
-        /* ============ شريط التحميل Preloader ============ */
         #preloader {
             position: fixed;
             inset: 0;
@@ -119,170 +117,64 @@
             animation: preloaderSpin 0.9s linear infinite;
         }
         @keyframes preloaderSpin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
-        /* ============ خلفية زخرفية ============ */
         .bg-pattern {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
             opacity: var(--pattern-opacity);
             transition: opacity 0.5s ease;
             background-image:
                 radial-gradient(circle at 15% 18%, var(--secondary-color) 1.2px, transparent 1.2px),
                 radial-gradient(circle at 78% 48%, var(--secondary-color) 0.9px, transparent 0.9px),
-                radial-gradient(circle at 38% 72%, var(--secondary-color) 1.1px, transparent 1.1px),
-                radial-gradient(circle at 62% 12%, var(--secondary-color) 0.8px, transparent 0.8px),
-                radial-gradient(circle at 8% 58%, var(--secondary-color) 1px, transparent 1px),
-                radial-gradient(circle at 88% 78%, var(--secondary-color) 1.3px, transparent 1.3px),
-                radial-gradient(circle at 50% 50%, var(--secondary-light) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 25% 35%, var(--secondary-dark) 0.7px, transparent 0.7px),
-                radial-gradient(circle at 72% 65%, var(--secondary-color) 1px, transparent 1px);
+                radial-gradient(circle at 38% 72%, var(--secondary-color) 1.1px, transparent 1.1px);
             background-size: 140px 140px;
             animation: patternFloat 25s ease-in-out infinite;
         }
 
         @keyframes patternFloat {
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(18px, -12px) rotate(0.5deg);
-            }
-            50% {
-                transform: translate(-10px, 14px) rotate(-0.3deg);
-            }
-            75% {
-                transform: translate(-16px, -8px) rotate(0.4deg);
-            }
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, 14px); }
         }
 
-        /* ============ جسيمات ============ */
         .particles-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .particle {
-            position: absolute;
-            background: var(--secondary-light);
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleRise 9s ease-in infinite;
-            filter: blur(1.5px);
-            will-change: transform, opacity;
-        }
-        @keyframes particleRise {
-            0% {
-                opacity: 0;
-                transform: translateY(105vh) scale(0);
-            }
-            8% {
-                opacity: 0.55;
-            }
-            85% {
-                opacity: 0.15;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-12vh) scale(1.6);
-            }
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
         }
 
-        /* ============ شريط التقدم ============ */
         .progress-bar {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
+            top: 0; left: 0; height: 3px;
             background: var(--green-gradient);
             z-index: 10000;
             transition: width 0.08s linear;
-            border-radius: 0 3px 3px 0;
             box-shadow: 0 0 14px rgba(197, 155, 39, 0.55);
-            will-change: width;
         }
 
-        /* ============ زر العودة للأعلى ============ */
-        .back-to-top {
+        .back-to-top, .theme-toggle {
             position: fixed;
             bottom: 30px;
-            left: 30px;
-            width: 46px;
-            height: 46px;
+            width: 46px; height: 46px;
             border-radius: 50%;
-            background: var(--green-gradient);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            z-index: 9998;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(197, 155, 39, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .back-to-top:hover {
-            transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 14px 35px rgba(197, 155, 39, 0.55);
-        }
-        .back-to-top:active {
-            transform: scale(0.9);
-            transition: transform 0.15s ease;
-        }
-
-        /* ============ زر Dark Mode ============ */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            color: var(--secondary-color);
-            border: 2px solid var(--border-color);
-            cursor: pointer;
-            z-index: 9998;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: none; cursor: pointer;
+            z-index: 9998; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: var(--card-shadow);
             transition: var(--transition-bounce);
         }
-        .theme-toggle:hover {
-            border-color: var(--secondary-color);
-            box-shadow: var(--card-shadow-hover);
-            transform: rotate(25deg) scale(1.1);
+        .back-to-top {
+            left: 30px; background: var(--green-gradient); color: #fff;
+            opacity: 0; visibility: hidden; transform: translateY(20px);
         }
-        .theme-toggle:active {
-            transform: scale(0.85);
-            transition: transform 0.12s ease;
+        .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .theme-toggle {
+            right: 30px; background: var(--card-bg);
+            color: var(--secondary-color); border: 2px solid var(--border-color);
         }
 
-        /* ============ الهيدر ============ */
         header {
             background: var(--dark-gradient);
             padding: 55px 20px 60px;
@@ -291,961 +183,194 @@
             overflow: hidden;
             z-index: 1;
             clip-path: ellipse(155% 100% at 50% 0%);
-            transition: clip-path 0.4s ease;
         }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(230, 198, 93, 0.12) 0%, transparent 65%);
-            animation: headerGlow 7s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes headerGlow {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.35);
-                opacity: 1;
-            }
-        }
-        .header-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .avatar-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 22px;
-        }
+        .header-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
+        .avatar-wrapper { position: relative; display: inline-block; margin-bottom: 22px; }
         .avatar-ring {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            border-radius: 50%;
-            border: 2.5px solid transparent;
+            position: absolute; top: -10px; left: -10px;
+            width: calc(100% + 20px); height: calc(100% + 20px);
+            border-radius: 50%; border: 2.5px solid transparent;
             border-top-color: var(--secondary-light);
             border-right-color: var(--secondary-color);
-            border-bottom-color: rgba(230, 198, 93, 0.4);
             animation: ringSpin 4.5s linear infinite;
-            pointer-events: none;
-            will-change: transform;
         }
-        @keyframes ringSpin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+        @keyframes ringSpin { to { transform: rotate(360deg); } }
         .avatar {
-            width: 105px;
-            height: 105px;
-            background: var(--green-gradient);
-            color: #ffffff;
-            font-size: 42px;
-            font-weight: 900;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            width: 105px; height: 105px; background: var(--green-gradient);
+            color: #ffffff; font-size: 42px; font-weight: 900;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 12px 45px rgba(197, 155, 39, 0.45);
-            transition: var(--transition-bounce);
-            cursor: default;
-            will-change: transform;
         }
-        .avatar:hover {
-            transform: scale(1.1) rotate(-6deg);
-            box-shadow: 0 18px 55px rgba(230, 198, 93, 0.65);
-        }
-        header h1 {
-            color: #ffffff;
-            font-size: 2.7rem;
-            font-weight: 900;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-            animation: fadeInUp 0.9s ease-out;
-        }
-        .typewriter-wrap {
-            display: inline-block;
-            position: relative;
-        }
-        .typewriter-wrap .cursor-blink {
-            display: inline-block;
-            width: 3px;
-            height: 1.1em;
-            background: var(--secondary-light);
-            margin-right: 4px;
-            vertical-align: text-bottom;
-            animation: blink 0.7s step-end infinite;
-        }
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-        header .subtitle {
-            color: var(--secondary-light);
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            letter-spacing: 2.5px;
-            animation: fadeInUp 0.9s ease-out 0.15s both;
-        }
-        header .bio {
-            color: rgba(255, 255, 255, 0.88);
-            max-width: 560px;
-            margin: 0 auto;
-            font-size: 0.97rem;
-            font-weight: 400;
-            line-height: 1.95;
-            animation: fadeInUp 0.9s ease-out 0.3s both;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        header h1 { color: #ffffff; font-size: 2.7rem; font-weight: 900; margin-bottom: 6px; }
+        header .subtitle { color: var(--secondary-light); font-size: 1.25rem; font-weight: 700; margin-bottom: 18px; letter-spacing: 2px; }
+        header .bio { color: rgba(255, 255, 255, 0.88); max-width: 600px; margin: 0 auto; font-size: 0.97rem; }
 
-        /* ============ التنقل ============ */
+        /* التنقل */
         nav {
             background: var(--nav-bg);
             backdrop-filter: blur(22px);
             -webkit-backdrop-filter: blur(22px);
-            position: sticky;
-            top: 4px;
-            z-index: 1000;
+            position: sticky; top: 10px; z-index: 1000;
             box-shadow: 0 5px 30px rgba(15, 23, 42, 0.08);
-            border-bottom: 2px solid rgba(197, 155, 39, 0.3);
-            margin: 0 20px;
-            border-radius: 50px;
-            max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: -32px;
-            transition: var(--transition-smooth);
+            border: 1px solid rgba(197, 155, 39, 0.3);
+            margin: -32px auto 0; border-radius: 50px;
+            max-width: 1100px; padding: 4px 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
         }
-        nav.scrolled {
-            box-shadow: 0 10px 45px rgba(15, 23, 42, 0.15);
-            border-bottom-color: rgba(197, 155, 39, 0.6);
-            border-radius: 40px;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 5px 10px;
-        }
+        nav::-webkit-scrollbar { display: none; }
+        nav ul { list-style: none; display: flex; gap: 4px; padding: 4px; white-space: nowrap; }
         nav a {
-            color: var(--primary-color);
-            text-decoration: none;
-            padding: 14px 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            font-size: 0.96rem;
-            transition: var(--transition-smooth);
-            border-radius: 40px;
-            position: relative;
-            white-space: nowrap;
+            color: var(--primary-color); text-decoration: none; padding: 10px 18px;
+            display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.88rem;
+            border-radius: 40px; transition: var(--transition-smooth);
         }
-        nav a i {
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-            transition: var(--transition-smooth);
-        }
-        nav a:hover {
-            color: var(--secondary-dark);
-            background: rgba(197, 155, 39, 0.1);
-        }
-        nav a.active {
-            color: #ffffff;
-            background: var(--green-gradient);
-            box-shadow: 0 5px 18px rgba(197, 155, 39, 0.35);
-        }
-        nav a.active i {
-            color: #ffffff;
-        }
+        nav a i { color: var(--secondary-color); font-size: 0.85rem; }
+        nav a:hover { background: rgba(197, 155, 39, 0.1); color: var(--secondary-dark); }
+        nav a.active { background: var(--green-gradient); color: #fff; }
+        nav a.active i { color: #fff; }
 
-        /* ============ الحاوية ============ */
-        .container {
-            max-width: 1180px;
-            margin: 55px auto;
-            padding: 0 28px;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 1200px; margin: 55px auto; padding: 0 24px; position: relative; z-index: 1; }
 
-        /* ============ عناوين الأقسام ============ */
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-            position: relative;
-        }
+        .section-title { text-align: center; margin-bottom: 45px; margin-top: 35px; }
         .section-title .icon-circle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: var(--green-gradient);
-            color: #fff;
-            font-size: 1.35rem;
-            margin-bottom: 16px;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 58px; height: 58px; border-radius: 50%;
+            background: var(--green-gradient); color: #fff; font-size: 1.35rem; margin-bottom: 12px;
             box-shadow: 0 10px 30px rgba(197, 155, 39, 0.38);
-            animation: pulseIcon 3.5s ease-in-out infinite;
         }
-        @keyframes pulseIcon {
-            0%,
-            100% {
-                box-shadow: 0 10px 30px rgba(197, 155, 39, 0.38);
-            }
-            50% {
-                box-shadow: 0 10px 48px rgba(230, 198, 93, 0.7);
-            }
-        }
-        .section-title h2 {
-            color: var(--primary-color);
-            font-size: 2.1rem;
-            font-weight: 800;
-            display: block;
-            letter-spacing: -0.5px;
-        }
-        .section-title .title-decor {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 10px;
-        }
-        .section-title .title-decor .line {
-            width: 55px;
-            height: 2.5px;
-            background: var(--secondary-color);
-            border-radius: 3px;
-        }
-        .section-title .title-decor .diamond {
-            width: 9px;
-            height: 9px;
-            background: var(--secondary-color);
-            transform: rotate(45deg);
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(197, 155, 39, 0.55);
-        }
+        .section-title h2 { color: var(--primary-color); font-size: 2rem; font-weight: 800; }
+        .section-title .title-decor { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; }
+        .section-title .title-decor .line { width: 50px; height: 2px; background: var(--secondary-color); }
+        .section-title .title-decor .diamond { width: 8px; height: 8px; background: var(--secondary-color); transform: rotate(45deg); }
 
-        /* ============ الشبكة ============ */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 30px;
-            margin-bottom: 75px;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 50px; }
 
-        /* ============ الكروت ============ */
         .card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 32px 28px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-bounce);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            will-change: transform;
-            transform-style: preserve-3d;
-            perspective: 800px;
+            background: var(--card-bg); border-radius: var(--radius-lg); padding: 28px;
+            border: 1px solid var(--border-color); box-shadow: var(--card-shadow);
+            transition: var(--transition-bounce); display: flex; flex-direction: column; justify-content: space-between;
+            position: relative; overflow: hidden; transform-style: preserve-3d; perspective: 800px;
         }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--green-gradient);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border-radius: 0 0 4px 4px;
-            z-index: 2;
-        }
-        .card:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        .card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(197, 155, 39, 0.06) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .card:hover::after {
-            opacity: 1;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: rgba(197, 155, 39, 0.45);
-        }
-        .card>* {
-            position: relative;
-            z-index: 1;
-        }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--card-shadow-hover); border-color: rgba(197, 155, 39, 0.45); }
         .card .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            background: rgba(197, 155, 39, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary-dark);
-            font-size: 1.25rem;
-            margin-bottom: 18px;
-            transition: var(--transition-bounce);
+            width: 48px; height: 48px; border-radius: 14px; background: rgba(197, 155, 39, 0.12);
+            display: flex; align-items: center; justify-content: center; color: var(--secondary-dark);
+            font-size: 1.2rem; margin-bottom: 16px; transition: var(--transition-bounce);
         }
-        .card:hover .card-icon {
-            background: var(--green-gradient);
-            color: #fff;
-            transform: rotate(-10deg) scale(1.12);
-            box-shadow: 0 10px 24px rgba(197, 155, 39, 0.38);
-        }
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.35rem;
-            font-weight: 800;
-            line-height: 1.4;
-        }
-        .card p {
-            color: var(--text-light);
-            font-size: 0.94rem;
-            margin-bottom: 24px;
-            flex-grow: 1;
-            line-height: 1.85;
-        }
-        .card .card-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-        .card .card-meta i {
-            color: var(--secondary-color);
-            font-size: 0.75rem;
-        }
+        .card:hover .card-icon { background: var(--green-gradient); color: #fff; transform: rotate(-8deg) scale(1.1); }
+        .card h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.3rem; font-weight: 800; }
+        .card p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 20px; flex-grow: 1; }
 
-        /* تأثير Shine */
-        .card .shine-effect {
-            position: absolute;
-            top: -60%;
-            left: -60%;
-            width: 80%;
-            height: 200%;
-            background: linear-gradient(120deg,
-                    transparent 30%,
-                    rgba(255, 255, 255, 0.15) 45%,
-                    rgba(255, 255, 255, 0.25) 50%,
-                    rgba(255, 255, 255, 0.15) 55%,
-                    transparent 70%);
-            transform: rotate(25deg);
-            pointer-events: none;
-            z-index: 5;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .card:hover .shine-effect {
-            opacity: 1;
-            animation: shineSweep 1.2s ease-out forwards;
-        }
-        @keyframes shineSweep {
-            0% {
-                left: -60%;
-            }
-            100% {
-                left: 120%;
-            }
-        }
-
-        /* ============ الأزرار ============ */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-align: center;
-            background: var(--primary-color);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 13px 26px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            transition: var(--transition-bounce);
-            cursor: pointer;
-            border: none;
-            letter-spacing: 0.3px;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            z-index: 1;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: var(--primary-color); color: #ffffff; text-decoration: none;
+            padding: 11px 22px; border-radius: 50px; font-weight: 700; font-size: 0.88rem;
+            transition: var(--transition-bounce); cursor: pointer; border: none;
         }
-        .btn .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--ripple-color);
-            transform: scale(0);
-            animation: rippleAnim 0.7s ease-out forwards;
-            pointer-events: none;
-            z-index: 0;
+        .btn:hover { background: var(--green-gradient); color: #fff; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(197, 155, 39, 0.35); }
+        .btn-green { background: var(--green-gradient); color: #fff; }
+        .btn-outline { background: transparent; color: var(--primary-color); border: 2px solid var(--border-color); }
+        .btn-outline:hover { border-color: var(--secondary-color); color: var(--secondary-dark); background: rgba(197, 155, 39, 0.08); }
+
+        /* الأقسام التفاعلية والأدوات */
+        .tool-box {
+            background: var(--card-bg); border-radius: var(--radius-lg); padding: 25px;
+            border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: var(--card-shadow);
+            transition: var(--transition-smooth);
         }
-        @keyframes rippleAnim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+        .tool-box:hover { border-color: var(--secondary-color); }
+        .tool-box label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary-color); font-size: 0.9rem; }
+        .tool-box input, .tool-box select, .tool-box textarea {
+            width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+            background: var(--bg-color); color: var(--text-color); font-family: 'Cairo', sans-serif; margin-bottom: 15px;
+            font-size: 0.9rem; outline: none; transition: border-color 0.3s;
         }
-        .btn:hover {
-            background: var(--green-gradient);
-            color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(197, 155, 39, 0.4);
-        }
-        .btn:active {
-            transform: scale(0.94);
-            transition: transform 0.15s ease;
-        }
-        .btn-green {
-            background: var(--green-gradient);
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0 7px 22px rgba(197, 155, 39, 0.32);
-        }
-        .btn-green:hover {
-            background: linear-gradient(135deg, #967415 0%, #c59b27 100%);
-            box-shadow: 0 14px 34px rgba(197, 155, 39, 0.5);
-            color: #fff;
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--border-color);
-            box-shadow: none;
-        }
-        .btn-outline:hover {
+        .tool-box input:focus, .tool-box select:focus, .tool-box textarea:focus {
             border-color: var(--secondary-color);
-            background: rgba(197, 155, 39, 0.08);
-            box-shadow: 0 8px 22px rgba(197, 155, 39, 0.14);
-            color: var(--secondary-dark);
         }
 
-        /* ============ قسم التواصل ============ */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: stretch;
-        }
+        /* التواصل */
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .contact-box {
-            background: var(--card-bg);
-            border: 2px dashed rgba(197, 155, 39, 0.38);
-            border-radius: var(--radius-xl);
-            padding: 38px 32px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-box::before {
-            content: '';
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            background: radial-gradient(circle, rgba(197, 155, 39, 0.09) 0%, transparent 70%);
-            top: -45px;
-            right: -45px;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .contact-box:hover {
-            border-color: var(--secondary-color);
-            box-shadow: var(--card-shadow-hover);
-            transform: translateY(-5px);
-        }
-        .contact-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.35rem;
-            font-weight: 800;
-        }
-        .contact-box>p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-            font-size: 0.92rem;
+            background: var(--card-bg); border: 2px dashed rgba(197, 155, 39, 0.38);
+            border-radius: var(--radius-xl); padding: 35px; text-align: center; box-shadow: var(--card-shadow);
         }
         .phone-display {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(197, 155, 39, 0.08);
-            padding: 15px 26px;
-            border-radius: 50px;
-            margin: 16px 0;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            user-select: all;
-            -webkit-user-select: all;
-        }
-        .phone-display:hover {
-            background: rgba(197, 155, 39, 0.16);
-            transform: scale(1.04);
-        }
-        .phone-display i {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            animation: phoneVibrate 2.2s ease-in-out infinite;
-        }
-        @keyframes phoneVibrate {
-            0%,
-            100% {
-                transform: rotate(0);
-            }
-            8% {
-                transform: rotate(10deg);
-            }
-            18% {
-                transform: rotate(-10deg);
-            }
-            28% {
-                transform: rotate(6deg);
-            }
-            38% {
-                transform: rotate(-6deg);
-            }
-            48% {
-                transform: rotate(0);
-            }
-        }
-        .phone-number {
-            font-size: 1.55rem;
-            font-weight: 900;
-            color: var(--primary-color);
-            direction: ltr;
-            letter-spacing: 2.5px;
-            font-variant-numeric: tabular-nums;
-        }
-        .contact-info-card {
-            background: var(--dark-gradient);
-            border-radius: var(--radius-xl);
-            padding: 38px 32px;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 20px;
-            box-shadow: var(--card-shadow-hover);
-        }
-        .contact-info-card h3 {
-            color: var(--secondary-light);
-            font-size: 1.35rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-        .contact-info-card p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.92rem;
-            line-height: 1.85;
-        }
-        .contact-info-card .info-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .contact-info-card .info-item i {
-            color: var(--secondary-light);
-            font-size: 1.15rem;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(197, 155, 39, 0.22);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        .contact-info-card .info-item a {
-            color: var(--secondary-light);
-            text-decoration: underline;
-            transition: var(--transition-smooth);
-        }
-        .contact-info-card .info-item a:hover {
-            color: #fff;
-            text-shadow: 0 0 8px rgba(230, 198, 93, 0.6);
+            display: inline-flex; align-items: center; gap: 10px; background: rgba(197, 155, 39, 0.08);
+            padding: 12px 24px; border-radius: 50px; margin: 15px 0; cursor: pointer; font-weight: 900; font-size: 1.4rem; color: var(--primary-color);
         }
 
-        /* ============ إحصاءات ============ */
-        .stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 22px;
-            margin-bottom: 65px;
-        }
-        .stat-item {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 24px 30px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            min-width: 150px;
-            transition: var(--transition-bounce);
-            border: 1px solid var(--border-color);
-        }
-        .stat-item:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: rgba(197, 155, 39, 0.35);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--secondary-color);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-top: 7px;
-            font-weight: 600;
-        }
-
-        /* ============ Modal ============ */
+        /* Modal */
         .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(11, 19, 41, 0.82);
-            backdrop-filter: blur(8px);
-            z-index: 20000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.35s ease;
+            position: fixed; inset: 0; background: rgba(11, 19, 41, 0.82); backdrop-filter: blur(8px);
+            z-index: 20000; display: flex; align-items: center; justify-content: center; padding: 20px;
+            opacity: 0; visibility: hidden; transition: all 0.35s ease;
         }
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-card {
-            background: var(--modal-bg);
-            border-radius: var(--radius-xl);
-            max-width: 660px;
-            width: 100%;
-            padding: 38px;
-            position: relative;
-            transform: translateY(35px) scale(0.94);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-            max-height: 85vh;
-            overflow-y: auto;
+            background: var(--modal-bg); border-radius: var(--radius-xl); max-width: 650px; width: 100%; padding: 35px;
+            position: relative; max-height: 85vh; overflow-y: auto; border: 1px solid rgba(197, 155, 39, 0.2);
             border-top: 5px solid var(--secondary-color);
-            border: 1px solid rgba(197, 155, 39, 0.2);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-        }
-        .modal-overlay.active .modal-card {
-            transform: translateY(0) scale(1);
         }
         .modal-close {
-            position: absolute;
-            top: 18px;
-            left: 18px;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            border: none;
-            color: #475569;
-            font-size: 1.15rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-smooth);
+            position: absolute; top: 18px; left: 18px; width: 36px; height: 36px; border-radius: 50%;
+            background: #f1f5f9; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: #000; transition: var(--transition-smooth);
         }
-        [data-theme="dark"] .modal-close {
-            background: #1e293b;
-            color: #cbd5e1;
+        .modal-close:hover { background: var(--secondary-color); color: #fff; }
+
+        /* استايل عرض الأذكار المخصص داخل النوافذ */
+        .azkar-list { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+        .zkr-item {
+            background: var(--bg-color); border: 1px solid var(--border-color); border-right: 4px solid var(--secondary-color);
+            padding: 16px; border-radius: var(--radius-md); text-align: right; line-height: 2; font-size: 0.98rem;
         }
-        .modal-close:hover {
-            background: #e2e8f0;
-            color: #0f172a;
-            transform: rotate(90deg);
-        }
-        .modal-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 22px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
-        }
-        .modal-header i {
-            font-size: 1.9rem;
-            color: var(--secondary-color);
-            background: rgba(197, 155, 39, 0.1);
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .modal-header h3 {
-            color: var(--primary-color);
-            font-size: 1.45rem;
-            font-weight: 800;
-        }
-        .modal-body {
-            color: var(--text-color);
-            font-size: 1.02rem;
-            line-height: 2.1;
-        }
-        .modal-body ul {
-            margin: 16px 0;
-            padding-right: 22px;
-        }
-        .modal-body li {
-            margin-bottom: 12px;
-            color: var(--text-light);
+        .zkr-count {
+            display: inline-block; margin-top: 8px; background: rgba(197, 155, 39, 0.15); color: var(--secondary-dark);
+            padding: 2px 10px; border-radius: 20px; font-weight: 800; font-size: 0.82rem;
         }
 
-        /* ============ الفوتر ============ */
         footer {
-            background: var(--dark-gradient);
-            color: #ffffff;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 75px;
-            font-size: 0.92rem;
-            position: relative;
-            z-index: 1;
-            border-top: 3px solid var(--secondary-color);
+            background: var(--dark-gradient); color: #ffffff; text-align: center; padding: 30px 20px;
+            margin-top: 75px; font-size: 0.9rem; border-top: 3px solid var(--secondary-color);
         }
-        footer .footer-content {
-            max-width: 620px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-        footer .footer-social {
-            display: flex;
-            gap: 16px;
-            margin-top: 10px;
-        }
+        footer .footer-social { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
         footer .footer-social a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.35rem;
-            transition: var(--transition-smooth);
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7); font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth);
         }
-        footer .footer-social a:hover {
-            color: var(--secondary-light);
-            background: rgba(197, 155, 39, 0.28);
-            transform: translateY(-4px);
+        footer .footer-social a:hover { color: var(--secondary-light); background: rgba(197, 155, 39, 0.25); }
+
+        .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .kunash-item {
+            background: var(--bg-color); border: 1px solid var(--border-color);
+            padding: 12px; border-radius: var(--radius-sm); margin-bottom: 8px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        /* ============ تأثير الظهور ============ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(45px);
-            transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ============ تحسينات للجوال ============ */
         @media (max-width: 768px) {
-            header {
-                clip-path: ellipse(190% 100% at 50% 0%);
-                padding: 42px 15px 48px;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-            header .subtitle {
-                font-size: 1.05rem;
-                letter-spacing: 1.5px;
-            }
-            nav {
-                margin: -22px 8px 0;
-                border-radius: 30px;
-            }
-            nav a {
-                padding: 10px 14px;
-                font-size: 0.8rem;
-                gap: 5px;
-            }
-            nav a i {
-                font-size: 0.7rem;
-            }
-            .container {
-                padding: 0 14px;
-                margin: 38px auto;
-            }
-            .section-title h2 {
-                font-size: 1.55rem;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 22px;
-            }
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .card {
-                padding: 24px 20px;
-            }
-            .phone-number {
-                font-size: 1.25rem;
-                letter-spacing: 1.5px;
-            }
-            .stats-row {
-                gap: 12px;
-            }
-            .stat-item {
-                min-width: 105px;
-                padding: 18px 16px;
-            }
-            .stat-number {
-                font-size: 1.9rem;
-            }
-            .avatar {
-                width: 84px;
-                height: 84px;
-                font-size: 34px;
-            }
-            .avatar-ring {
-                top: -7px;
-                left: -7px;
-                width: calc(100% + 14px);
-                height: calc(100% + 14px);
-            }
-            .back-to-top,
-            .theme-toggle {
-                width: 40px;
-                height: 40px;
-                bottom: 20px;
-                font-size: 0.95rem;
-            }
-            .back-to-top {
-                left: 16px;
-            }
-            .theme-toggle {
-                right: 16px;
-            }
-            .cursor-glow {
-                display: none;
-            }
-        }
-
-        /* ============ شريط تمرير مخصص ============ */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 10px;
-        }
-        [data-theme="dark"]::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #c59b27, #967415);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #967415;
+            header h1 { font-size: 2rem; }
+            .grid, .contact-wrapper { grid-template-columns: 1fr; }
+            nav { margin: -20px 10px 0; border-radius: 30px; }
+            .cursor-glow { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader-ring"></div>
-    </div>
-
-    <!-- توهج خلف المؤشر -->
+    <div id="preloader"><div class="preloader-ring"></div></div>
     <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- جسيمات -->
     <div class="particles-container" id="particles"></div>
-
-    <!-- نمط الخلفية -->
     <div class="bg-pattern"></div>
-
-    <!-- شريط التقدم -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- زر العودة للأعلى -->
-    <button class="back-to-top" id="backToTop" title="العودة للأعلى" aria-label="العودة للأعلى">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <button class="back-to-top" id="backToTop" title="العودة للأعلى"><i class="fas fa-chevron-up"></i></button>
+    <button class="theme-toggle" id="themeToggle" title="تبديل الوضع الليلي"><i class="fas fa-moon" id="themeIcon"></i></button>
 
-    <!-- زر تبديل السمة -->
-    <button class="theme-toggle" id="themeToggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
-        <i class="fas fa-moon" id="themeIcon"></i>
-    </button>
-
-    <!-- ============ الهيدر ============ -->
+    <!-- الهيدر -->
     <header>
         <div class="header-content">
             <div class="avatar-wrapper">
@@ -1253,744 +378,743 @@
                 <div class="avatar">ب</div>
             </div>
             <h1>البراء أحمد فواز</h1>
-            <p class="subtitle">
-                <span class="typewriter-wrap">
-                    <span id="typewriterText">طالب علم شرعي ومؤلف</span><span class="cursor-blink"></span>
-                </span>
-            </p>
+            <p class="subtitle"><span id="typewriterText">طالب علم شرعي ومؤلف</span></p>
             <p class="bio">
-                مرحباً بك في موقعي الشخصي، أشارك فيه مؤلفاتي والكتب المقترحة،
-                مع مدونات ونصائح تهم كل طالب علم شرعي يبحث عن المنهجية الصحيحة والتأسيس المتين.
+                مرحباً بك في المنصة العلمية الشاملة؛ تجمع بين الكتب، المتون، التفسير، الأدوات المتقدمة، والأذكار المأثورة لتيسير طريق الطلب على المنهج الصحيح.
             </p>
         </div>
     </header>
 
-    <!-- ============ شريط التنقل ============ -->
+    <!-- شريط التنقل الشامل (بدون قسم الاختبارات) -->
     <nav id="navbar">
         <ul>
-            <li><a href="#books" class="active"><i class="fas fa-book-open"></i> المؤلفات والكتب</a></li>
-            <li><a href="#tips"><i class="fas fa-lightbulb"></i> توجيهات وفوائد</a></li>
+            <li><a href="#quran" class="active"><i class="fas fa-quran"></i> القرآن</a></li>
+            <li><a href="#hadith"><i class="fas fa-kaaba"></i> الحديث</a></li>
+            <li><a href="#aqeedah"><i class="fas fa-shield-halved"></i> العقيدة</a></li>
+            <li><a href="#fiqh"><i class="fas fa-scale-balanced"></i> الفقه</a></li>
+            <li><a href="#tafseer"><i class="fas fa-book-open"></i> التفسير</a></li>
+            <li><a href="#arabic"><i class="fas fa-language"></i> العربية</a></li>
+            <li><a href="#tools"><i class="fas fa-toolbox"></i> الأدوات</a></li>
+            <li><a href="#articles"><i class="fas fa-feather-pointed"></i> التزكية والخواطر</a></li>
+            <li><a href="#azkar"><i class="fas fa-hands-praying"></i> الأذكار</a></li>
             <li><a href="#contact"><i class="fas fa-paper-plane"></i> التواصل</a></li>
         </ul>
     </nav>
 
-    <!-- ============ المحتوى الرئيسي ============ -->
     <div class="container">
 
-        <!-- إحصاءات -->
-        <div class="stats-row reveal">
-            <div class="stat-item">
-                <div class="stat-number" data-count="15">0</div>
-                <div class="stat-label">مؤلف وبحث</div>
+        <!-- الإحصاءات -->
+        <div class="stats-row reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 50px;">
+            <div class="stat-item" style="background: var(--card-bg); padding: 20px 30px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color); flex: 1; min-width: 140px;">
+                <div style="font-size: 2.2rem; font-weight: 900; color: var(--secondary-color);" class="stat-number" data-count="9">0</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">أقسام علمية رئيسية</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="120">0</div>
-                <div class="stat-label">نصيحة منهجية</div>
+            <div class="stat-item" style="background: var(--card-bg); padding: 20px 30px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color); flex: 1; min-width: 140px;">
+                <div style="font-size: 2.2rem; font-weight: 900; color: var(--secondary-color);" class="stat-number" data-count="50">0</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">متناً وسلسلة منهجية</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="8">0</div>
-                <div class="stat-label">سنوات في الطلب</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="3500">0</div>
-                <div class="stat-label">مستفيد ومتابع</div>
+            <div class="stat-item" style="background: var(--card-bg); padding: 20px 30px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color); flex: 1; min-width: 140px;">
+                <div style="font-size: 2.2rem; font-weight: 900; color: var(--secondary-color);" class="stat-number" data-count="5">0</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">أدوات علمية تفاعلية</div>
             </div>
         </div>
 
-        <!-- ============ الكتب ============ -->
-        <section id="books">
+        <!-- 1. القرآن الكريم (تم تعديله وضبط المكان المخصص للفضائل والمكاسب في النصف) -->
+        <section id="quran">
             <div class="section-title reveal">
-                <div class="icon-circle"><i class="fas fa-book"></i></div>
-                <h2>الكتب والمؤلفات</h2>
-                <div class="title-decor">
-                    <span class="line"></span><span class="diamond"></span><span class="line"></span>
-                </div>
+                <div class="icon-circle"><i class="fas fa-quran"></i></div>
+                <h2>علوم القرآن الكريم</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
             </div>
             <div class="grid">
-                <!-- كتاب 1 -->
+                <!-- 1. مقررات الحفظ الجاهزة -->
                 <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-book-journal-whills"></i></div>
+                    <div class="card-icon"><i class="fas fa-list-check"></i></div>
                     <div>
-                        <h3>كتاب التوحيد</h3>
-                        <p>تأليف الشيخ محمد بن عبد الوهاب. يقع في بيان التوحيد الذي هو حق الله على العبيد، مع ذكر أدلة الكتاب والسنة والتحذير من الشرك.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
+                        <h3>مقررات الحفظ الجاهزة</h3>
+                        <p>خطط مجدولة لحفظ القرآن الكريم (خطة السنة، سنتين، و3 سنوات) مقسمة بالأحزاب والصفحات.</p>
                     </div>
-                    <a href="https://shamela.ws/book/21571" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
+                    <button class="btn btn-outline" onclick="openCustomModal('مقررات الحفظ', '<ul><li><strong>خطة السنة:</strong> حفظ صفحتين يومياً مع مراجعة جزء.</li><li><strong>خطة السنتين:</strong> حفظ صفحة واحدة يومياً.</li><li><strong>خطة 3 سنوات:</strong> حفظ نصف صفحة يومياً مع التثبيت.</li></ul>')">عرض المقررات</button>
                 </div>
-                <!-- كتاب 2 -->
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-star"></i></div>
+
+                <!-- 2. فضائل ومكاسب طالب القرآن الكريم (تم وضعها في النص كرت رئيسي ومميز) -->
+                <div class="card reveal" data-tilt style="border: 2px solid var(--secondary-color); background: rgba(197, 155, 39, 0.03);">
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
                     <div>
-                        <h3>الأربعون النووية</h3>
-                        <p>للإمام يحيى بن شرف النووي. كتاب يحوي اثنين وأربعين حديثاً جوامع من أحاديث النبي ﷺ التي عليها مدار الدين.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
+                        <h3>فضائل ومكاسب طالب القرآن</h3>
+                        <p>نيل الخيرية المطلقة ("خيركم من تعلم القرآن وعلمه")، وأن يكون القارئ من أهل الله وخاصته، مع نيل الرفعة والسكينة وتقويم اللسان ونيل الشفاعة يوم القيامة.</p>
                     </div>
-                    <a href="https://shamela.ws/book/21743" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم القرآن الكريم', '<ul><li><strong>الأهلية والخيرية المطلقة:</strong> نيل الخيرية التي نص عليها النبي ﷺ بقوله: (خيركم من تعلم القرآن وعلمه).</li><li><strong>الرفعة والشهود:</strong> أن يكون الطالب من أهل الله وخاصته، ويرتقي في درجات الجنة بكل آية يحفظها ويتقنها: (اقرأ وارتقِ ورتل).</li><li><strong>الشفاعة الكبرى:</strong> يأتي القرآن شفيقاً وشفيعاً لأصحابه يوم القيامة يلبس والديه تاج الكرامة.</li><li><strong>السكينة ونور البصيرة:</strong> طمأنينة القلب، وانشراح الصدر، وتنوير العقل والفرقانية بتمييز الحق من الباطل.</li><li><strong>تقويم اللسان والبلاغة:</strong> فصاحة النطق وضبط مخارج الحروف واكتساب الملكة اللغوية الرفيعة.</li></ul>')">عرض مكاسب الفضل والتاج</button>
                 </div>
-                <!-- كتاب 3 -->
+
+                <!-- 3. فضائل سور القرآن -->
                 <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="card-icon"><i class="fas fa-star-and-crescent"></i></div>
                     <div>
-                        <h3>حلية طالب العلم</h3>
-                        <p>للشيخ بكر بن عبد الله أبو زيد. أصل متين يجمع الآداب والأخلاق والسمت الجميل الذي ينبغي أن يتحلى به السالك في طريق العلم.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
+                        <h3>فضائل سور القرآن</h3>
+                        <p>الأحاديث الصحيحة الواردة في فضائل السور (الفاتحة، البقرة، آل عمران، الكهف، تبارك، وغيرها).</p>
                     </div>
-                    <a href="https://shamela.ws/book/8636" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
-                </div>
-                <!-- كتاب 4 -->
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-mosque"></i></div>
-                    <div>
-                        <h3>الوجيز في فقه السنة والكتاب العزيز</h3>
-                        <p>للشيخ عبد العظيم بدوي. كتاب فقهي ميسر يجمع أحكام الطهارة والصلاة والعبادات مقتصرة على الأدلة الصحيحة المباشرة.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
-                    </div>
-                    <a href="https://shamela.ws/book/21748" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
-                </div>
-                <!-- كتاب 5 -->
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-heart"></i></div>
-                    <div>
-                        <h3>مختصر منهاج القاصدين</h3>
-                        <p>للإمام ابن قدامة المقدسي. من أهم الكتب في تزكية النفس وإصلاح القلوب وتهذيب الأخلاق والتربية الإيمانية.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
-                    </div>
-                    <a href="https://shamela.ws/book/21731" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
-                </div>
-                <!-- كتاب 6 -->
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-scroll"></i></div>
-                    <div>
-                        <h3>تيسير مصطلح الحديث</h3>
-                        <p>للشيخ د. محمود الطحان. أفضل مدخل ميسر ومعاصر للتعرف على علوم الحديث وقواعد الجرح والتعديل وأصناف الحديث.</p>
-                        <div class="card-meta"><i class="fas fa-external-link-alt"></i> المكتبة الشاملة</div>
-                    </div>
-                    <a href="https://shamela.ws/book/37001" target="_blank" rel="noopener" class="btn btn-green btn-ripple"><i class="fas fa-book-reader"></i> قراءة وتصفح الكتاب</a>
+                    <button class="btn btn-outline" onclick="openCustomModal('فضائل السور', '<p><strong>سورة البقرة:</strong> أخذها بركة وتركها حسرة ولا تستطيعها البطلة.<br><strong>سورة الكهف:</strong> نور ما بين الجمعتين.<br><strong>سورة الملك:</strong> المنجية والمجادلة عن صاحبها في القبر.</p>')">تصفح الفضائل</button>
                 </div>
             </div>
         </section>
 
-        <!-- ============ الفوائد ============ -->
-        <section id="tips">
+        <!-- 2. الحديث النبوي -->
+        <section id="hadith">
             <div class="section-title reveal">
-                <div class="icon-circle"><i class="fas fa-lightbulb"></i></div>
-                <h2>توجيهات وفوائد منهجية</h2>
-                <div class="title-decor">
-                    <span class="line"></span><span class="diamond"></span><span class="line"></span>
-                </div>
+                <div class="icon-circle"><i class="fas fa-kaaba"></i></div>
+                <h2>الحديث النبوي الشريف</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
             </div>
             <div class="grid">
                 <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div>
-                        <h3>إخلاص النية وطهارة القلب</h3>
-                        <p>العلم عبادة القلب، وأول متطلبات القبول هو تجريد النية لله تعالى والبعد عن حظوظ النفس والشهرة والرياء. تصحيح المقصد نصف الطريق.</p>
-                    </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(0)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
-                </div>
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
                     <div class="card-icon"><i class="fas fa-layer-group"></i></div>
                     <div>
-                        <h3>التدرج والضبط والإتقان</h3>
-                        <p>من حرم الأصول حرم الوصول. احرص على إتقان المختصرات والتأسيس المتين قبل الانتقال للمطولات، ولا تستعجل الثمرة قبل غرس البذرة.</p>
+                        <h3>التدرج المنهجي بالكتب</h3>
+                        <p><strong>1. المبتدئ:</strong> الأربعون النووية<br><strong>2. المتوسط:</strong> عمدة الأحكام ⬅️ بلوغ المرام<br><strong>3. المتقدم:</strong> رياض الصالحين ⬅️ الكتب الستة.</p>
                     </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(1)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب الحديث النبوي', '<ul><li><strong>البداية (المبتدئ):</strong> الأربعون النووية (للإمام النووي) — ضبط جوامع الكلم والقواعد الكلية للدين.</li><li><strong>الوسط (المتوسط):</strong> عمدة الأحكام (للمقدسي) ثم بلوغ المرام (لابن حجر) — ضبط أحاديث الأحكام الفقهية وتخريجها.</li><li><strong>النهاية (المتقدم):</strong> رياض الصالحين مع البدء في الكتب الستة (البخاري، مسلم، أبو داود، الترمذي، النسائي، ابن ماجه) — التفقه في الروايات والسنن.</li></ul>')">تفاصيل السلسلة المنهجية</button>
                 </div>
                 <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
                     <div>
-                        <h3>الجمع بين العلم والعمل</h3>
-                        <p>زكاة العلم العمل به، والخوف من الله هو ثمرة العلم الحقيقية. فوالله ما تعلم عبد علماً فزاده إلا خشية وتواضعاً وانكساراً.</p>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>نيل دعوة النبي ﷺ بالنضرة، الاقتداء بأخلاق النبي ﷺ وحركاته وسكناته، والقدرة على التمييز بين الصحيح والضعيف.</p>
                     </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(2)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم الحديث', '<ul><li><strong>النضرة والبهجة:</strong> نيل دعوة النبي ﷺ (نضر الله امرأً سمع مقالتي فوعاها...).</li><li><strong>معرفة السيرة والأخلاق:</strong> الاقتداء الفعلي بأخلاق النبي ﷺ.</li><li><strong>القدرة على الاستدلال:</strong> التمييز بين الصحيح والضعيف، ومعرفة مآخذ الأحكام من السنة.</li></ul>')">عرض مكاسب القسم</button>
                 </div>
                 <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-clock"></i></div>
+                    <div class="card-icon"><i class="fas fa-book-bookmark"></i></div>
                     <div>
-                        <h3>تنظيم الوقت وحفظه</h3>
-                        <p>الوقت أنفاس لا تعود، فاجعل لك ورداً يومياً من القراءة والحفظ، وخصص أوقاتاً للفهم وأخرى للمراجع، واجتنب المشتتات قدر الإمكان.</p>
+                        <h3>أشهر المتون والشروح</h3>
+                        <p>قراءة الشروح المعتمدة لمصطلح الحديث وأحاديث الأحكام المتفق عليها بين الشيخين.</p>
                     </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(3)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
-                </div>
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-users"></i></div>
-                    <div>
-                        <h3>صحبة الأخيار ومجالسة العلماء</h3>
-                        <p>الجليس الصالح يذكرك بالله، وينفعك في علمك، ويدلك على الخير. الزم حلق الذكر والعلم، وتخير الرفقة الصالحة التي تعينك.</p>
-                    </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(4)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
-                </div>
-                <div class="card reveal" data-tilt>
-                    <div class="shine-effect"></div>
-                    <div class="card-icon"><i class="fas fa-bookmark"></i></div>
-                    <div>
-                        <h3>الحفظ ثم الفهم ثم النشر</h3>
-                        <p>ابدأ بحفظ المتون المختصرة، ثم افهمها على شيخ متقن، ثم علّمها لغيرك. فبالنشر يثبت العلم ويزكو وينمو وتبارك أوقاتك.</p>
-                    </div>
-                    <button class="btn btn-outline btn-ripple" onclick="openTipModal(5)">اقرأ الفائدة كاملة <i class="fas fa-arrow-left"></i></button>
+                    <a href="https://shamela.ws/book/21743" target="_blank" class="btn btn-outline"><i class="fas fa-book-reader"></i> تصفح الشروح بالشاملة</a>
                 </div>
             </div>
         </section>
 
-        <!-- ============ التواصل ============ -->
+        <!-- 3. العقيدة الإسلامية -->
+        <section id="aqeedah">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-shield-halved"></i></div>
+                <h2>العقيدة والتوحيد</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>التدرج المنهجي بالكتب</h3>
+                        <p><strong>1. المبتدئ:</strong> ثلاثة الأصول ⬅️ القواعد الأربع<br><strong>2. المتوسط:</strong> كتاب التوحيد ⬅️ العقيدة الواسطية<br><strong>3. المتقدم:</strong> العقيدة الطحاوية ⬅️ التدمرية والحموية.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب العقيدة والتوحيد', '<ul><li><strong>البداية (المبتدئ):</strong> ثلاثة الأصول ثم القواعد الأربع — معرفة العبد ربه ودينه ونبيه والفرق بين التوحيد والشرك.</li><li><strong>الوسط (المتوسط):</strong> كتاب التوحيد ثم العقيدة الواسطية — تحقيق التوحيد وتثبيت عقيدة أهل السنة في الأسماء والصفات.</li><li><strong>النهاية (المتقدم):</strong> العقيدة الطحاوية (شرح ابن أبي العز) ثم الحموية والتدمرية — التوسع في الرد على الفرق ومناقشة الشبهات.</li></ul>')">تفاصيل السلسلة المنهجية</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>سلامة المعتقد من الفتن والشبهات، حصول الصلابة النفسية واليقين، وإخلاص العبادة والتعلق بالخالق وحده.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم العقيدة', '<ul><li><strong>سلامة المعتقد:</strong> الأمان من الشرك والأفكار المنحرفة والإلحاد.</li><li><strong>اليقين والصلابة:</strong> الطمأنينة النفسية ورسوخ القدم عند ورود الشبهات.</li><li><strong>إخلاص العمل:</strong> التحرر من الرياء والتعلق بالمخلوقين إلى التعلق بالخالق وحده.</li></ul>')">عرض مكاسب القسم</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+                    <div>
+                        <h3>خرائط ذهنيه وأسئلة</h3>
+                        <p>ملخصات بصرية و100 سؤال وجواب لتشجيع وتسهيل حفظ مسائل التوحيد والإيمان.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('أسئلة العقيدة والخرائط', '<p>شجيرات علمية ميسرة لتفكيك مسائل العقيدة والفرق والإيمان باليوم الآخر مع أسئلة وأجوبة لتثبيت العلم.</p>')">استعراض الخرائط</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. الفقه الإسلامي وأصوله -->
+        <section id="fiqh">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-scale-balanced"></i></div>
+                <h2>الفقه وأصوله</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>التدرج المنهجي بالكتب</h3>
+                        <p><strong>مسار الفقه:</strong> أخصر المختصرات ⬅️ عمدة الفقه ⬅️ زاد المستقنع ⬅️ المغني.<br><strong>مسار الأصول:</strong> الورقات ⬅️ مذكرة أصول الفقه ⬅️ الكوكب المنير.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب الفقه والأصول', '<ul><li><strong>مسار الفقه (مثال: الحنبلي):</strong> يبدأ بـ (أخصر المختصرات)، ثم يتوسط بـ (عمدة الفقه) و(زاد المستقنع)، وينتهي بـ (الروض المربع) و(المغني لابن قدامة).</li><li><strong>مسار أصول الفقه (أدوات الاستنباط):</strong> يبدأ بـ (الورقات للجويني)، ثم يتوسط بـ (مذكرة الشنقيطي) أو (روضة الناظر)، وينتهي بـ (شرح الكوكب المنير).</li></ul>')">تفاصيل السلسلة المنهجية</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>صحة العبادات والمعاملات، معرفة حكم الشريعة ومقاصد التشريع والتيسير، واكتساب الملكة الفقهية لنوازل العصر.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم الفقه', '<ul><li><strong>صحة العبادة والمعاملات:</strong> أن يعبد الله على بصيرة وعلم دون الوقوع في الفساد أو البطلان.</li><li><strong>الفهم المقاصدي:</strong> دراية الحكمة من التشريعات والتيسير على الناس.</li><li><strong>الملكة الفقهية:</strong> القدرة على تنزيل الأحكام على الحوادث والنوازل المعاصرة.</li></ul>')">عرض مكاسب القسم</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <div>
+                        <h3>دروس وجداول المقارنات</h3>
+                        <p>مقارنات فقهية ميسرة وسلاسل مرتبة بين المذاهب الأربعة مع بيان الراجح بالدليل.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('دروس وجداول الفقه', '<p>تدرج معتمد للمذاهب الأربعة مع جداول تلخص أبواب العبادات والبيوع مع أدلتها.</p>')">عرض الجداول</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. التفسير وعلوم القرآن -->
+        <section id="tafseer">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-book-journal-whills"></i></div>
+                <h2>التفسير والتدبر</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>التدرج المنهجي بالكتب</h3>
+                        <p><strong>1. المبتدئ:</strong> تفسير السعدي ⬅️ المختصر في التفسير<br><strong>2. المتوسط:</strong> تفسير ابن كثير<br><strong>3. المتقدم:</strong> التحرير والتنوير ⬅️ تفسير القرطبي.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب التفسير', '<ul><li><strong>البداية (المبتدئ):</strong> تفسير السعدي مع المختصر في تفسير القرآن الكريم — فهم المعاني الإجمالية بسهولة.</li><li><strong>الوسط (المتوسط):</strong> تفسير ابن كثير — التفسير بالمأثور والحديث واللغة وآثار الصحابة.</li><li><strong>النهاية (المتقدم):</strong> التحرير والتنوير (لابن عاشور) أو تفسير القرطبي — الاستغراق في الأحكام والاستنباطات البلاغية.</li></ul>')">تفاصيل السلسلة المنهجية</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>حياة القلب والانتقال من مجرد التلاوة للتدبر، البصيرة في الفتن، والاستشعار الإيماني لصفات الله وأفعاله.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم التفسير', '<ul><li><strong>حياة القلب:</strong> الانتقال من مجرد التلاوة اللفظية إلى الانفعال بالقرآن والتأثر به.</li><li><strong>البصيرة في الفتن:</strong> فهم سنن الله في الكون وفي الأمم السابقة.</li><li><strong>الاستشعار الإيماني:</strong> التعرف على صفات الله وأفعاله من خلال كلامه المباشر.</li></ul>')">عرض مكاسب القسم</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-clock-rotate-left"></i></div>
+                    <div>
+                        <h3>أسباب النزول وغريب القرآن</h3>
+                        <p>ربط الآيات بأسياقها التاريخية مع شرح الكلمات المشكلة والغريبة بأسلوب ميسر.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('علوم التفسير', '<p>موسوعة أسباب النزول المعتمدة من الأحاديث الصحيحة ودليل شرح مفردات القرآن كلمة بكلمة.</p>')">تصفح المادة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. علوم اللغة العربية والتجويد -->
+        <section id="arabic">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-language"></i></div>
+                <h2>اللغة العربية والتجويد</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>التدرج المنهجي بالكتب</h3>
+                        <p><strong>النحو والصرف:</strong> الآجرومية ⬅️ قطر الندى (نحو) ⬅️ شذى العرف (صرف) ⬅️ ألفية ابن مالك.<br><strong>التجويد:</strong> تحفة الأطفال ⬅️ المقدمة الجزرية ⬅️ الشاطبية.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب العربية والتجويد', '<ul><li><strong>مسار النحو والصرف:</strong> يبتدئ بـ (الآجرومية)، يتوسط بـ (قطر الندى) و(شذى العرف)، وينتهي بـ (ألفية ابن مالك بشرح ابن عقيل).</li><li><strong>مسار التجويد والقراءات:</strong> يبتدئ بـ (تحفة الأطفال)، يتوسط بـ (المقدمة الجزرية)، وينتهي بـ (الشاطبية في القراءات السبع).</li></ul>')">تفاصيل السلسلة المنهجية</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>صيانة اللسان من اللحن والأخطاء، تذوق الإعجاز القرآني وفصاحة التعبير، وإتقان التلاوة كما نزلت.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب اللغة والتجويد', '<ul><li><strong>صيانة اللسان من اللحن:</strong> النطق بالسليقة والتحدث بفصاحة دون خطأ.</li><li><strong>تذوق إعجاز القرآن:</strong> فهم الفروق الدقيقة في التعبير القرآني ومواقع الكلمات.</li><li><strong>إتقان التلاوة:</strong> الأداء القرآني الصادق والمجود كما نزل على النبي ﷺ.</li></ul>')">عرض مكاسب القسم</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-feather"></i></div>
+                    <div>
+                        <h3>البلاغة والتطبيقات</h3>
+                        <p>مبادئ علوم البيان والمعاني والبديع مع تطبيقات إعرابية وتجويدية شاملة من القرآن.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('البلاغة والتطبيقات', '<p>تذوق أسرار الإعجاز البلاغي والشرح المصور لمخارج الحروف وصفاتها وأحكام التلاوة.</p>')">استكشاف المادة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. أدوات طالب العلم التفاعلية (تم تطويرها وزيادتها وتحسينها بالكامل) -->
+        <section id="tools">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-toolbox"></i></div>
+                <h2>أدوات طالب العلم الرقمية والتفاعلية</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+
+                <!-- الأداة 1: حاسبة ختم القرآن المتقدمة -->
+                <div class="tool-box reveal">
+                    <h3><i class="fas fa-calculator" style="color:var(--secondary-color)"></i> حاسبة الختم والورد الذكية</h3>
+                    <label>عدد الأيام المراد الختم فيها:</label>
+                    <input type="number" id="sealDays" placeholder="مثال: 30" value="30">
+                    <label>طريقة القراءة الفضلى:</label>
+                    <select id="readType">
+                        <option value="afterPrayers">مقسمة عقب الصلوات الخمس</option>
+
+                        <option value="singleSession">جلسة واحدة يومية (جلسة الشروق)</option>
+                    </select>
+                    <button class="btn btn-green" style="width:100%" onclick="calcQuranSealAdvanced()">احسب الورد المخصص</button>
+                    <div id="sealResult" style="margin-top: 15px; font-weight: 700; color: var(--secondary-dark);"></div>
+                </div>
+
+                <!-- الأداة 2: رسم الخطة العلمية المخصصة -->
+                <div class="tool-box reveal">
+                    <h3><i class="fas fa-diagram-project" style="color:var(--secondary-color)"></i> مُصمّم الخطة والمدرجة العلمية</h3>
+                    <label>اختر الفن الشريف المراد دراسته:</label>
+                    <select id="artSelect">
+                        <option value="aqeedah">العقيدة والتوحيد</option>
+                        <option value="fiqh">الفقه وأصوله</option>
+                        <option value="hadith">الحديث ومصطلحه</option>
+                        <option value="arabic">النحو واللغة</option>
+                    </select>
+                    <label>مستواك الحالي في الفن:</label>
+                    <select id="levelSelect">
+                        <option value="1">مبتدئ (تأسيس)</option>
+                        <option value="2">متوسط (تأصيل)</option>
+                        <option value="3">متقدم (تخصص)</option>
+                    </select>
+                    <button class="btn btn-green" style="width:100%" onclick="generateMethodology()">إنشاء الخطة المنهجية</button>
+                    <div id="planResult" style="margin-top: 15px; font-weight: 700;"></div>
+                </div>
+
+                <!-- الأداة 3: مؤقت المراجعة والتركيز المطور (Pomodoro العلمي) -->
+                <div class="tool-box reveal">
+                    <h3><i class="fas fa-stopwatch" style="color:var(--secondary-color)"></i> مؤقت التحصيل والتركيز الذكي</h3>
+                    <div style="font-size: 2.5rem; text-align: center; font-weight: 900; margin: 10px 0; color:var(--primary-color)" id="timerDisplay">25:00</div>
+                    <label>اختر الجلسة العلمية:</label>
+                    <select id="timerMode" onchange="changeTimerMode()">
+                        <option value="25">جلسة حفظ وتكرار (25 دقيقة)</option>
+                        <option value="45">جلسة قراءة واستنباط (45 دقيقة)</option>
+                        <option value="5">استراحة بينية (5 دقائق)</option>
+                    </select>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-green" style="flex:1" onclick="startTimer()"><i class="fas fa-play"></i> بدء</button>
+                        <button class="btn btn-outline" style="flex:1" onclick="resetTimer()"><i class="fas fa-rotate-left"></i> إيقاف/إعادة</button>
+                    </div>
+                </div>
+
+                <!-- الأداة 4: اقتناص الفوائد والفرائد (الكناش الرقمي) -->
+                <div class="tool-box reveal">
+                    <h3><i class="fas fa-pen-clip" style="color:var(--secondary-color)"></i> الكنّاش الرقمي (مُقْتَنَص الفوائد)</h3>
+                    <label>عنوان الفائدة أو المسألة:</label>
+                    <input type="text" id="noteTitle" placeholder="مثال: ضابط الفرق بين الشك والظن">
+                    <label>تصنيف الفائدة:</label>
+                    <select id="noteCategory">
+                        <option value="فقه">فقه وأصول</option>
+                        <option value="عقيدة">عقيدة</option>
+                        <option value="حديث">حديث ورواية</option>
+                        <option value="لغة">لغة وبلاغة</option>
+                        <option value="تفسير">تفسير وتدبر</option>
+                    </select>
+                    <button class="btn btn-green" style="width:100%" onclick="addKunashNote()"><i class="fas fa-plus"></i> حفظ الفائدة بالكناش</button>
+                    <div id="kunashList" style="margin-top: 15px; max-height: 150px; overflow-y: auto;"></div>
+                </div>
+
+                <!-- الأداة 5: محرك البحث في المتون والشروح المعتمدة -->
+                <div class="tool-box reveal" style="grid-column: 1 / -1;">
+                    <h3><i class="fas fa-magnifying-glass-location" style="color:var(--secondary-color)"></i> كشاف المراجع والمتون العلمية المباشر</h3>
+                    <label>ابحث عن المتن أو المرجع للوصول السريع إلى كتب الشاملة:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="searchBookInput" placeholder="أدخل اسم المتن (مثال: الأجرومية، زاد المستقنع، الواسطية)..." style="margin-bottom:0">
+                        <button class="btn btn-green" onclick="searchScientificBooks()"><i class="fas fa-search"></i> بحث</button>
+                    </div>
+                    <div id="searchBookResult" style="margin-top: 15px;"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. التزكية والخواطر وتوجيهات الطلب -->
+        <section id="articles">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-feather-pointed"></i></div>
+                <h2>التزكية والخواطر وتوجيهات الطلب</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>التدرج المنهجي بكتب السلوك</h3>
+                        <p><strong>1. المبتدئ:</strong> الداء والدواء ⬅️ مختصر منهاج القاصدين<br><strong>2. المتوسط:</strong> مدارج السالكين لابن القيم<br><strong>3. المتقدم:</strong> الحكم العطائية ⬅️ إحياء علوم الدين.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('سلسلة كتب السلوك والتزكية', '<ul><li><strong>البداية (المبتدئ):</strong> الداء والدواء (الجواب الكافي لابن القيم) و(مختصر منهاج القاصدين لابن قدامة) — تشخيص أمراض القلوب وكيفية التخلص من الذنوب.</li><li><strong>الوسط (المتوسط):</strong> مدارج السالكين بين منازل إياك نعبد وإياك نستعين (لابن القيم) — التعرف على المنازل (الصبر، الشكر، التوبة، الإخلاص، التوكل).</li><li><strong>النهاية (المتقدم):</strong> الحكم العطائية (مع التنقية) و(إحياء علوم الدين مع التذهيب) — التعمق في أعمال القلوب وسلوك طريق الآخرة.</li></ul>')">تفاصيل السلسلة المنهجية</button>
+                </div>
+
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h3>الفضائل والمكاسب</h3>
+                        <p>التحلي بالخشية والورع ("إنما يخشى الله من عباده العلماء")، طهارة الباطن من الحسد والكبر، والثبات عند الابتلاء.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openCustomModal('فضائل ومكاسب قسم التزكية', '<ul><li><strong>خشية الله الحقيقية:</strong> التحلية بالخشية والورع (إنما يخشى الله من عباده العلماء).</li><li><strong>طهارة الباطن:</strong> السلامة من الكبر، الحسد، الرياء، والعجب بالعمل.</li><li><strong>الثبات على الحق:</strong> الطمأنينة عند المصائب والابتلاءات وحسن الظن بالله.</li></ul>')">عرض مكاسب القسم</button>
+                </div>
+
+                <div class="card reveal" data-tilt style="grid-column: 1 / -1;">
+                    <div class="card-icon"><i class="fas fa-compass"></i></div>
+                    <div>
+                        <h3>وصايا ودستور طالب العلم (نصائح مكثفة)</h3>
+                        <p>وصايا منهجية جامعة كُتِبَت بماء الذهب لضبط النية، والتدرج، والعمل بالعلم، ومكافحة الفتور، وتطهير القلب من الذنوب.</p>
+                    </div>
+                    <button class="btn btn-green" style="width: 100%;" onclick="openCustomModal('دستور ونصائح طالب العلم الجامع', '<ol style=\'padding-right: 20px; line-height: 2.2;\'><li><strong>إخلاص النية (أصل الطريق):</strong> العلم عبادة، ولا يقبل الله من العمل إلا ما كان خالصاً وابتغي به وجهه. احذر من أن تجعل طلبك للعلم مقصداً للماراة، أو الجدال، أو لفت الأنظار، أو تصدر المجالس.</li><li><strong>التدرج ولا تعجل:</strong> من أخذ العلم جملة، ذهب عنه جملة. ابدأ بالصغار قبل الكبار، وبالمختصرات قبل المطولات، ولا تتنقل بين الكتب قبل إتقان ما بيديك.</li><li><strong>العمل بالعلم (زكاة العلم):</strong> هتف العلم بالعمل فإن أجابه وإلا ارتحل. كرر ما تعلمته في عباداتك، وأخلاقك، وسلوكك مع أهل بيتك والناس. العلم بلا عمل كالشجر بلا ثمر.</li><li><strong>الاستعانة بالمربين والشيوخ:</strong> لا تأخذ العلم من صحفي (من يعتمد على الكتب فقط دون شيوخ)، فالمتون تحتاج إلى فك عباراتها وشرح مفاتيحها على يد أهل الخشية والعلم المعلمين.</li><li><strong>المداومة والصبر على الفتور:</strong> لن تنال العلم براحة الجسم. ستمر بأوقات من الفتور والملل، وعلاج ذلك بتخفيف المقدار والتركيز على قليل دائم، فإن القليل الدائم خير من الكثير المنقطع.</li><li><strong>تطهير الوعاء (القلب):</strong> المعاصي والذنوب تطرد الفهم وتورث النسيان. العلم نور، ونور الله لا يهدى لعاصٍ. جاهد نفسك على ترك نظر الحرام، والغيبة، وفضول الكلام والمنام.</li><li><strong>احترام العلماء وأدب الخلاف:</strong> احفظ لسانك عن الوقوع في أعراض العلماء والمربين. إذا اختلفت الفتاوى أو الأقوال فتعلم الأدب وسعة الصدر في مسائل الاجتهاد.</li></ol>')"><i class="fas fa-book-open"></i> قراءة نصائح ودستور طلب العلم كاملاً</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. الأذكار والأدعية المأثورة (جميع الأذكار مكتوبة كاملاً) -->
+        <section id="azkar">
+            <div class="section-title reveal">
+                <div class="icon-circle"><i class="fas fa-hands-praying"></i></div>
+                <h2>الأذكار والأدعية المأثورة</h2>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
+            <div class="grid">
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-sun"></i></div>
+                    <div>
+                        <h3>أذكار الصباح كاملة</h3>
+                        <p>حصن المسلم اليومي من أذكار الصباح مكتوبة كاملة ومضبوطة بالشكل مع بيان أعداد التكرار.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openSabahAzkar()">عرض أذكار الصباح كاملة</button>
+                </div>
+                <div class="card reveal" data-tilt>
+                    <div class="card-icon"><i class="fas fa-moon"></i></div>
+                    <div>
+                        <h3>أذكار المساء كاملة</h3>
+                        <p>أذكار المساء المأثورة عن النبي ﷺ مكتوبة بالكامل لتحصين النفس والبيت.</p>
+                    </div>
+                    <button class="btn btn-green" onclick="openMasaaAzkar()">عرض أذكار المساء كاملة</button>
+                </div>
+                <div class="card reveal" data-tilt style="grid-column: 1 / -1;">
+                    <div class="card-icon"><i class="fas fa-mosque"></i></div>
+                    <div>
+                        <h3>أذكار الصلاة والأدعية المأثورة</h3>
+                        <p>الأدعية والتعقيبات الصحيحة الواردة بعد الصلاة المكتوبة ودعوات طلب العلم والتحصين.</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="openCustomModal('أدعية مأثورة بعد الصلاة', '<div class=\'azkar-list\'><div class=\'zkr-item\'>أَسْتَغْفِرُ اللهَ (ثَلاَثاً)، اللَّهُمَّ أَنْتَ السَّلاَمُ وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الجَلاَلِ وَالإِكْرَامِ.<span class=\'zkr-count\'>مرة واحدة</span></div><div class=\'zkr-item\'>لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الجَدِّ مِنْكَ الجَدُّ.<span class=\'zkr-count\'>مرة واحدة</span></div><div class=\'zkr-item\'>سُبْحَانَ اللهِ (33)، وَالحَمْدُ لِلَّهِ (33)، وَاللهُ أَكْبَرُ (33)، وَتَمَامُ المِائَةِ: لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ.<span class=\'zkr-count\'>مرة واحدة</span></div><div class=\'zkr-item\'>اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً (بعد صلاة الفجر).<span class=\'zkr-count\'>مرة واحدة</span></div></div>')">قراءة الأدعية المأثورة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. قسم التواصل -->
         <section id="contact">
             <div class="section-title reveal">
                 <div class="icon-circle"><i class="fas fa-paper-plane"></i></div>
                 <h2>التواصل والاتصال</h2>
-                <div class="title-decor">
-                    <span class="line"></span><span class="diamond"></span><span class="line"></span>
-                </div>
+                <div class="title-decor"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
             </div>
             <div class="contact-wrapper">
                 <div class="contact-box reveal">
                     <h3>للاستفسارات والطلبات العلمية</h3>
                     <p>يمكنك التواصل المباشر مع الشيخ البراء أحمد فواز عبر الهاتف أو الواتساب للاستشارات والاستفسارات العلمية:</p>
                     <div class="phone-display" id="phoneDisplay" title="اضغط لنسخ الرقم">
-                        <i class="fas fa-phone-alt"></i>
-                        <span class="phone-number">0556287891</span>
+                        <i class="fas fa-phone-alt" style="color:var(--secondary-color)"></i>
+                        <span>0556287891</span>
                     </div>
-                    <div style="margin-top: 10px;">
-                        <a href="https://wa.me/966556287891" target="_blank" rel="noopener" class="btn btn-green btn-ripple">
+                    <div>
+                        <a href="https://wa.me/966556287891" target="_blank" class="btn btn-green">
                             <i class="fab fa-whatsapp"></i> مراسلة عبر الواتساب
                         </a>
                     </div>
                 </div>
-                <div class="contact-info-card reveal">
-                    <h3><i class="fas fa-info-circle"></i> معلومات إضافية</h3>
-                    <p>يسرني استقبال أسئلتكم واستفساراتكم المتعلقة بالمنهجية العلمية والكتب والمتون. كما يمكنكم متابعتي على قنوات التواصل للحصول على الفوائد اليومية.</p>
-                    <div class="info-item">
-                        <i class="fab fa-youtube"></i>
-                        <span>قناة اليوتيوب: <a href="https://youtube.com/@tilawen21?si=zDCw1FmQ7tXAJrY-" target="_blank" rel="noopener">قناة التلاوات والفوائد</a></span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>قناة التليجرام: فوائد يومية لطلاب العلم</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>البريد: albaraa@example.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>المملكة العربية السعودية</span>
-                    </div>
+                <div class="contact-info-card reveal" style="background: var(--dark-gradient); border-radius: var(--radius-xl); padding: 35px; color: #fff;">
+                    <h3 style="color: var(--secondary-light); margin-bottom: 15px;"><i class="fas fa-info-circle"></i> القنوات الرسمية</h3>
+                    <p style="margin-bottom: 15px;">تابع الفوائد اليومية والدروس المباشرة عبر القنوات التالية:</p>
+                    <p style="margin-bottom: 10px;"><i class="fab fa-youtube" style="color:var(--secondary-light)"></i> يوتيوب: <a href="https://youtube.com/@tilawen21?si=zDCw1FmQ7tXAJrY-" target="_blank" style="color:#fff">قناة التلاوات والفوائد</a></p>
+                    <p><i class="fab fa-telegram-plane" style="color:var(--secondary-light)"></i> تليجرام: فوائد طالب العلم</p>
                 </div>
             </div>
         </section>
+
     </div>
 
-    <!-- ============ Modal ============ -->
-    <div class="modal-overlay" id="tipModal">
+    <!-- Modal الشامل -->
+    <div class="modal-overlay" id="customModal">
         <div class="modal-card">
-            <button class="modal-close" onclick="closeTipModal()"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <i class="fas fa-lightbulb" id="modalIcon"></i>
-                <h3 id="modalTitle">عنوان الفائدة</h3>
-            </div>
-            <div class="modal-body" id="modalContent"></div>
+            <button class="modal-close" onclick="closeCustomModal()"><i class="fas fa-times"></i></button>
+            <h3 id="modalTitle" style="color: var(--primary-color); margin-bottom: 15px;">العنوان</h3>
+            <div id="modalBody" style="line-height: 2;">المحتوى...</div>
         </div>
     </div>
 
-    <!-- ============ الفوتر ============ -->
+    <!-- الفوتر -->
     <footer>
-        <div class="footer-content">
-            <p>جميع الحقوق محفوظة © للموقع الشخصي للشيخ <strong>البراء أحمد فواز</strong></p>
-            <p style="font-size: 0.82rem; opacity: 0.75;">نسأل الله الإخلاص والقبول والتوفيق</p>
-            <div class="footer-social">
-                <a href="#" title="تليجرام" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
-                <a href="#" title="تويتر" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-                <a href="https://wa.me/966556287891" target="_blank" rel="noopener" title="واتساب" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://youtube.com/@tilawen21?si=zDCw1FmQ7tXAJrY-" target="_blank" rel="noopener" title="يوتيوب" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-            </div>
+        <p>جميع الحقوق محفوظة © للموقع الشخصي للشيخ <strong>البراء أحمد فواز</strong></p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">نسأل الله الإخلاص والقبول والتوفيق</p>
+        <div class="footer-social">
+            <a href="#" title="تليجرام"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://wa.me/966556287891" target="_blank" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@tilawen21?si=zDCw1FmQ7tXAJrY-" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
 
     <script>
         (function() {
-            // ============ Preloader ============
-            const preloader = document.getElementById('preloader');
+            // Preloader
             window.addEventListener('load', () => {
                 setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    setTimeout(() => preloader.remove(), 600);
-                }, 400);
+                    document.getElementById('preloader').classList.add('hidden');
+                }, 300);
             });
 
-            // ============ DOM References ============
-            const progressBar = document.getElementById('progressBar');
-            const backToTop = document.getElementById('backToTop');
+            // Scroll Progress
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                document.getElementById('progressBar').style.width = (scrollTop / docHeight) * 100 + '%';
+                
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 400) backToTop.classList.add('show');
+                else backToTop.classList.remove('show');
+            });
+
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Dark Mode
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = document.getElementById('themeIcon');
             const html = document.documentElement;
-            const cursorGlow = document.getElementById('cursorGlow');
-            const particlesContainer = document.getElementById('particles');
-            const navbar = document.getElementById('navbar');
-            const navLinks = document.querySelectorAll('nav a');
-            const sections = document.querySelectorAll('section[id]');
-            const revealElements = document.querySelectorAll('.reveal');
-            const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-            const tipModal = document.getElementById('tipModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            const modalIcon = document.getElementById('modalIcon');
-            const phoneDisplay = document.getElementById('phoneDisplay');
-            const allRippleBtns = document.querySelectorAll('.btn-ripple');
-
-            // ============ Dark Mode ============
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
 
             themeToggle.addEventListener('click', () => {
                 const current = html.getAttribute('data-theme');
                 const next = current === 'dark' ? 'light' : 'dark';
                 html.setAttribute('data-theme', next);
-                localStorage.setItem('theme', next);
-                updateThemeIcon(next);
-                // إعادة تعيين shine effects
-                document.querySelectorAll('.shine-effect').forEach(el => el.style.opacity = '0');
+                themeIcon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             });
 
-            function updateThemeIcon(theme) {
-                if (theme === 'dark') {
-                    themeIcon.className = 'fas fa-sun';
-                } else {
-                    themeIcon.className = 'fas fa-moon';
-                }
-            }
-
-            // ============ Cursor Glow ============
-            let mouseX = -200,
-                mouseY = -200;
-            let currentX = -200,
-                currentY = -200;
-            const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-            if (!isMobile) {
+            // Cursor Glow
+            const cursorGlow = document.getElementById('cursorGlow');
+            if (window.innerWidth > 768) {
                 document.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
+                    cursorGlow.style.left = e.clientX + 'px';
+                    cursorGlow.style.top = e.clientY + 'px';
                 });
-                document.addEventListener('mouseleave', () => {
-                    mouseX = -200;
-                    mouseY = -200;
-                });
-
-                function animateCursor() {
-                    currentX += (mouseX - currentX) * 0.12;
-                    currentY += (mouseY - currentY) * 0.12;
-                    cursorGlow.style.left = currentX + 'px';
-                    cursorGlow.style.top = currentY + 'px';
-                    requestAnimationFrame(animateCursor);
-                }
-                requestAnimationFrame(animateCursor);
-            } else {
-                cursorGlow.style.display = 'none';
             }
 
-            // ============ Progress Bar ============
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const scrollTop = window.scrollY;
-                        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                        progressBar.style.width = scrollPercent + '%';
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            // ============ Back to Top ============
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 500) {
-                    backToTop.classList.add('show');
-                } else {
-                    backToTop.classList.remove('show');
-                }
-            }, { passive: true });
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // ============ Particles ============
-            let particleInterval;
-            const MAX_PARTICLES = 25;
-
-            function createParticle() {
-                if (particlesContainer.children.length >= MAX_PARTICLES) {
-                    const oldest = particlesContainer.firstElementChild;
-                    if (oldest) oldest.remove();
-                }
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                const size = Math.random() * 5 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = Math.random() * 8 + 7 + 's';
-                particle.style.animationDelay = '0s';
-                particlesContainer.appendChild(particle);
-                particle.addEventListener('animationend', () => particle.remove(), { once: true });
-            }
-
-            function startParticles() {
-                for (let i = 0; i < 15; i++) {
-                    setTimeout(createParticle, i * 250);
-                }
-                particleInterval = setInterval(createParticle, 700);
-            }
-
-            function stopParticles() {
-                clearInterval(particleInterval);
-            }
-
-            // تقليل الجسيمات عند عدم التركيز
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
-                    stopParticles();
-                } else {
-                    startParticles();
-                }
-            });
-
-            startParticles();
-
-            // ============ Nav Active State ============
-            let navScrollTicking = false;
-            window.addEventListener('scroll', () => {
-                if (!navScrollTicking) {
-                    requestAnimationFrame(() => {
-                        if (window.scrollY > 50) {
-                            navbar.classList.add('scrolled');
-                        } else {
-                            navbar.classList.remove('scrolled');
-                        }
-                        let currentSection = '';
-                        sections.forEach(section => {
-                            const sectionTop = section.offsetTop - 140;
-                            const sectionHeight = section.offsetHeight;
-                            if (window.scrollY >= sectionTop && window.scrollY < sectionTop +
-                                sectionHeight) {
-                                currentSection = section.getAttribute('id');
-                            }
-                        });
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + currentSection) {
-                                link.classList.add('active');
-                            }
-                        });
-                        navScrollTicking = false;
-                    });
-                    navScrollTicking = true;
-                }
-            }, { passive: true });
-
-            // ============ Reveal Observer ============
-            const revealObserver = new IntersectionObserver((entries) => {
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-            revealElements.forEach(el => revealObserver.observe(el));
+            }, { threshold: 0.1 });
 
-            // ============ Stats Counter ============
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
-                        const target = parseInt(el.getAttribute('data-count'));
-                        const duration = 1800;
-                        const startTime = performance.now();
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-                        function updateCounter(timestamp) {
-                            const elapsed = timestamp - startTime;
-                            const progress = Math.min(elapsed / duration, 1);
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            const current = Math.floor(eased * target);
-                            el.textContent = current.toLocaleString('ar-SA');
-                            if (progress < 1) {
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                el.textContent = target.toLocaleString('ar-SA');
-                            }
-                        }
-                        requestAnimationFrame(updateCounter);
-                        statsObserver.unobserve(el);
+            // Stats Counter Animation
+            document.querySelectorAll('.stat-number').forEach(el => {
+                const countTo = parseInt(el.getAttribute('data-count'));
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += Math.ceil(countTo / 20);
+                    if (current >= countTo) {
+                        el.textContent = countTo;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = current;
                     }
-                });
-            }, { threshold: 0.4 });
-            statNumbers.forEach(el => statsObserver.observe(el));
-
-            // ============ Tips Data ============
-            const tipsData = [{
-                icon: "fa-hand-holding-heart",
-                title: "إخلاص النية وطهارة القلب",
-                content: `
-                    <p>قال الإمام أحمد رحمه الله: <strong>"العلم لا يعدله شيء لمن صحت نيته"</strong>، قيل: وما صحة النية؟ قال: <strong>"ينوي رفع الجهل عن نفسه وعن غيره"</strong>.</p>
-                    <p>إن النية هي الإكسير الذي يحول أفعالك العادية إلى عبادات ومقربات إلى الله. وتجلي النية وطهارة القلب يتطلبان الآتي:</p>
-                    <ul>
-                        <li><strong>تجريد القصد:</strong> أن تحرص أن يكون طلبك للعلم ابتغاء وجه الله وحده لا للتفاخر ولا لنيل المناصب.</li>
-                        <li><strong>الخوف من الشهرة:</strong> البعد عن حب الظهور، فإن حب الظهور يقصم الظهور كما قال السلف.</li>
-                        <li><strong>تطهير القلب من الحسد:</strong> فرحك بظهور الحق على لسان غيرك تماماً كفرحك بظهوره على لسانك.</li>
-                    </ul>`
-            }, {
-                icon: "fa-layer-group",
-                title: "التدرج والضبط والإتقان",
-                content: `
-                    <p>من المزالق العظيمة في طريق الطلب: الاستعجال والقفز على المطولات قبل ضبط المتون والمختصرات.</p>
-                    <p>قال ابن عبد البر: <strong>"طلب العلم درجات ومناقل ورتب، لا ينبغي تعديها، ومن تعداها جملة فقد تعدى سبيل السلف"</strong>.</p>
-                    <ul>
-                        <li><strong>البداية بالمتون القصيرة:</strong> مثل الأربعين النووية، والأصول الثلاثة، والبيقونية.</li>
-                        <li><strong>التكرار والضبط:</strong> ضبط مختصر واحد خير من قراءة عشرات الكتب بدون إتقان.</li>
-                        <li><strong>عدم التشتت:</strong> الالتزام ببرنامج دراسي محدد وعدم التنقل بين العلوم بلا خطة.</li>
-                    </ul>`
-            }, {
-                icon: "fa-balance-scale",
-                title: "الجمع بين العلم والعمل",
-                content: `
-                    <p>العلم شجرة والعمل ثمرتها، والعلم هتف بالعمل فإن أجابه وإلا ارتحل.</p>
-                    <p>كان الصحابة الكرام لا يتجاوزون عشر آيات حتى يتعلموا ما فيها من العلم والعمل جميعاً، فتعلموا العلم والعمل جميعاً.</p>
-                    <ul>
-                        <li><strong>زكاة العلم العمل:</strong> كلما تعلمت حديثاً أو حكماً، بادر بتطبيقه في حياتك اليومية.</li>
-                        <li><strong>الخشية والتواضع:</strong> العلم الشرعي الصحيح يورث القلب انكساراً وخشية لله تعالى (إنما يخشى اللهَ من عباده العلماءُ).</li>
-                    </ul>`
-            }, {
-                icon: "fa-clock",
-                title: "تنظيم الوقت وحفظه",
-                content: `
-                    <p>قال ابن الجوزي رحمه الله: <strong>"ينبغي للإنسان أن يعرف شرف زمانه وقدر وقته، فلا يضيع منه لحظة في غير قربة"</strong>.</p>
-                    <ul>
-                        <li><strong>تقسيم اليوم:</strong> اجعل لك وقتاً محدداً ومقدساً يومياً للحفظ، ووقتاً للمراجعة، ووقتاً للقراءة العامة.</li>
-                        <li><strong>استغلال الأوقات البينية:</strong> أوقات الانتظار والمواصلات يمكن استغلالها في الاستماع للدروس أو مراجعة المحفوظات.</li>
-                        <li><strong>التخلص من المشتتات:</strong> تقليل استخدام منصات التواصل الاجتماعي التي تسرق ساعات طويلة بلا فائدة.</li>
-                    </ul>`
-            }, {
-                icon: "fa-users",
-                title: "صحبة الأخيار ومجالسة العلماء",
-                content: `
-                    <p>الصاحب ساحب، والطبع يسرق من الطبع دون أن تشعر!</p>
-                    <ul>
-                        <li><strong>اختيار الرفيق:</strong> التزم بصحبة طالب علم جاد يذكرك إذا نسيت، ويعينك إذا تنشطت، وينصحك إذا أخطأت.</li>
-                        <li><strong>التلقي المباشر:</strong> حرصك على الجلوس بين يدي العلماء والأشياخ المتقنين يختصر عليك سنوات طويلة ويكسبك الأدب والسمت قبل العلم.</li>
-                    </ul>`
-            }, {
-                icon: "fa-bookmark",
-                title: "الحفظ ثم الفهم ثم النشر",
-                content: `
-                    <p>من حفظ المتون حاز الفنون، ولكن الحفظ وحده لا يكفي دون فهم دقيق ونشر نافع.</p>
-                    <ul>
-                        <li><strong>مراحل التعلم الثلاث:</strong><br>1. <strong>الحفظ:</strong> حفظ ألفاظ المتن بدقة.<br>2. <strong>الفهم:</strong> دراسة الشرح والتأكد من استيعاب المسائل.<br>3. <strong>النشر:</strong> تعليم غيرك ومدارسة العلم مع أقرانك فإنه أثبت للعلم.</li>
-                    </ul>`
-            }];
-
-            // ============ Modal ============
-            window.openTipModal = function(index) {
-                const data = tipsData[index];
-                if (data) {
-                    modalTitle.textContent = data.title;
-                    modalContent.innerHTML = data.content;
-                    modalIcon.className = `fas ${data.icon}`;
-                    tipModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    // Focus trap
-                    tipModal.querySelector('.modal-close')?.focus();
-                }
-            };
-
-            window.closeTipModal = function() {
-                tipModal.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-
-            tipModal.addEventListener('click', (e) => {
-                if (e.target === tipModal) closeTipModal();
+                }, 50);
             });
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && tipModal.classList.contains('active')) {
-                    closeTipModal();
-                }
+            // Copy Phone
+            document.getElementById('phoneDisplay').addEventListener('click', () => {
+                navigator.clipboard.writeText('0556287891');
+                alert('تم نسخ رقم الهاتف: 0556287891');
             });
 
-            // ============ Ripple Effect ============
-            allRippleBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple-effect');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-                    this.appendChild(ripple);
-                    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
-                });
-            });
-
-            // ============ 3D Tilt Effect ============
-            const tiltCards = document.querySelectorAll('[data-tilt]');
-            tiltCards.forEach(card => {
-                card.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -8;
-                    const rotateY = ((x - centerX) / centerX) * 8;
-                    this.style.transform =
-                        `translateY(-10px) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) perspective(800px) rotateX(0deg) rotateY(0deg)';
-                });
-            });
-
-            // ============ Phone Copy ============
-            phoneDisplay.addEventListener('click', () => {
-                const number = '0556287891';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(number).then(() => {
-                        showCopyToast('تم نسخ الرقم: ' + number);
-                    }).catch(() => {
-                        fallbackCopy(number);
-                    });
-                } else {
-                    fallbackCopy(number);
-                }
-            });
-
-            function fallbackCopy(text) {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.select();
-                try { document.execCommand('copy');
-                    showCopyToast('تم نسخ الرقم: ' + text); } catch (e) { showCopyToast('تعذر النسخ، الرقم: ' + text); }
-                document.body.removeChild(textarea);
-            }
-
-            function showCopyToast(message) {
-                const existing = document.querySelector('.copy-toast');
-                if (existing) existing.remove();
-                const toast = document.createElement('div');
-                toast.className = 'copy-toast';
-                toast.textContent = message;
-                toast.style.cssText = `
-                    position: fixed;
-                    bottom: 90px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: var(--dark-gradient);
-                    color: #fff;
-                    padding: 12px 24px;
-                    border-radius: 50px;
-                    font-size: 0.9rem;
-                    font-weight: 700;
-                    z-index: 30000;
-                    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-                    animation: toastIn 0.4s cubic-bezier(0.34,1.56,0.64,1), toastOut 0.3s ease 1.8s forwards;
-                    pointer-events: none;
-                    white-space: nowrap;
-                `;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 2200);
-            }
-
-            // إضافة أنيميشن التوست في الـ stylesheet
-            const toastStyle = document.createElement('style');
-            toastStyle.textContent = `
-                @keyframes toastIn { from { opacity:0; transform: translateX(-50%) translateY(20px) scale(0.9); } to { opacity:1; transform: translateX(-50%) translateY(0) scale(1); } }
-                @keyframes toastOut { from { opacity:1; transform: translateX(-50%) translateY(0) scale(1); } to { opacity:0; transform: translateX(-50%) translateY(-15px) scale(0.9); } }
-            `;
-            document.head.appendChild(toastStyle);
-
-            // ============ Smooth Scroll ============
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const offset = 95;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window
-                            .scrollY - offset;
-                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // ============ Typewriter Effect ============
-            const typewriterEl = document.getElementById('typewriterText');
-            const phrases = [
-                'طالب علم شرعي ومؤلف',
-                'باحث في العلوم الإسلامية',
-                'مهتم بالمنهجية العلمية',
-                'ناشر للفوائد والكتب'
-            ];
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typewriterTimeout;
-
-            function typeWriter() {
-                const currentPhrase = phrases[phraseIndex];
-                if (isDeleting) {
-                    typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                let speed = isDeleting ? 40 : 80;
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    speed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    speed = 300;
-                }
-
-                typewriterTimeout = setTimeout(typeWriter, speed);
-            }
-            typeWriter();
-
-            // تنظيف عند مغادرة الصفحة
-            window.addEventListener('beforeunload', () => {
-                clearTimeout(typewriterTimeout);
-                stopParticles();
-            });
-
-            console.log('%c✨ موقع البراء أحمد فواز | تم التحميل بنجاح %c🚀',
-                'color: #c59b27; font-size: 1.2rem; font-weight: bold;',
-                'color: #64748b;');
-            console.log('%cتصميم عصري بأداء عالي | Dark Mode | 3D Tilt | Ripple | Particles',
-                'color: #475569; font-size: 0.85rem;');
         })();
+
+        // Modal Functions
+        function openCustomModal(title, body) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = body;
+            document.getElementById('customModal').classList.add('active');
+        }
+        function closeCustomModal() {
+            document.getElementById('customModal').classList.remove('active');
+        }
+
+        // أذكار الصباح كاملة
+        function openSabahAzkar() {
+            const azkarSabah = `
+            <div class="azkar-list">
+                <div class="zkr-item">آيَةُ الكُرْسِيِّ: <strong>﴿اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾</strong><span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">سُورَةُ الإِخْلاَصِ: <strong>﴿قُلْ هُوَ اللَّهُ أَحَدٌ...﴾</strong>، سُورَةُ الفَلَقِ: <strong>﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ...﴾</strong>، سُورَةُ النَّاسِ: <strong>﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ...﴾</strong><span class="zkr-count">3 مرات كل سورة</span></div>
+                <div class="zkr-item">أَصْبَحْنَا وَأَصْبَحَ المُلْكُ لِلَّهِ، وَالحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا اليَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا اليَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الكَسَلِ وَسُوءِ الكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي القَبْرِ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">سَيِّدُ الاِسْتِغْفَارِ: اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللهُ لاَ إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَهُ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرَسُولُكَ.<span class="zkr-count">4 مرات</span></div>
+                <div class="zkr-item">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الحَمْدُ وَلَكَ الشُّكْرُ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الكُفْرِ وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">حَسْبِيَ اللهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ العَرْشِ العَظِيمِ.<span class="zkr-count">7 مرات</span></div>
+                <div class="zkr-item">اللَّهُمَّ إِنِّي أَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءاً أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">بِسْمِ اللهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ العَلِيمُ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">رَضِيتُ بِاللهِ رَبّاً، وَبِالإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيّاً.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">أَصْبَحْنَا وَأَصْبَحَ المُلْكُ لِلَّهِ رَبِّ العَالَمِينَ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا اليَوْمِ: فَتْحَهُ، وَنَصْرَهُ، وَنُورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">أَصْبَحْنَا عَلَى فِطْرَةِ الإِسْلاَمِ، وَعَلَى كَلِمَةِ الإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ المُشْرِكِينَ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">سُبْحَانَ اللهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">سُبْحَانَ اللهِ وَبِحَمْدِهِ.<span class="zkr-count">100 مرة</span></div>
+                <div class="zkr-item">لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ.<span class="zkr-count">100 مرة (أو 10 مرات)</span></div>
+                <div class="zkr-item">أَسْتَغْفِرُ اللهَ وَأَتُوبُ إِلَيْهِ.<span class="zkr-count">100 مرة</span></div>
+            </div>
+            `;
+            openCustomModal('أذكار الصباح كاملة', azkarSabah);
+        }
+
+        // أذكار المساء كاملة
+        function openMasaaAzkar() {
+            const azkarMasaa = `
+            <div class="azkar-list">
+                <div class="zkr-item">آيَةُ الكُرْسِيِّ: <strong>﴿اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ...﴾</strong><span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">سُورَةُ الإِخْلاَصِ، سُورَةُ الفَلَقِ، سُورَةُ النَّاسِ.<span class="zkr-count">3 مرات كل سورة</span></div>
+                <div class="zkr-item">أَمْسَيْنَا وَأَمْسَى المُلْكُ لِلَّهِ، وَالحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الكَسَلِ وَسُوءِ الكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي القَبْرِ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ المَصِيرُ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">سَيِّدُ الاِسْتِغْفَارِ: اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللهُ لاَ إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَهُ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرَسُولُكَ.<span class="zkr-count">4 مرات</span></div>
+                <div class="zkr-item">اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الحَمْدُ وَلَكَ الشُّكْرُ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الكُفْرِ وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">حَسْبِيَ اللهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ العَرْشِ العَظِيمِ.<span class="zkr-count">7 مرات</span></div>
+                <div class="zkr-item">اللَّهُمَّ إِنِّي أَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءاً أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">بِسْمِ اللهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ العَلِيمُ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">رَضِيتُ بِاللهِ رَبّاً، وَبِالإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيّاً.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">أَمْسَيْنَا وَأَمْسَى المُلْكُ لِلَّهِ رَبِّ العَالَمِينَ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيْلَةِ: فَتْحَهَا، وَنَصْرَهَا، وَنُورَهَا، وَبَرَكَتَهَا، وَهُدَاهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهَا وَشَرِّ مَا بَعْدَهَا.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">أَمْسَيْنَا عَلَى فِطْرَةِ الإِسْلاَمِ، وَعَلَى كَلِمَةِ الإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ المُشْرِكِينَ.<span class="zkr-count">مرة واحدة</span></div>
+                <div class="zkr-item">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ.<span class="zkr-count">3 مرات</span></div>
+                <div class="zkr-item">سُبْحَانَ اللهِ وَبِحَمْدِهِ.<span class="zkr-count">100 مرة</span></div>
+                <div class="zkr-item">لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ.<span class="zkr-count">100 مرة (أو 10 مرات)</span></div>
+            </div>
+            `;
+            openCustomModal('أذكار المساء كاملة', azkarMasaa);
+        }
+
+        // ==================== وظائف أدوات طالب العلم المعتمدة والمطورة ====================
+
+        // 1. حاسبة الختم المتقدمة
+        function calcQuranSealAdvanced() {
+            const days = parseInt(document.getElementById('sealDays').value);
+            const readType = document.getElementById('readType').value;
+            if (days > 0) {
+                const pagesPerDay = Math.ceil(604 / days);
+                let text = `ختم القرآن في <strong>${days} يوماً</strong> يتطلب قراءة <strong>${pagesPerDay} صفحة</strong> يومياً.<br>`;
+                if (readType === 'afterPrayers') {
+                    const pagesPerPrayer = Math.ceil(pagesPerDay / 5);
+                    text += `<i class="fas fa-check-circle" style="color:var(--secondary-color)"></i> الورد اليومي الموصى به: قراءة <strong>${pagesPerPrayer} صفحات</strong> عقب كل صلاة مكتوبة.`;
+                } else {
+                    text += `<i class="fas fa-check-circle" style="color:var(--secondary-color)"></i> الورد اليومي الموصى به: تخصيص جلسة صباحية (بعد صلاة الفجر) لمدة <strong>${Math.ceil(pagesPerDay * 1.5)} دقيقة</strong>.`;
+                }
+                document.getElementById('sealResult').innerHTML = text;
+            }
+        }
+
+        // 2. مصمم الخطة المنهجية
+        function generateMethodology() {
+            const art = document.getElementById('artSelect').value;
+            const level = document.getElementById('levelSelect').value;
+            let result = "";
+
+            if (art === 'aqeedah') {
+                if (level == 1) result = "المستوى الموصى به: <strong>ثلاثة الأصول + القواعد الأربع</strong> مع شرح ميسر وتفرغ لنبذ الشبهات.";
+                else if (level == 2) result = "المستوى الموصى به: <strong>كتاب التوحيد + العقيدة الواسطية</strong> للشيخ العثيمين أو الفوزان.";
+                else result = "المستوى الموصى به: <strong>شرح العقيدة الطحاوية (لابن أبي العز) + الحموية والتدمرية</strong>.";
+            } else if (art === 'fiqh') {
+                if (level == 1) result = "المستوى الموصى به: <strong>أخصر المختصرات</strong> (فقه) + <strong>الورقات</strong> (أصول).";
+                else if (level == 2) result = "المستوى الموصى به: <strong>زاد المستقنع</strong> أو <strong>عمدة الفقه</strong> + <strong>مذكرة أصول الفقه</strong> للشنقيطي.";
+                else result = "المستوى الموصى به: <strong>الروض المربع مع الحواشي</strong> + <strong>شرح الكوكب المنير</strong>.";
+            } else if (art === 'hadith') {
+                if (level == 1) result = "المستوى الموصى به: <strong>الأربعون النووية</strong> + <strong>البيقونية</strong> في المصطلح.";
+                else if (level == 2) result = "المستوى الموصى به: <strong>عمدة الأحكام</strong> أو <strong>بلوغ المرام</strong> + <strong>نخبة الفكر</strong>.";
+                else result = "المستوى الموصى به: <strong>رياض الصالحين</strong> + <strong>تدريب الراوي</strong> والبدء بالكتب الستة.";
+            } else if (art === 'arabic') {
+                if (level == 1) result = "المستوى الموصى به: <strong>الآجرومية</strong> في النحو + <strong>تحفة الأطفال</strong> في التجويد.";
+                else if (level == 2) result = "المستوى الموصى به: <strong>قطر الندى</strong> في النحو + <strong>المقدمة الجزرية</strong> في التجويد.";
+                else result = "المستوى الموصى به: <strong>ألفية ابن مالك بشرح ابن عقيل</strong> + <strong>الشاطبية</strong>.";
+            }
+            document.getElementById('planResult').innerHTML = result;
+        }
+
+        // 3. مؤقت المراجعة Pomodoro
+        let timerInterval;
+        let timeLeft = 25 * 60;
+        function changeTimerMode() {
+            const minutes = parseInt(document.getElementById('timerMode').value);
+            timeLeft = minutes * 60;
+            updateTimerDisplay();
+        }
+        function updateTimerDisplay() {
+            let m = Math.floor(timeLeft / 60);
+            let s = timeLeft % 60;
+            document.getElementById('timerDisplay').textContent = `${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+        }
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert('انتهت الجلسة العلمية! بارك الله في وقتك وتحصيلك.');
+                } else {
+                    timeLeft--;
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+        function resetTimer() {
+            clearInterval(timerInterval);
+            changeTimerMode();
+        }
+
+        // 4. الكناش الرقمي (حفظ الفوائد)
+        const notesArr = [];
+        function addKunashNote() {
+            const title = document.getElementById('noteTitle').value;
+            const category = document.getElementById('noteCategory').value;
+            if (title.trim() === "") return alert("يرجى كتابة عنوان الفائدة أو المسألة");
+
+            notesArr.push({ title, category });
+            document.getElementById('noteTitle').value = "";
+            renderKunash();
+        }
+        function renderKunash() {
+            const listDiv = document.getElementById('kunashList');
+            listDiv.innerHTML = "";
+            notesArr.forEach((item, index) => {
+                listDiv.innerHTML += `
+                    <div class="kunash-item">
+                        <span><strong>[${item.category}]</strong> ${item.title}</span>
+                        <i class="fas fa-trash" style="color:#ef4444; cursor:pointer;" onclick="deleteNote(${index})"></i>
+                    </div>
+                `;
+            });
+        }
+        function deleteNote(i) {
+            notesArr.splice(i, 1);
+            renderKunash();
+        }
+
+        // 5. محرك كشاف المراجع والمتون
+        function searchScientificBooks() {
+            const query = document.getElementById('searchBookInput').value.trim();
+            const res = document.getElementById('searchBookResult');
+            if (!query) {
+                res.innerHTML = "<span style='color:red'>يرجى كتابة اسم المتن للبحث</span>";
+                return;
+            }
+            res.innerHTML = `
+                <div style="background:var(--bg-color); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <p>جاري البحث عن <strong>"${query}"</strong> في المتون والمراجع المعتمدة:</p>
+                    <a href="https://shamela.ws/search?q=${encodeURIComponent(query)}" target="_blank" class="btn btn-green" style="margin-top:8px;">
+                        <i class="fas fa-external-link-alt"></i> فتح نتائج البحث بالمكتبة الشاملة
+                    </a>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
