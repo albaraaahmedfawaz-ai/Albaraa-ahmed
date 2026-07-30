@@ -11,95 +11,91 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Hijri Calendar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-hijri/2.1.2/moment-hijri.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-hijri/2.1.2/moment-hijri.min.js">
+    </script>
 
     <style>
         /* ============================================================
            DESIGN TOKENS — Light Mode
         ============================================================ */
         :root {
-            --bg-base:      #f5f7fa;
-            --bg-surface:   #ffffff;
-            --bg-elevated:  #fefefe;
-            --bg-input:     #f0f4f8;
-            --bg-subtle:    #eef2f7;
-
-            --primary:      #0ea5a0;
-            --primary-dark: #0b8a86;
-            --primary-light:#17c2bd;
-            --primary-glow: rgba(14, 165, 160, 0.14);
-            --primary-glow-strong: rgba(14, 165, 160, 0.28);
-
-            --gold:         #d97706;
-            --gold-light:   #f59e0b;
-            --gold-bg:      rgba(217, 119, 6, 0.10);
-            --gold-glow:    rgba(217, 119, 6, 0.22);
-
-            --text-heading: #0a1628;
-            --text-body:    #1e293b;
-            --text-muted:   #64748b;
-            --text-faint:   #94a3b8;
-
-            --border:       rgba(14, 165, 160, 0.12);
-            --border-card:  rgba(14, 165, 160, 0.08);
-            --border-input: #e2e8f0;
-
-            --shadow-sm:    0 2px 10px rgba(0,0,0,0.04);
-            --shadow-md:    0 8px 28px rgba(0,0,0,0.06);
-            --shadow-lg:    0 20px 50px rgba(0,0,0,0.08);
-            --shadow-glow:  0 12px 40px var(--primary-glow);
-
-            --radius-sm:    10px;
-            --radius-md:    16px;
-            --radius-lg:    22px;
-            --radius-xl:    30px;
-            --radius-full:  999px;
-
-            --transition:   0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-spring: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-base: #f3f5f9;
+            --bg-surface: #ffffff;
+            --bg-elevated: #fefefe;
+            --bg-input: #eef1f6;
+            --bg-subtle: #e8ecf3;
+            --primary: #089b96;
+            --primary-dark: #067a76;
+            --primary-light: #0cbdb7;
+            --primary-glow: rgba(8, 155, 150, 0.12);
+            --primary-glow-strong: rgba(8, 155, 150, 0.26);
+            --gold: #c27406;
+            --gold-light: #e8930f;
+            --gold-bg: rgba(194, 116, 6, 0.09);
+            --gold-glow: rgba(194, 116, 6, 0.20);
+            --danger: #e53e3e;
+            --danger-bg: rgba(229, 62, 62, 0.07);
+            --text-heading: #071126;
+            --text-body: #1a2638;
+            --text-muted: #5a6a82;
+            --text-faint: #8e9db3;
+            --border: rgba(8, 155, 150, 0.10);
+            --border-card: rgba(8, 155, 150, 0.07);
+            --border-input: #dde3ed;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 7px 24px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.07);
+            --shadow-glow: 0 10px 36px var(--primary-glow);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 30px;
+            --radius-full: 999px;
+            --transition: 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* ============================================================
            DESIGN TOKENS — Dark Mode
         ============================================================ */
         body.dark {
-            --bg-base:      #070e1a;
-            --bg-surface:   #0d1829;
-            --bg-elevated:  #111f36;
-            --bg-input:     #162035;
-            --bg-subtle:    #192540;
-
-            --primary:      #14b8b3;
-            --primary-dark: #0ea5a0;
-            --primary-light:#22d3ce;
-            --primary-glow: rgba(20, 184, 179, 0.18);
-            --primary-glow-strong: rgba(20, 184, 179, 0.35);
-
-            --gold:         #fbbf24;
-            --gold-light:   #fcd34d;
-            --gold-bg:      rgba(251, 191, 36, 0.10);
-            --gold-glow:    rgba(251, 191, 36, 0.25);
-
-            --text-heading: #f0f6ff;
-            --text-body:    #dde8f5;
-            --text-muted:   #7a9bbf;
-            --text-faint:   #4a6787;
-
-            --border:       rgba(20, 184, 179, 0.14);
-            --border-card:  rgba(255, 255, 255, 0.05);
-            --border-input: rgba(255, 255, 255, 0.07);
-
-            --shadow-sm:    0 2px 10px rgba(0,0,0,0.3);
-            --shadow-md:    0 8px 28px rgba(0,0,0,0.4);
-            --shadow-lg:    0 20px 50px rgba(0,0,0,0.5);
-            --shadow-glow:  0 12px 40px var(--primary-glow);
+            --bg-base: #060d1c;
+            --bg-surface: #0c1729;
+            --bg-elevated: #101e34;
+            --bg-input: #152036;
+            --bg-subtle: #18273f;
+            --primary: #10b5b0;
+            --primary-dark: #0c9b96;
+            --primary-light: #1dd3ce;
+            --primary-glow: rgba(16, 181, 176, 0.16);
+            --primary-glow-strong: rgba(16, 181, 176, 0.32);
+            --gold: #f0b62c;
+            --gold-light: #f6c94d;
+            --gold-bg: rgba(240, 182, 44, 0.09);
+            --gold-glow: rgba(240, 182, 44, 0.22);
+            --danger: #f87171;
+            --danger-bg: rgba(248, 113, 113, 0.08);
+            --text-heading: #eef4ff;
+            --text-body: #d6e2f5;
+            --text-muted: #7090b8;
+            --text-faint: #425a7a;
+            --border: rgba(16, 181, 176, 0.12);
+            --border-card: rgba(255, 255, 255, 0.04);
+            --border-input: rgba(255, 255, 255, 0.06);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+            --shadow-md: 0 7px 24px rgba(0, 0, 0, 0.38);
+            --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.48);
+            --shadow-glow: 0 10px 36px var(--primary-glow);
         }
 
         /* ============================================================
            RESET & BASE
         ============================================================ */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -108,6 +104,19 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 20px;
         }
 
         body {
@@ -116,7 +125,8 @@
             color: var(--text-body);
             min-height: 100vh;
             overflow-x: hidden;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.45s ease, color 0.45s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Ambient background glows */
@@ -127,9 +137,10 @@
             pointer-events: none;
             z-index: 0;
             background:
-                radial-gradient(ellipse 60% 50% at 80% -10%, var(--primary-glow) 0%, transparent 65%),
-                radial-gradient(ellipse 50% 40% at 0% 100%, var(--gold-glow) 0%, transparent 60%);
-            opacity: 0.7;
+                radial-gradient(ellipse 55% 45% at 78% -8%, var(--primary-glow) 0%, transparent 62%),
+                radial-gradient(ellipse 48% 38% at 2% 100%, var(--gold-glow) 0%, transparent 58%);
+            opacity: 0.65;
+            transition: opacity 0.45s ease;
         }
 
         /* ============================================================
@@ -141,7 +152,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 1rem 6rem;
+            padding: 0 1.2rem 6rem;
         }
 
         .container {
@@ -154,17 +165,23 @@
         ============================================================ */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.75s var(--transition-spring), transform 0.75s var(--transition-spring);
+            transform: translateY(30px);
+            transition: opacity 0.7s var(--transition-spring), transform 0.7s var(--transition-spring);
             will-change: opacity, transform;
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 { transition-delay: 0.08s; }
-        .reveal-delay-2 { transition-delay: 0.16s; }
-        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-1 {
+            transition-delay: 0.07s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.15s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.22s;
+        }
 
         /* ============================================================
            TOP NAV BAR
@@ -175,51 +192,50 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.4rem 0;
-            margin-bottom: 0.5rem;
+            padding: 1.3rem 0;
+            margin-bottom: 0.4rem;
             gap: 1rem;
         }
-
         .topbar-brand {
             display: flex;
             align-items: center;
             gap: 0.7rem;
         }
-
         .topbar-brand-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 16px var(--primary-glow-strong);
+            font-size: 1.15rem;
+            box-shadow: 0 4px 18px var(--primary-glow-strong);
             flex-shrink: 0;
+            transition: transform var(--transition-spring);
         }
-
+        .topbar-brand-icon:hover {
+            transform: rotate(-6deg) scale(1.06);
+        }
         .topbar-brand-name {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-heading);
             letter-spacing: -0.3px;
             line-height: 1.25;
         }
-
         .topbar-brand-sub {
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             font-weight: 500;
             color: var(--text-muted);
             display: block;
         }
-
         .theme-btn {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 0.6rem 1.2rem;
+            padding: 0.58rem 1.15rem;
             border-radius: var(--radius-full);
             border: 1.5px solid var(--border-input);
             background: var(--bg-surface);
@@ -230,17 +246,36 @@
             cursor: pointer;
             box-shadow: var(--shadow-sm);
             transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
         }
-
+        .theme-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-glow);
+            opacity: 0;
+            transition: opacity var(--transition);
+            border-radius: inherit;
+        }
         .theme-btn:hover {
             border-color: var(--primary);
             color: var(--primary);
-            background: var(--primary-glow);
             transform: translateY(-2px);
             box-shadow: var(--shadow-glow);
         }
-
-        .theme-btn i { font-size: 1rem; }
+        .theme-btn:hover::after {
+            opacity: 1;
+        }
+        .theme-btn i {
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .theme-btn span {
+            position: relative;
+            z-index: 1;
+        }
 
         /* ============================================================
            HERO HADITH BANNER
@@ -248,34 +283,51 @@
         .hadith-banner {
             width: 100%;
             max-width: 1140px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.4rem;
             position: relative;
             overflow: hidden;
             border-radius: var(--radius-lg);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark) 60%, #065f5c);
-            padding: 1.1rem 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark) 55%, #045451);
+            padding: 1.05rem 1.7rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.9rem;
+            gap: 0.85rem;
             text-align: center;
-            box-shadow: 0 8px 32px var(--primary-glow-strong);
+            box-shadow: 0 8px 30px var(--primary-glow-strong);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
         .hadith-banner::before {
             content: '';
             position: absolute;
             inset: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             pointer-events: none;
+            animation: banner-shift 30s linear infinite;
         }
-
+        @keyframes banner-shift {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(60px, 60px);
+            }
+        }
         .hadith-banner i {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.85);
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.85);
             flex-shrink: 0;
+            animation: float-icon 3s ease-in-out infinite;
         }
-
+        @keyframes float-icon {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
         .hadith-banner span {
             color: #ffffff;
             font-size: 0.97rem;
@@ -291,44 +343,61 @@
             text-align: center;
             width: 100%;
             max-width: 760px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2.8rem;
         }
-
         .hero-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            padding: 0.4rem 1rem;
+            padding: 0.38rem 1rem;
             border-radius: var(--radius-full);
             background: var(--gold-bg);
-            border: 1px solid rgba(217,119,6,0.2);
+            border: 1px solid rgba(194, 116, 6, 0.2);
             color: var(--gold);
-            font-size: 0.82rem;
+            font-size: 0.83rem;
             font-weight: 800;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
             letter-spacing: 0.3px;
+            animation: pulse-gold 2.5s ease-in-out infinite;
         }
-
+        @keyframes pulse-gold {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 var(--gold-glow);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(194, 116, 6, 0);
+            }
+        }
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
             font-weight: 900;
             color: var(--text-heading);
             letter-spacing: -1px;
             line-height: 1.15;
             margin-bottom: 1rem;
         }
-
         .hero h1 .accent {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: accent-shift 4s ease-in-out infinite;
+            background-size: 200% 200%;
         }
-
+        @keyframes accent-shift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
         .hero p {
             color: var(--text-muted);
             font-size: 1.1rem;
-            line-height: 1.75;
+            line-height: 1.8;
             font-weight: 500;
         }
 
@@ -341,7 +410,6 @@
             gap: 0.85rem;
             margin-bottom: 1.5rem;
         }
-
         .section-title-icon {
             width: 44px;
             height: 44px;
@@ -353,8 +421,8 @@
             justify-content: center;
             font-size: 1.25rem;
             flex-shrink: 0;
+            transition: all var(--transition-spring);
         }
-
         .section-title h2 {
             font-size: 1.45rem;
             font-weight: 800;
@@ -373,20 +441,22 @@
             overflow: hidden;
             transition: transform var(--transition-spring), box-shadow var(--transition-spring), border-color var(--transition);
         }
-
         .card::after {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
             pointer-events: none;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg), var(--shadow-glow);
-            border-color: rgba(14, 165, 160, 0.25);
+            border-color: rgba(8, 155, 150, 0.22);
+        }
+        .card:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow), var(--shadow-md);
         }
 
         /* ============================================================
@@ -397,18 +467,16 @@
             flex-direction: column;
             gap: 0.5rem;
         }
-
         .field label {
             font-size: 0.87rem;
             font-weight: 700;
             color: var(--text-muted);
         }
-
         .field input,
         .field select,
         .field textarea {
             width: 100%;
-            padding: 0.9rem 1.1rem;
+            padding: 0.88rem 1.05rem;
             border-radius: var(--radius-md);
             border: 1.5px solid var(--border-input);
             background: var(--bg-input);
@@ -420,13 +488,19 @@
             transition: all var(--transition);
             -webkit-appearance: none;
         }
-
         .field input:focus,
         .field select:focus,
         .field textarea:focus {
             border-color: var(--primary);
             background: var(--bg-surface);
             box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+        .field select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235a6a82' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            padding-left: 2.2rem;
         }
 
         /* ============================================================
@@ -437,7 +511,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 0.72rem 1.3rem;
+            padding: 0.7rem 1.25rem;
             border-radius: var(--radius-md);
             border: none;
             font-family: 'Tajawal', sans-serif;
@@ -446,40 +520,73 @@
             cursor: pointer;
             transition: all var(--transition);
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
         }
-
-        .btn:hover { transform: translateY(-2px); }
-        .btn:active { transform: translateY(0) scale(0.98); }
-
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.2s;
+            border-radius: inherit;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0) scale(0.97);
+        }
+        .btn:hover::after {
+            opacity: 1;
+        }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
-            box-shadow: 0 4px 16px var(--primary-glow);
+            box-shadow: 0 4px 15px var(--primary-glow);
         }
-        .btn-primary:hover { box-shadow: 0 8px 28px var(--primary-glow-strong); }
-
+        .btn-primary:hover {
+            box-shadow: 0 8px 26px var(--primary-glow-strong);
+        }
         .btn-ghost {
             background: var(--bg-input);
             color: var(--text-body);
             border: 1px solid var(--border-input);
         }
-        .btn-ghost:hover { background: var(--bg-subtle); border-color: var(--primary); color: var(--primary); }
-
-        .btn-whatsapp { background: linear-gradient(135deg, #25d366, #1aaa53); color: #fff; box-shadow: 0 4px 14px rgba(37,211,102,0.25); }
-        .btn-whatsapp:hover { box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
-
-        .btn-telegram { background: linear-gradient(135deg, #229ED9, #1a7cb8); color: #fff; box-shadow: 0 4px 14px rgba(34,158,217,0.25); }
-        .btn-telegram:hover { box-shadow: 0 8px 24px rgba(34,158,217,0.4); }
-
+        .btn-ghost:hover {
+            background: var(--bg-subtle);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #1aaa53);
+            color: #fff;
+            box-shadow: 0 4px 13px rgba(37, 211, 102, 0.22);
+        }
+        .btn-whatsapp:hover {
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38);
+        }
+        .btn-telegram {
+            background: linear-gradient(135deg, #229ED9, #1a7cb8);
+            color: #fff;
+            box-shadow: 0 4px 13px rgba(34, 158, 217, 0.22);
+        }
+        .btn-telegram:hover {
+            box-shadow: 0 8px 22px rgba(34, 158, 217, 0.38);
+        }
         .btn-danger {
             background: transparent;
-            color: #ef4444;
-            border: 1px solid rgba(239,68,68,0.25);
+            color: var(--danger);
+            border: 1px solid rgba(229, 62, 62, 0.22);
         }
-        .btn-danger:hover { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.5); }
+        .btn-danger:hover {
+            background: var(--danger-bg);
+            border-color: rgba(229, 62, 62, 0.45);
+        }
 
         /* ============================================================
-           SECTION: INTERACTIVE TOOLS
+           INTERACTIVE SECTION
         ============================================================ */
         .interactive-section {
             width: 100%;
@@ -490,13 +597,10 @@
             margin-bottom: 2.5rem;
         }
 
-        /* ============================================================
-           QURAN CALCULATOR
-        ============================================================ */
+        /* ─── Quran Calculator ─── */
         .quran-calc {
-            padding: 2.2rem 2.2rem 1.8rem;
+            padding: 2.1rem 2.1rem 1.7rem;
         }
-
         .quran-calc-accent {
             position: absolute;
             top: 0;
@@ -506,103 +610,94 @@
             background: linear-gradient(to bottom, var(--primary), var(--gold));
             border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
         }
-
         .calc-inputs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-            margin-bottom: 1.6rem;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.1rem;
+            margin-bottom: 1.5rem;
         }
-
-        /* Progress bar */
         .progress-track {
             height: 10px;
             border-radius: var(--radius-full);
             background: var(--bg-subtle);
             overflow: hidden;
             margin: 0.5rem 0;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
         }
-
         .progress-fill {
             height: 100%;
             width: 0%;
             border-radius: var(--radius-full);
             background: linear-gradient(90deg, var(--primary), var(--gold-light));
-            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px var(--primary-glow);
         }
-
         .progress-meta {
             display: flex;
             justify-content: space-between;
             font-size: 0.84rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.4rem;
         }
-
-        /* Result cards row */
         .result-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
             gap: 1rem;
             background: var(--bg-subtle);
             border: 1px solid var(--border-input);
             border-radius: var(--radius-md);
-            padding: 1.4rem;
-            margin: 1.4rem 0;
+            padding: 1.3rem;
+            margin: 1.3rem 0;
         }
-
         .result-item {
             background: var(--bg-surface);
             border: 1px solid var(--border-input);
             border-radius: var(--radius-sm);
-            padding: 1.1rem;
+            padding: 1rem;
             text-align: center;
+            transition: transform var(--transition);
         }
-
+        .result-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
         .result-item .result-label {
             font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.4rem;
         }
-
         .result-item .result-value {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 900;
             color: var(--primary);
             line-height: 1.3;
         }
-
         .share-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.7rem;
+            gap: 0.65rem;
         }
 
-        /* ============================================================
-           WIDGETS GRID
-        ============================================================ */
+        /* ─── Widgets Grid ─── */
         .widgets-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
         .widget {
-            padding: 1.7rem;
+            padding: 1.6rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 1.2rem;
+            gap: 1.1rem;
         }
-
         .widget-head {
             display: flex;
             align-items: center;
             gap: 0.8rem;
         }
-
         .widget-icon {
             width: 42px;
             height: 42px;
@@ -614,15 +709,14 @@
             justify-content: center;
             font-size: 1.2rem;
             flex-shrink: 0;
-            transition: all var(--transition);
+            transition: all var(--transition-spring);
         }
-
         .card:hover .widget-icon {
             background: var(--primary);
             color: #fff;
             box-shadow: 0 6px 18px var(--primary-glow-strong);
+            transform: rotate(-5deg) scale(1.05);
         }
-
         .widget-head h3 {
             font-size: 1.15rem;
             font-weight: 800;
@@ -635,9 +729,8 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
-
         .preset-btn {
-            padding: 0.4rem 0.9rem;
+            padding: 0.38rem 0.85rem;
             border-radius: var(--radius-sm);
             border: 1.5px solid var(--border-input);
             background: var(--bg-input);
@@ -648,76 +741,101 @@
             cursor: pointer;
             transition: all var(--transition);
         }
-
-        .preset-btn:hover, .preset-btn.active {
+        .preset-btn:hover,
+        .preset-btn.active {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
             box-shadow: 0 4px 12px var(--primary-glow);
         }
-
-        .timer-clock {
-            font-size: 3.2rem;
+        .timer-display-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+        }
+        .timer-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+        .timer-circle-bg {
+            fill: none;
+            stroke: var(--bg-subtle);
+            stroke-width: 8;
+        }
+        .timer-circle-progress {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 8;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.35s linear;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 0;
+        }
+        .timer-clock-text {
+            font-size: 2.4rem;
             font-weight: 900;
             color: var(--text-heading);
-            text-align: center;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-variant-numeric: tabular-nums;
+            z-index: 1;
             line-height: 1;
-            padding: 1rem 0;
         }
-
-        .timer-clock span {
+        .timer-clock-text span {
             color: var(--primary);
         }
-
         .timer-controls {
             display: flex;
-            gap: 0.7rem;
+            gap: 0.65rem;
         }
 
         /* ─── Calendar Badge ─── */
         .date-badge {
             background: var(--gold-bg);
-            border: 1px solid rgba(217, 119, 6, 0.2);
+            border: 1px solid rgba(194, 116, 6, 0.2);
             border-radius: var(--radius-sm);
             color: var(--gold);
-            padding: 0.65rem 1rem;
+            padding: 0.6rem 1rem;
             font-size: 0.86rem;
             font-weight: 800;
             text-align: center;
             line-height: 1.55;
         }
-
         .calendar-result {
             background: var(--bg-subtle);
             border: 1px solid var(--border-input);
             border-radius: var(--radius-sm);
-            padding: 1rem;
+            padding: 0.95rem;
             text-align: center;
         }
-
         .calendar-result .r-label {
             font-size: 0.79rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.32rem;
         }
-
         .calendar-result .r-value {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             font-weight: 900;
             color: var(--primary);
             line-height: 1.5;
         }
-
-        .cal-fields { display: none; }
-        .cal-fields.active { display: block; }
-
+        .cal-fields {
+            display: none;
+        }
+        .cal-fields.active {
+            display: block;
+        }
         .hijri-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.6rem;
+            gap: 0.55rem;
         }
 
         /* ─── Zakat ─── */
@@ -725,28 +843,26 @@
             background: var(--primary-glow);
             border: 1.5px dashed var(--primary);
             border-radius: var(--radius-sm);
-            padding: 1.1rem;
+            padding: 1rem;
             text-align: center;
+            transition: all var(--transition);
         }
-
         .zakat-result .z-label {
             font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.28rem;
         }
-
         .zakat-result .z-value {
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             font-weight: 900;
             color: var(--primary);
         }
-
         .zakat-result .z-note {
             font-size: 0.79rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-top: 0.3rem;
+            margin-top: 0.28rem;
         }
 
         /* ─── Tasbeeh ─── */
@@ -754,9 +870,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
         }
-
         .tasbeeh-note {
             font-size: 0.88rem;
             font-weight: 600;
@@ -764,7 +879,6 @@
             text-align: center;
             line-height: 1.6;
         }
-
         .tasbeeh-btn {
             width: 108px;
             height: 108px;
@@ -772,26 +886,40 @@
             background: linear-gradient(145deg, var(--primary-light), var(--primary-dark));
             color: #fff;
             border: none;
-            font-size: 2.4rem;
+            font-size: 2.3rem;
             font-weight: 900;
             font-family: 'Tajawal', sans-serif;
             cursor: pointer;
-            box-shadow: 0 10px 30px var(--primary-glow-strong), 0 2px 6px rgba(0,0,0,0.1);
-            transition: transform var(--transition), box-shadow var(--transition);
+            box-shadow: 0 10px 30px var(--primary-glow-strong), 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-spring), box-shadow var(--transition-spring);
             user-select: none;
             display: flex;
             align-items: center;
             justify-content: center;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .tasbeeh-btn:hover {
             box-shadow: 0 16px 40px var(--primary-glow-strong);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
-
         .tasbeeh-btn:active {
-            transform: scale(0.91);
-            box-shadow: 0 4px 12px var(--primary-glow);
+            transform: scale(0.9);
+            box-shadow: 0 4px 10px var(--primary-glow);
+            transition: transform 0.1s;
+        }
+        .tasbeeh-btn.flash {
+            animation: tasbeeh-pop 0.25s ease-out;
+        }
+        @keyframes tasbeeh-pop {
+            0% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.12);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         /* ============================================================
@@ -800,19 +928,17 @@
         .controls-section {
             width: 100%;
             max-width: 1140px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             display: flex;
             flex-direction: column;
-            gap: 1.1rem;
+            gap: 1rem;
         }
-
         .search-wrap {
             position: relative;
         }
-
         .search-wrap input {
             width: 100%;
-            padding: 1.05rem 1.3rem 1.05rem 3.8rem;
+            padding: 1rem 1.25rem 1rem 3.6rem;
             border-radius: var(--radius-xl);
             border: 1.5px solid var(--border-input);
             background: var(--bg-surface);
@@ -824,39 +950,40 @@
             box-shadow: var(--shadow-sm);
             transition: all var(--transition);
         }
-
         .search-wrap input:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 4px var(--primary-glow), var(--shadow-sm);
         }
-
-        .search-wrap input::placeholder { color: var(--text-faint); }
-
+        .search-wrap input::placeholder {
+            color: var(--text-faint);
+        }
         .search-icon {
             position: absolute;
-            left: 1.35rem;
+            left: 1.3rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
             font-size: 1.1rem;
             pointer-events: none;
+            transition: color var(--transition);
         }
-
+        .search-wrap input:focus~.search-icon {
+            color: var(--primary);
+        }
         .filter-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.65rem;
+            gap: 0.6rem;
             justify-content: center;
         }
-
         .filter-btn {
-            padding: 0.6rem 1.4rem;
+            padding: 0.55rem 1.3rem;
             border-radius: var(--radius-full);
             border: 1.5px solid var(--border-input);
             background: var(--bg-surface);
             color: var(--text-muted);
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.89rem;
             font-weight: 700;
             cursor: pointer;
             transition: all var(--transition);
@@ -864,8 +991,8 @@
             align-items: center;
             gap: 6px;
         }
-
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
@@ -883,22 +1010,25 @@
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-
         .tool-card {
-            padding: 1.8rem;
+            padding: 1.7rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 0;
+            transition: transform var(--transition-spring), box-shadow var(--transition-spring), border-color var(--transition), opacity 0.3s ease;
         }
-
+        .tool-card[style*="display: none"] {
+            opacity: 0;
+            pointer-events: none;
+        }
         .fav-btn {
             position: absolute;
-            top: 1.1rem;
-            left: 1.1rem;
+            top: 1rem;
+            left: 1rem;
             background: transparent;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-faint);
             cursor: pointer;
             z-index: 5;
@@ -910,20 +1040,19 @@
             justify-content: center;
             transition: all var(--transition);
         }
-
-        .fav-btn:hover, .fav-btn.active {
+        .fav-btn:hover,
+        .fav-btn.active {
             color: var(--gold);
             background: var(--gold-bg);
+            transform: scale(1.15);
         }
-
         .tool-header {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 0.9rem;
+            margin-bottom: 0.85rem;
             padding-left: 2rem;
         }
-
         .tool-icon {
             width: 52px;
             height: 52px;
@@ -933,52 +1062,47 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             flex-shrink: 0;
             transition: all var(--transition-spring);
         }
-
         .card:hover .tool-icon {
             background: var(--primary);
             color: #fff;
             transform: scale(1.08) rotate(-4deg);
             box-shadow: 0 8px 20px var(--primary-glow-strong);
         }
-
         .tool-meta h3 {
             font-size: 1.2rem;
             font-weight: 800;
             color: var(--text-heading);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.32rem;
         }
-
         .badge {
             display: inline-block;
-            padding: 0.22rem 0.75rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 7px;
             background: var(--gold-bg);
             color: var(--gold);
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             font-weight: 800;
         }
-
         .tool-desc {
             color: var(--text-muted);
-            font-size: 0.96rem;
+            font-size: 0.95rem;
             line-height: 1.7;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.4rem;
             font-weight: 500;
         }
-
         .tool-link {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 0.82rem;
+            padding: 0.8rem;
             border-radius: var(--radius-md);
-            border: 1.8px solid rgba(14, 165, 160, 0.3);
+            border: 1.8px solid rgba(8, 155, 150, 0.28);
             background: transparent;
             color: var(--primary);
             text-decoration: none;
@@ -986,7 +1110,6 @@
             font-size: 0.92rem;
             transition: all var(--transition);
         }
-
         .tool-link:hover {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
@@ -1002,46 +1125,44 @@
             width: 100%;
             max-width: 1140px;
             margin-bottom: 2.5rem;
-            padding: 2rem 2.2rem;
+            padding: 1.9rem 2.1rem;
         }
-
         .notes-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
         }
-
         .notes-head-title {
             display: flex;
             align-items: center;
             gap: 0.8rem;
         }
-
         .notes-head-title i {
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             color: var(--gold);
         }
-
         .notes-head-title h2 {
             font-size: 1.35rem;
             font-weight: 800;
             color: var(--text-heading);
         }
-
-        .notes-actions-head { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-
+        .notes-actions-head {
+            display: flex;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+        }
         .notes-textarea {
             width: 100%;
-            min-height: 190px;
-            padding: 1.2rem;
+            min-height: 185px;
+            padding: 1.1rem;
             border-radius: var(--radius-md);
             border: 1.5px solid var(--border-input);
             background: var(--bg-input);
             color: var(--text-body);
-            font-size: 1.03rem;
+            font-size: 1.02rem;
             font-family: 'Tajawal', sans-serif;
             font-weight: 500;
             line-height: 1.75;
@@ -1049,24 +1170,22 @@
             resize: vertical;
             transition: all var(--transition);
         }
-
         .notes-textarea:focus {
             border-color: var(--primary);
             background: var(--bg-surface);
             box-shadow: 0 0 0 4px var(--primary-glow);
         }
-
-        .notes-textarea::placeholder { color: var(--text-faint); }
-
+        .notes-textarea::placeholder {
+            color: var(--text-faint);
+        }
         .notes-foot {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-top: 1rem;
+            gap: 0.65rem;
+            margin-top: 0.9rem;
         }
-
         .notes-stats {
             font-size: 0.84rem;
             font-weight: 700;
@@ -1080,33 +1199,31 @@
             width: 100%;
             max-width: 1140px;
             margin-top: 1rem;
-            padding: 1.6rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             border-top: 1px solid var(--border-input);
         }
-
         .site-footer p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.94rem;
             font-weight: 600;
         }
-
         .site-footer strong {
             color: var(--primary);
             font-weight: 800;
         }
 
         /* ============================================================
-           FLOATING YT BUTTON
+           FLOATING BUTTONS
         ============================================================ */
         .yt-fab {
             position: fixed;
-            bottom: 24px;
-            left: 24px;
+            bottom: 22px;
+            left: 22px;
             z-index: 999;
             background: linear-gradient(135deg, #ff1a1a, #cc0000);
-            color: #ffffff;
-            padding: 0.75rem 1.5rem;
+            color: #fff;
+            padding: 0.7rem 1.4rem;
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -1114,49 +1231,95 @@
             text-decoration: none;
             font-family: 'Tajawal', sans-serif;
             font-weight: 800;
-            font-size: 0.92rem;
-            box-shadow: 0 8px 28px rgba(255, 0, 0, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.91rem;
+            box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28);
+            border: 2px solid rgba(255, 255, 255, 0.18);
             transition: all var(--transition);
-            animation: yt-pulse 3s ease-in-out infinite;
+            animation: yt-pulse 3.5s ease-in-out infinite;
         }
-
         .yt-fab:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 14px 40px rgba(255, 0, 0, 0.5);
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 14px 38px rgba(255, 0, 0, 0.48);
             color: #fff;
         }
-
-        .yt-fab i { font-size: 1.35rem; }
-
+        .yt-fab i {
+            font-size: 1.3rem;
+        }
         @keyframes yt-pulse {
-            0%, 100% { box-shadow: 0 8px 28px rgba(255,0,0,0.3), 0 0 0 0 rgba(255,0,0,0.4); }
-            50% { box-shadow: 0 8px 28px rgba(255,0,0,0.3), 0 0 0 12px rgba(255,0,0,0); }
+            0%,
+            100% {
+                box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 0 rgba(255, 0, 0, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 14px rgba(255, 0, 0, 0);
+            }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 998;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-input);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            font-size: 1.1rem;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .back-to-top:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px var(--primary-glow-strong);
+            transform: translateY(-4px);
         }
 
         /* ============================================================
            TOAST
         ============================================================ */
-        .toast {
+        .toast-container {
             position: fixed;
-            bottom: 90px;
-            right: 24px;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            pointer-events: none;
+        }
+        .toast {
             background: var(--text-heading);
             color: var(--bg-surface);
-            padding: 0.85rem 1.4rem;
+            padding: 0.8rem 1.3rem;
             border-radius: var(--radius-md);
             font-weight: 700;
             font-size: 0.9rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
             opacity: 0;
             transform: translateY(14px);
             transition: all 0.3s var(--transition-spring);
             pointer-events: none;
-            max-width: 280px;
+            max-width: 300px;
             text-align: center;
+            white-space: nowrap;
         }
-
         .toast.show {
             opacity: 1;
             transform: translateY(0);
@@ -1166,26 +1329,82 @@
            RESPONSIVE
         ============================================================ */
         @media (max-width: 720px) {
-            .topbar { padding: 1rem 0; }
-            .topbar-brand-name { font-size: 0.9rem; }
-            .theme-btn span { display: none; }
-            .theme-btn { padding: 0.6rem; }
-            .hero h1 { font-size: 1.9rem; }
-            .hero p { font-size: 1rem; }
-            .hadith-banner { padding: 1rem; font-size: 0.9rem; }
-            .quran-calc { padding: 1.4rem; }
-            .widgets-grid { grid-template-columns: 1fr; }
-            .tools-grid { grid-template-columns: 1fr; }
-            .notes-section { padding: 1.4rem; }
-            .timer-clock { font-size: 2.6rem; }
-            .yt-fab { padding: 0.65rem 1.1rem; font-size: 0.85rem; }
-            .yt-fab span { display: none; }
-            .result-row { padding: 1rem; }
+            .topbar {
+                padding: 1rem 0;
+            }
+            .topbar-brand-name {
+                font-size: 0.9rem;
+            }
+            .theme-btn span {
+                display: none;
+            }
+            .theme-btn {
+                padding: 0.55rem;
+            }
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hadith-banner {
+                padding: 0.95rem;
+                font-size: 0.88rem;
+            }
+            .quran-calc {
+                padding: 1.3rem;
+            }
+            .widgets-grid {
+                grid-template-columns: 1fr;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .notes-section {
+                padding: 1.3rem;
+            }
+            .timer-display-wrap {
+                width: 130px;
+                height: 130px;
+            }
+            .timer-clock-text {
+                font-size: 1.9rem;
+            }
+            .yt-fab {
+                padding: 0.6rem 1rem;
+                font-size: 0.84rem;
+            }
+            .yt-fab span {
+                display: none;
+            }
+            .result-row {
+                padding: 0.9rem;
+            }
+            .back-to-top {
+                bottom: 16px;
+                right: 16px;
+                width: 38px;
+                height: 38px;
+            }
+            .yt-fab {
+                bottom: 16px;
+                left: 16px;
+            }
         }
-
         @media (max-width: 480px) {
-            .hadith-banner i { display: none; }
-            .calc-inputs-grid { grid-template-columns: 1fr; }
+            .hadith-banner i {
+                display: none;
+            }
+            .calc-inputs-grid {
+                grid-template-columns: 1fr;
+            }
+            .hijri-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 0.4rem;
+            }
+            .toast-container {
+                bottom: 75px;
+            }
         }
 
         /* ============================================================
@@ -1198,447 +1417,448 @@
         body.dark .notes-textarea {
             color-scheme: dark;
         }
+        body.dark .field select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237090b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        }
     </style>
 </head>
 <body>
 
-<div class="page-wrapper">
+    <div class="page-wrapper">
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          TOP NAV
-    ═══════════════════════════════════════ -->
-    <div class="topbar container reveal">
-        <div class="topbar-brand">
-            <div class="topbar-brand-icon">
-                <i class="fa-solid fa-book-bookmark"></i>
+        ═══════════════════════════════════════ -->
+        <div class="topbar container reveal">
+            <div class="topbar-brand">
+                <div class="topbar-brand-icon">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <div>
+                    <span class="topbar-brand-name">حقيبة طالب العلم</span>
+                    <span class="topbar-brand-sub">الدليل الرقمي الشامل</span>
+                </div>
             </div>
-            <div>
-                <span class="topbar-brand-name">حقيبة طالب العلم</span>
-                <span class="topbar-brand-sub">الدليل الرقمي الشامل</span>
-            </div>
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="تبديل المظهر">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+                <span id="themeText">المظهر الداكن</span>
+            </button>
         </div>
 
-        <button class="theme-btn" onclick="toggleTheme()">
-            <i class="fa-solid fa-moon" id="themeIcon"></i>
-            <span id="themeText">المظهر الداكن</span>
-        </button>
-    </div>
-
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          HADITH BANNER
-    ═══════════════════════════════════════ -->
-    <div class="hadith-banner container reveal reveal-delay-1">
-        <i class="fa-solid fa-graduation-cap"></i>
-        <span>قال رسول الله ﷺ: «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ»</span>
-    </div>
+        ═══════════════════════════════════════ -->
+        <div class="hadith-banner container reveal reveal-delay-1">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>قال رسول الله ﷺ: «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ»</span>
+        </div>
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          HERO
-    ═══════════════════════════════════════ -->
-    <header class="hero reveal reveal-delay-2">
-        <div class="hero-eyebrow">
-            <i class="fa-solid fa-star" style="font-size:0.75rem;"></i>
-            الحقيبة الرسمية لطالب العلم
-        </div>
-        <h1>حقيبة <span class="accent">طالب العلم</span> الرقمية</h1>
-        <p>دليلك التفاعلي الشامل لأهم المكتبات والأدوات والتطبيقات النافعة لطالب العلم الشرعي</p>
-    </header>
+        ═══════════════════════════════════════ -->
+        <header class="hero reveal reveal-delay-2">
+            <div class="hero-eyebrow">
+                <i class="fa-solid fa-star" style="font-size:0.75rem;"></i>
+                الحقيبة الرسمية لطالب العلم
+            </div>
+            <h1>حقيبة <span class="accent">طالب العلم</span> الرقمية</h1>
+            <p>دليلك التفاعلي الشامل لأهم المكتبات والأدوات والتطبيقات النافعة لطالب العلم الشرعي</p>
+        </header>
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          INTERACTIVE TOOLS
-    ═══════════════════════════════════════ -->
-    <div class="interactive-section">
+        ═══════════════════════════════════════ -->
+        <div class="interactive-section">
 
-        <!-- ── Quran Calculator ── -->
-        <section class="card quran-calc reveal">
-            <div class="quran-calc-accent"></div>
-
-            <div class="section-title" style="margin-bottom:1.6rem;">
-                <div class="section-title-icon" style="background:var(--gold-bg); color:var(--gold);">
-                    <i class="fa-solid fa-kaaba"></i>
+            <!-- ── Quran Calculator ── -->
+            <section class="card quran-calc reveal" aria-labelledby="quranCalcTitle">
+                <div class="quran-calc-accent"></div>
+                <div class="section-title" style="margin-bottom:1.5rem;">
+                    <div class="section-title-icon" style="background:var(--gold-bg); color:var(--gold);">
+                        <i class="fa-solid fa-kaaba"></i>
+                    </div>
+                    <h2 id="quranCalcTitle">حاسبة ختم القرآن الكريم</h2>
                 </div>
-                <h2>حاسبة ختم القرآن الكريم الفائقة</h2>
-            </div>
-
-            <div class="calc-inputs-grid">
-                <div class="field">
-                    <label for="calcMode">طريقة التخطيط:</label>
-                    <select id="calcMode" onchange="calculateQuran()">
-                        <option value="pages">حسب عدد الصفحات اليومية</option>
-                        <option value="days">حسب عدد الأيام المستهدفة</option>
-                        <option value="juz">حسب الأجزاء اليومية</option>
-                    </select>
+                <div class="calc-inputs-grid">
+                    <div class="field">
+                        <label for="calcMode">طريقة التخطيط:</label>
+                        <select id="calcMode" onchange="calculateQuran()">
+                            <option value="pages">حسب عدد الصفحات اليومية</option>
+                            <option value="days">حسب عدد الأيام المستهدفة</option>
+                            <option value="juz">حسب الأجزاء اليومية</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label id="inputLabel" for="calcInput">عدد الصفحات يومياً:</label>
+                        <input type="number" id="calcInput" value="10" min="1" oninput="calculateQuran()">
+                    </div>
+                    <div class="field">
+                        <label for="readPages">كم صفحة قرأت حتى الآن؟</label>
+                        <input type="number" id="readPages" value="0" min="0" max="604" oninput="calculateQuran()">
+                    </div>
                 </div>
-                <div class="field">
-                    <label id="inputLabel" for="calcInput">عدد الصفحات يومياً:</label>
-                    <input type="number" id="calcInput" value="10" min="1" oninput="calculateQuran()">
-                </div>
-                <div class="field">
-                    <label for="readPages">كم صفحة قرأت حتى الآن؟</label>
-                    <input type="number" id="readPages" value="0" min="0" max="604" oninput="calculateQuran()">
-                </div>
-            </div>
-
-            <div>
-                <div class="progress-meta">
-                    <span>نسبة الإنجاز من المصحف الشريف</span>
-                    <span id="progressPercent">0%</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="progressBar"></div>
-                </div>
-            </div>
-
-            <div class="result-row">
-                <div class="result-item">
-                    <div class="result-label">المدة المتبقية للختم</div>
-                    <div class="result-value" id="calcDaysResult">60 يومًا</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-label">التاريخ المتوقع للختم</div>
-                    <div class="result-value" id="calcDateResult" style="font-size:1.05rem;">—</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-label">الورد بعد كل صلاة</div>
-                    <div class="result-value" id="calcPrayerResult" style="font-size:1.05rem;">صفحتان بعد كل صلاة</div>
-                </div>
-            </div>
-
-            <div class="share-row">
-                <button class="btn btn-primary" onclick="copyPlan()"><i class="fa-solid fa-copy"></i> نسخ الخطة</button>
-                <button class="btn btn-whatsapp" onclick="shareWhatsApp()"><i class="fa-brands fa-whatsapp"></i> واتساب</button>
-                <button class="btn btn-telegram" onclick="shareTelegram()"><i class="fa-brands fa-telegram"></i> تليجرام</button>
-            </div>
-        </section>
-
-        <!-- ── Widgets Row ── -->
-        <div class="widgets-grid">
-
-            <!-- Widget 1: Focus Timer -->
-            <div class="card widget reveal">
                 <div>
-                    <div class="widget-head" style="margin-bottom:1rem;">
-                        <div class="widget-icon">
-                            <i class="fa-solid fa-stopwatch"></i>
-                        </div>
-                        <h3>مؤقت التركيز والدراسة</h3>
+                    <div class="progress-meta">
+                        <span>نسبة الإنجاز من المصحف الشريف</span>
+                        <span id="progressPercent">0%</span>
                     </div>
-                    <div class="timer-presets">
-                        <button class="preset-btn active" onclick="setTimerPreset(25, this)">25 د تركيز</button>
-                        <button class="preset-btn" onclick="setTimerPreset(5, this)">5 د راحة</button>
-                        <button class="preset-btn" onclick="setTimerPreset(15, this)">15 د راحة</button>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressBar"></div>
                     </div>
-                    <div class="timer-clock" id="timerDisplay">25<span>:</span>00</div>
                 </div>
-                <div class="timer-controls">
-                    <button class="btn btn-primary" style="flex:1;" id="startTimerBtn" onclick="toggleTimer()">
-                        <i class="fa-solid fa-play"></i> بدء
-                    </button>
-                    <button class="btn btn-ghost" onclick="resetTimer()">
-                        <i class="fa-solid fa-rotate-right"></i>
-                    </button>
+                <div class="result-row">
+                    <div class="result-item">
+                        <div class="result-label">المدة المتبقية للختم</div>
+                        <div class="result-value" id="calcDaysResult">60 يومًا</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">التاريخ المتوقع للختم</div>
+                        <div class="result-value" id="calcDateResult" style="font-size:1.02rem;">—</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">الورد بعد كل صلاة</div>
+                        <div class="result-value" id="calcPrayerResult" style="font-size:1.02rem;">صفحتان بعد كل صلاة</div>
+                    </div>
                 </div>
-            </div>
+                <div class="share-row">
+                    <button class="btn btn-primary" onclick="copyPlan()"><i class="fa-solid fa-copy"></i> نسخ الخطة</button>
+                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()"><i class="fa-brands fa-whatsapp"></i> واتساب</button>
+                    <button class="btn btn-telegram" onclick="shareTelegram()"><i class="fa-brands fa-telegram"></i> تليجرام</button>
+                </div>
+            </section>
 
-            <!-- Widget 2: Calendar Converter -->
-            <div class="card widget reveal reveal-delay-1">
-                <div>
-                    <div class="widget-head" style="margin-bottom:1rem;">
-                        <div class="widget-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                        <h3>محول التقويم الهجري والميلادي</h3>
-                    </div>
-                    <div class="date-badge" id="todayDateDisplay">تاريخ اليوم: جارٍ التحميل…</div>
-                    <div style="margin-top:0.9rem; display:flex; flex-direction:column; gap:0.8rem;">
-                        <div class="field">
-                            <label for="calendarMode">نوع التحويل:</label>
-                            <select id="calendarMode" onchange="renderCalendarMode(); convertDate();">
-                                <option value="g2h">من الميلادي إلى الهجري</option>
-                                <option value="h2g">من الهجري إلى الميلادي</option>
-                            </select>
+            <!-- ── Widgets Row ── -->
+            <div class="widgets-grid">
+
+                <!-- Widget 1: Focus Timer -->
+                <div class="card widget reveal" aria-labelledby="timerTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:1rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                            <h3 id="timerTitle">مؤقت التركيز والدراسة</h3>
                         </div>
-                        <div class="cal-fields active" id="gregorianFields">
+                        <div class="timer-presets">
+                            <button class="preset-btn active" onclick="setTimerPreset(25, this)">25 د تركيز</button>
+                            <button class="preset-btn" onclick="setTimerPreset(5, this)">5 د راحة</button>
+                            <button class="preset-btn" onclick="setTimerPreset(15, this)">15 د راحة</button>
+                        </div>
+                        <div class="timer-display-wrap">
+                            <svg class="timer-svg" viewBox="0 0 160 160">
+                                <circle class="timer-circle-bg" cx="80" cy="80" r="70"/>
+                                <circle class="timer-circle-progress" id="timerProgressCircle" cx="80" cy="80" r="70"/>
+                            </svg>
+                            <div class="timer-clock-text" id="timerDisplay">25<span>:</span>00</div>
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" style="flex:1;" id="startTimerBtn" onclick="toggleTimer()">
+                            <i class="fa-solid fa-play"></i> بدء
+                        </button>
+                        <button class="btn btn-ghost" onclick="resetTimer()" aria-label="إعادة ضبط المؤقت">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget 2: Calendar Converter -->
+                <div class="card widget reveal reveal-delay-1" aria-labelledby="calTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:1rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <h3 id="calTitle">محول التقويم الهجري والميلادي</h3>
+                        </div>
+                        <div class="date-badge" id="todayDateDisplay">تاريخ اليوم: جارٍ التحميل…</div>
+                        <div style="margin-top:0.9rem; display:flex; flex-direction:column; gap:0.8rem;">
                             <div class="field">
-                                <label>اختر تاريخاً ميلادياً:</label>
-                                <input type="date" id="gregorianInput" onchange="convertDate()">
+                                <label for="calendarMode">نوع التحويل:</label>
+                                <select id="calendarMode" onchange="renderCalendarMode(); convertDate();">
+                                    <option value="g2h">من الميلادي إلى الهجري</option>
+                                    <option value="h2g">من الهجري إلى الميلادي</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="cal-fields" id="hijriFields">
-                            <div class="hijri-grid">
+                            <div class="cal-fields active" id="gregorianFields">
                                 <div class="field">
-                                    <label>اليوم</label>
-                                    <input type="number" id="hijriDay" min="1" max="30" placeholder="١" oninput="convertDate()">
-                                </div>
-                                <div class="field">
-                                    <label>الشهر</label>
-                                    <input type="number" id="hijriMonth" min="1" max="12" placeholder="١" oninput="convertDate()">
-                                </div>
-                                <div class="field">
-                                    <label>السنة</label>
-                                    <input type="number" id="hijriYear" min="1" max="1600" placeholder="١٤٤٧" oninput="convertDate()">
+                                    <label>اختر تاريخاً ميلادياً:</label>
+                                    <input type="date" id="gregorianInput" onchange="convertDate()">
                                 </div>
                             </div>
+                            <div class="cal-fields" id="hijriFields">
+                                <div class="hijri-grid">
+                                    <div class="field">
+                                        <label>اليوم</label>
+                                        <input type="number" id="hijriDay" min="1" max="30" placeholder="١" oninput="convertDate()">
+                                    </div>
+                                    <div class="field">
+                                        <label>الشهر</label>
+                                        <input type="number" id="hijriMonth" min="1" max="12" placeholder="١" oninput="convertDate()">
+                                    </div>
+                                    <div class="field">
+                                        <label>السنة</label>
+                                        <input type="number" id="hijriYear" min="1" max="1600" placeholder="١٤٤٧" oninput="convertDate()">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="calendar-result" style="margin-top:0.8rem;">
-                    <div class="r-label" id="calendarResultLabel">التاريخ الهجري المقابل (أم القرى):</div>
-                    <div class="r-value" id="calendarResult">—</div>
-                </div>
-            </div>
-
-            <!-- Widget 3: Zakat Calculator -->
-            <div class="card widget reveal reveal-delay-2">
-                <div>
-                    <div class="widget-head" style="margin-bottom:1rem;">
-                        <div class="widget-icon"><i class="fa-solid fa-calculator"></i></div>
-                        <h3>حاسبة الزكاة الشرعية</h3>
-                    </div>
-                    <div style="display:flex; flex-direction:column; gap:0.8rem;">
-                        <div class="field">
-                            <label>المبلغ النقدي والمدخرات:</label>
-                            <input type="number" id="zakatCash" placeholder="المبلغ بالعملة المحلية" oninput="calculateZakat()">
-                        </div>
-                        <div class="field">
-                            <label>وزن الذهب (بالجرام):</label>
-                            <input type="number" id="zakatGold" placeholder="وزن الذهب المملوك" oninput="calculateZakat()">
-                        </div>
-                        <div class="field">
-                            <label>سعر جرام الذهب اليوم (اختياري):</label>
-                            <input type="number" id="goldPrice" placeholder="سعر جرام الذهب" oninput="calculateZakat()">
-                        </div>
+                    <div class="calendar-result" style="margin-top:0.8rem;">
+                        <div class="r-label" id="calendarResultLabel">التاريخ الهجري المقابل (أم القرى):</div>
+                        <div class="r-value" id="calendarResult">—</div>
                     </div>
                 </div>
-                <div class="zakat-result" style="margin-top:0.8rem;">
-                    <div class="z-label">مقدار الزكاة الواجبة (2.5%):</div>
-                    <div class="z-value" id="zakatValue">0.00</div>
-                    <div class="z-note" id="zakatStatus"></div>
-                </div>
-            </div>
 
-            <!-- Widget 4: Digital Tasbeeh -->
-            <div class="card widget reveal">
-                <div>
-                    <div class="widget-head" style="margin-bottom:0.6rem;">
-                        <div class="widget-icon"><i class="fa-solid fa-fingerprint"></i></div>
-                        <h3>السبحة الرقمية</h3>
+                <!-- Widget 3: Zakat Calculator -->
+                <div class="card widget reveal reveal-delay-2" aria-labelledby="zakatTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:1rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-calculator"></i></div>
+                            <h3 id="zakatTitle">حاسبة الزكاة الشرعية</h3>
+                        </div>
+                        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                            <div class="field">
+                                <label>المبلغ النقدي والمدخرات:</label>
+                                <input type="number" id="zakatCash" placeholder="المبلغ بالعملة المحلية" oninput="calculateZakat()">
+                            </div>
+                            <div class="field">
+                                <label>وزن الذهب (بالجرام):</label>
+                                <input type="number" id="zakatGold" placeholder="وزن الذهب المملوك" oninput="calculateZakat()">
+                            </div>
+                            <div class="field">
+                                <label>سعر جرام الذهب اليوم (اختياري):</label>
+                                <input type="number" id="goldPrice" placeholder="سعر جرام الذهب" oninput="calculateZakat()">
+                            </div>
+                        </div>
                     </div>
-                    <p class="tasbeeh-note">عداد حر بدون أذكار جاهزة، حتى تظل أذكارك مفتوحة كما تريد.</p>
+                    <div class="zakat-result" style="margin-top:0.8rem;">
+                        <div class="z-label">مقدار الزكاة الواجبة (2.5%):</div>
+                        <div class="z-value" id="zakatValue">0.00</div>
+                        <div class="z-note" id="zakatStatus"></div>
+                    </div>
                 </div>
-                <div class="tasbeeh-wrap">
-                    <button class="tasbeeh-btn" onclick="incrementDhikr()" id="dhikrDisplay">0</button>
-                    <button class="btn btn-ghost" style="width:100%;" onclick="resetDhikr()">
-                        <i class="fa-solid fa-rotate-right"></i> تصفير العداد
-                    </button>
+
+                <!-- Widget 4: Digital Tasbeeh -->
+                <div class="card widget reveal" aria-labelledby="tasbeehTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:0.5rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                            <h3 id="tasbeehTitle">السبحة الرقمية</h3>
+                        </div>
+                        <p class="tasbeeh-note">عداد حر بدون أذكار جاهزة، حتى تظل أذكارك مفتوحة كما تريد.</p>
+                    </div>
+                    <div class="tasbeeh-wrap">
+                        <button class="tasbeeh-btn" onclick="incrementDhikr()" id="dhikrDisplay" aria-label="اضغط للتسبيح">0</button>
+                        <button class="btn btn-ghost" style="width:100%;" onclick="resetDhikr()">
+                            <i class="fa-solid fa-rotate-right"></i> تصفير العداد
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-        </div><!-- /widgets-grid -->
-    </div><!-- /interactive-section -->
+            </div><!-- /widgets-grid -->
+        </div><!-- /interactive-section -->
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          SEARCH & FILTER
-    ═══════════════════════════════════════ -->
-    <div class="controls-section reveal">
-        <div class="search-wrap">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="searchInput" placeholder="ابحث عن أداة، كتاب، تطبيق، أو متن…" onkeyup="filterTools()">
+        ═══════════════════════════════════════ -->
+        <div class="controls-section reveal">
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن أداة، كتاب، تطبيق، أو متن…" oninput="filterTools()" aria-label="بحث في الأدوات">
+            </div>
+            <div class="filter-row">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">الكل</button>
+                <button class="filter-btn" onclick="filterCategory('favorites', this)"><i class="fa-solid fa-star" style="color:var(--gold);"></i> المفضلة</button>
+                <button class="filter-btn" onclick="filterCategory('quran-hadith', this)">القرآن والأذكار والحديث</button>
+                <button class="filter-btn" onclick="filterCategory('mutoon', this)">حفظ المتون والعلوم</button>
+                <button class="filter-btn" onclick="filterCategory('libraries', this)">المكتبات والبحث العلمي</button>
+                <button class="filter-btn" onclick="filterCategory('language', this)">اللغة والمعاجم</button>
+            </div>
         </div>
-        <div class="filter-row">
-            <button class="filter-btn active" onclick="filterCategory('all', this)">الكل</button>
-            <button class="filter-btn" onclick="filterCategory('favorites', this)"><i class="fa-solid fa-star" style="color:var(--gold);"></i> المفضلة</button>
-            <button class="filter-btn" onclick="filterCategory('quran-hadith', this)">القرآن والأذكار والحديث</button>
-            <button class="filter-btn" onclick="filterCategory('mutoon', this)">حفظ المتون والعلوم</button>
-            <button class="filter-btn" onclick="filterCategory('libraries', this)">المكتبات والبحث العلمي</button>
-            <button class="filter-btn" onclick="filterCategory('language', this)">اللغة والمعاجم</button>
-        </div>
-    </div>
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          TOOLS GRID
-    ═══════════════════════════════════════ -->
-    <main class="tools-grid" id="toolsGrid">
+        ═══════════════════════════════════════ -->
+        <main class="tools-grid" id="toolsGrid">
 
-        <!-- 1: المكتبة الشاملة -->
-        <div class="card tool-card reveal" data-id="shamela" data-category="libraries">
-            <button class="fav-btn" onclick="toggleFavorite('shamela', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-book-open"></i></div>
-                    <div class="tool-meta">
-                        <h3>المكتبة الشاملة</h3>
-                        <span class="badge">مكتبة مجانية</span>
+            <!-- 1: المكتبة الشاملة -->
+            <div class="card tool-card reveal" data-id="shamela" data-category="libraries">
+                <button class="fav-btn" onclick="toggleFavorite('shamela', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <div class="tool-meta">
+                            <h3>المكتبة الشاملة</h3>
+                            <span class="badge">مكتبة مجانية</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">أعظم محرك بحث ومكتبة إلكترونية للكتب الإسلامية والتراثية تحوي عشرات الآلاف من المجلدات مع إمكانية البحث المتقدم.</p>
                 </div>
-                <p class="tool-desc">أعظم محرك بحث ومكتبة إلكترونية للكتب الإسلامية والتراثية تحوي عشرات الآلاف من المجلدات مع إمكانية البحث المتقدم.</p>
+                <a href="https://shamela.ws/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://shamela.ws/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 2: الباحث القرآني -->
-        <div class="card tool-card reveal reveal-delay-1" data-id="tafsir" data-category="quran-hadith">
-            <button class="fav-btn" onclick="toggleFavorite('tafsir', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-quran"></i></div>
-                    <div class="tool-meta">
-                        <h3>الباحث القرآني</h3>
-                        <span class="badge">علوم القرآن</span>
+            <!-- 2: الباحث القرآني -->
+            <div class="card tool-card reveal reveal-delay-1" data-id="tafsir" data-category="quran-hadith">
+                <button class="fav-btn" onclick="toggleFavorite('tafsir', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-quran"></i></div>
+                        <div class="tool-meta">
+                            <h3>الباحث القرآني</h3>
+                            <span class="badge">علوم القرآن</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">محرك بحث شامل لمقارنة التفاسير، معاجم ألفاظ القرآن، أسباب النزول، والإعراب من أمهات الكتب.</p>
                 </div>
-                <p class="tool-desc">محرك بحث شامل لمقارنة التفاسير، معاجم ألفاظ القرآن، أسباب النزول، والإعراب من أمهات الكتب.</p>
+                <a href="https://tafsir.app/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://tafsir.app/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 3: الدرر السنية -->
-        <div class="card tool-card reveal reveal-delay-2" data-id="dorar" data-category="quran-hadith">
-            <button class="fav-btn" onclick="toggleFavorite('dorar', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-scroll"></i></div>
-                    <div class="tool-meta">
-                        <h3>الموسوعة الحديثية (الدرر)</h3>
-                        <span class="badge">تخريج الأحاديث</span>
+            <!-- 3: الدرر السنية -->
+            <div class="card tool-card reveal reveal-delay-2" data-id="dorar" data-category="quran-hadith">
+                <button class="fav-btn" onclick="toggleFavorite('dorar', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-scroll"></i></div>
+                        <div class="tool-meta">
+                            <h3>الموسوعة الحديثية (الدرر)</h3>
+                            <span class="badge">تخريج الأحاديث</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">أفضل وأسرع محرك للتحقق من صحة الأحاديث النبوية وتخريجها والحكم عليها من كلام أئمة الحديث.</p>
                 </div>
-                <p class="tool-desc">أفضل وأسرع محرك للتحقق من صحة الأحاديث النبوية وتخريجها والحكم عليها من كلام أئمة الحديث.</p>
+                <a href="https://dorar.net/hadith" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://dorar.net/hadith" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 4: جامع خادم الحرمين -->
-        <div class="card tool-card reveal" data-id="sunnah" data-category="quran-hadith">
-            <button class="fav-btn" onclick="toggleFavorite('sunnah', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-vault"></i></div>
-                    <div class="tool-meta">
-                        <h3>جامع خادم الحرمين للسنة</h3>
-                        <span class="badge">السنة النبوية</span>
+            <!-- 4: جامع خادم الحرمين -->
+            <div class="card tool-card reveal" data-id="sunnah" data-category="quran-hadith">
+                <button class="fav-btn" onclick="toggleFavorite('sunnah', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-vault"></i></div>
+                        <div class="tool-meta">
+                            <h3>جامع خادم الحرمين للسنة</h3>
+                            <span class="badge">السنة النبوية</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">منصة خادمة لمتون السنة والشروح والرجال، ببحث دقيق ومتقدم يشمل أحكام المحدثين والخدمات العلمية.</p>
                 </div>
-                <p class="tool-desc">منصة خادمة لمتون السنة والشروح والرجال، ببحث دقيق ومتقدم يشمل أحكام المحدثين والخدمات العلمية.</p>
+                <a href="https://sunnah.rh.gov.sa/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://sunnah.rh.gov.sa/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 5: حصن المسلم -->
-        <div class="card tool-card reveal reveal-delay-1" data-id="hisn" data-category="quran-hadith">
-            <button class="fav-btn" onclick="toggleFavorite('hisn', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-hands-praying"></i></div>
-                    <div class="tool-meta">
-                        <h3>حصن المسلم — الأذكار</h3>
-                        <span class="badge">أذكار اليوم والليلة</span>
+            <!-- 5: حصن المسلم -->
+            <div class="card tool-card reveal reveal-delay-1" data-id="hisn" data-category="quran-hadith">
+                <button class="fav-btn" onclick="toggleFavorite('hisn', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-hands-praying"></i></div>
+                        <div class="tool-meta">
+                            <h3>حصن المسلم — الأذكار</h3>
+                            <span class="badge">أذكار اليوم والليلة</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">موقع شامل لأذكار الصباح والمساء، أذكار الصلاة، والأدعية المأثورة من الكتاب والسنة مرتبة للقرّاء.</p>
                 </div>
-                <p class="tool-desc">موقع شامل لأذكار الصباح والمساء، أذكار الصلاة، والأدعية المأثورة من الكتاب والسنة مرتبة للقرّاء.</p>
+                <a href="https://hisnmuslim.com/" target="_blank" rel="noopener" class="tool-link">
+                    عرض الأذكار <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://hisnmuslim.com/" target="_blank" class="tool-link">
-                عرض الأذكار <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 6: حفاظ المتون -->
-        <div class="card tool-card reveal reveal-delay-2" data-id="huffaz" data-category="mutoon">
-            <button class="fav-btn" onclick="toggleFavorite('huffaz', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <div class="tool-meta">
-                        <h3>تطبيق حفاظ المتون</h3>
-                        <span class="badge">الموقع الرسمي</span>
+            <!-- 6: حفاظ المتون -->
+            <div class="card tool-card reveal reveal-delay-2" data-id="huffaz" data-category="mutoon">
+                <button class="fav-btn" onclick="toggleFavorite('huffaz', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="tool-meta">
+                            <h3>تطبيق حفاظ المتون</h3>
+                            <span class="badge">الموقع الرسمي</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">المشروع العلمي المتميز لحفظ ومراجعة المتون العلمية التأصيلية وتكرارها بسهولة واحترافية.</p>
                 </div>
-                <p class="tool-desc">المشروع العلمي المتميز لحفظ ومراجعة المتون العلمية التأصيلية وتكرارها بسهولة واحترافية.</p>
+                <a href="https://huffazulmutoon.com/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://huffazulmutoon.com/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 7: معاجم اللغة -->
-        <div class="card tool-card reveal" data-id="maajim" data-category="language">
-            <button class="fav-btn" onclick="toggleFavorite('maajim', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-spell-check"></i></div>
-                    <div class="tool-meta">
-                        <h3>معاجم اللغة العربية</h3>
-                        <span class="badge">اللغة العربية</span>
+            <!-- 7: معاجم اللغة -->
+            <div class="card tool-card reveal" data-id="maajim" data-category="language">
+                <button class="fav-btn" onclick="toggleFavorite('maajim', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-spell-check"></i></div>
+                        <div class="tool-meta">
+                            <h3>معاجم اللغة العربية</h3>
+                            <span class="badge">اللغة العربية</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">محرك بحث سريع في أمهات المعاجم العربية: لسان العرب، القاموس المحيط، تاج العروس، والمعجم الوسيط.</p>
                 </div>
-                <p class="tool-desc">محرك بحث سريع في أمهات المعاجم العربية: لسان العرب، القاموس المحيط، تاج العروس، والمعجم الوسيط.</p>
+                <a href="https://www.maajim.com/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://www.maajim.com/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 8: المكتبة الوقفية -->
-        <div class="card tool-card reveal reveal-delay-1" data-id="waqfeya" data-category="libraries">
-            <button class="fav-btn" onclick="toggleFavorite('waqfeya', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-file-pdf"></i></div>
-                    <div class="tool-meta">
-                        <h3>المكتبة الوقفية</h3>
-                        <span class="badge">تحميل كتب PDF</span>
+            <!-- 8: المكتبة الوقفية -->
+            <div class="card tool-card reveal reveal-delay-1" data-id="waqfeya" data-category="libraries">
+                <button class="fav-btn" onclick="toggleFavorite('waqfeya', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                        <div class="tool-meta">
+                            <h3>المكتبة الوقفية</h3>
+                            <span class="badge">تحميل كتب PDF</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">أبرز موقع لتحميل أمهات الكتب والمصنفات الإسلامية والتراثية المصورة بصيغة PDF بروابط مباشرة.</p>
                 </div>
-                <p class="tool-desc">أبرز موقع لتحميل أمهات الكتب والمصنفات الإسلامية والتراثية المصورة بصيغة PDF بروابط مباشرة.</p>
+                <a href="https://waqfeya.net/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://waqfeya.net/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-        <!-- 9: أكاديمية زاد -->
-        <div class="card tool-card reveal reveal-delay-2" data-id="zad" data-category="mutoon">
-            <button class="fav-btn" onclick="toggleFavorite('zad', this)"><i class="fa-regular fa-star"></i></button>
-            <div>
-                <div class="tool-header">
-                    <div class="tool-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="tool-meta">
-                        <h3>أكاديمية زاد</h3>
-                        <span class="badge">تعليم شرعي</span>
+            <!-- 9: أكاديمية زاد -->
+            <div class="card tool-card reveal reveal-delay-2" data-id="zad" data-category="mutoon">
+                <button class="fav-btn" onclick="toggleFavorite('zad', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="tool-meta">
+                            <h3>أكاديمية زاد</h3>
+                            <span class="badge">تعليم شرعي</span>
+                        </div>
                     </div>
+                    <p class="tool-desc">برنامج افتراضي متكامل يهدف لتعليم العلوم الشرعية التأصيلية والميسرة عبر الإنترنت لجميع الراغبين.</p>
                 </div>
-                <p class="tool-desc">برنامج افتراضي متكامل يهدف لتعليم العلوم الشرعية التأصيلية والميسرة عبر الإنترنت لجميع الراغبين.</p>
+                <a href="https://www.zad-academy.com/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
-            <a href="https://www.zad-academy.com/" target="_blank" class="tool-link">
-                زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
 
-    </main>
+        </main>
 
-    <!-- ═══════════════════════════════════════
+        <!-- ═══════════════════════════════════════
          NOTES SECTION
-    ═══════════════════════════════════════ -->
-    <section class="card notes-section reveal">
-        <div class="notes-head">
-            <div class="notes-head-title">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <h2>دفتر الفوائد والشوارد العلمية</h2>
+        ═══════════════════════════════════════ -->
+        <section class="card notes-section reveal" aria-labelledby="notesTitle">
+            <div class="notes-head">
+                <div class="notes-head-title">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <h2 id="notesTitle">دفتر الفوائد والشوارد العلمية</h2>
+                </div>
+                <div class="notes-actions-head">
+                    <button class="btn btn-primary" onclick="copyNotes()"><i class="fa-solid fa-copy"></i> نسخ الفوائد</button>
+                    <button class="btn btn-ghost" onclick="downloadNotes()"><i class="fa-solid fa-download"></i> تصدير TXT</button>
+                </div>
             </div>
-            <div class="notes-actions-head">
-                <button class="btn btn-primary" onclick="copyNotes()"><i class="fa-solid fa-copy"></i> نسخ الفوائد</button>
-                <button class="btn btn-ghost" onclick="downloadNotes()"><i class="fa-solid fa-download"></i> تصدير TXT</button>
-            </div>
-        </div>
-        <textarea class="notes-textarea" id="userNotes"
-            placeholder="سجّل هنا ما تقتنصه من الفوائد والنكات العلمية أثناء قراءتك… (يتم حفظها تلقائياً في متصفحك)"
-            oninput="saveNotes()"></textarea>
+            <textarea class="notes-textarea" id="userNotes"
+        placeholder="سجّل هنا ما تقتنصه من الفوائد والنكات العلمية أثناء قراءتك… (يتم حفظها تلقائياً في متصفحك)"
+        oninput="saveNotes()" aria-label="دفتر الفوائد"></textarea>
         <div class="notes-foot">
             <span class="notes-stats" id="notesStats">0 كلمة | 0 حرف</span>
             <button class="btn btn-danger" onclick="clearNotes()">
@@ -1648,7 +1868,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-         FOOTER
+     FOOTER
     ═══════════════════════════════════════ -->
     <footer class="site-footer reveal">
         <p>مطور هذا الموقع هو الفقير إلى عفو ربه <strong>البراء أحمد فواز</strong> © 2026</p>
@@ -1657,15 +1877,19 @@
 </div><!-- /page-wrapper -->
 
 <!-- ═══════════════════════════════════════
-     FLOATING YT BUTTON
+ FLOATING BUTTONS
 ═══════════════════════════════════════ -->
-<a href="https://youtube.com/@tilawen21?si=7wV1QpgGieTr8wOH" target="_blank" class="yt-fab" title="اشترك في القناة">
+<a href="https://youtube.com/@tilawen21?si=7wV1QpgGieTr8wOH" target="_blank" rel="noopener" class="yt-fab" title="اشترك في القناة" aria-label="اشترك في قناة اليوتيوب">
     <i class="fa-brands fa-youtube"></i>
     <span>اشترك في القناة</span>
 </a>
 
-<!-- Toast -->
-<div id="toast" class="toast">تم الإجراء بنجاح!</div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى" title="العودة للأعلى">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
 
 
 <script>
@@ -1676,6 +1900,7 @@
     const TOTAL_QURAN_PAGES = 604;
     let favorites = JSON.parse(localStorage.getItem('fav_tools')) || [];
     let dhikrCount = parseInt(localStorage.getItem('dhikr_count')) || 0;
+    const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 70; // ≈ 439.82
 
     /* ============================================================
        1. THEME TOGGLE
@@ -1684,9 +1909,7 @@
         const body = document.body;
         const icon = document.getElementById('themeIcon');
         const text = document.getElementById('themeText');
-
         body.classList.toggle('dark');
-
         if (body.classList.contains('dark')) {
             icon.className = 'fa-solid fa-sun';
             text.textContent = 'المظهر الفاتح';
@@ -1713,27 +1936,20 @@
         const mode = document.getElementById('calcMode').value;
         let inputVal = parseFloat(document.getElementById('calcInput').value) || 0;
         let readPages = parseFloat(document.getElementById('readPages').value) || 0;
-
         readPages = Math.min(Math.max(readPages, 0), TOTAL_QURAN_PAGES);
-
         localStorage.setItem('quran_mode', mode);
         localStorage.setItem('quran_input', inputVal);
         localStorage.setItem('quran_read', readPages);
-
         const remainingPages = TOTAL_QURAN_PAGES - readPages;
         const progressPercent = Math.min(100, Math.round((readPages / TOTAL_QURAN_PAGES) * 100));
-
         document.getElementById('progressBar').style.width = `${progressPercent}%`;
         document.getElementById('progressPercent').textContent = `${progressPercent}%`;
-
         const inputLabel = document.getElementById('inputLabel');
         const calcDaysResult = document.getElementById('calcDaysResult');
         const calcDateResult = document.getElementById('calcDateResult');
         const calcPrayerResult = document.getElementById('calcPrayerResult');
-
         let daysNeeded = 0;
         let pagesPerDay = 0;
-
         if (mode === 'pages') {
             inputLabel.textContent = 'عدد الصفحات يومياً:';
             pagesPerDay = inputVal;
@@ -1747,34 +1963,41 @@
             pagesPerDay = inputVal * 20;
             if (pagesPerDay > 0) daysNeeded = Math.ceil(remainingPages / pagesPerDay);
         }
-
         if (daysNeeded <= 0 || pagesPerDay <= 0) {
             calcDaysResult.textContent = '0 يوم';
             calcDateResult.textContent = '—';
             calcPrayerResult.textContent = '—';
             return;
         }
-
         calcDaysResult.textContent = `${daysNeeded} يومًا`;
-
         const targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + daysNeeded);
-        calcDateResult.textContent = targetDate.toLocaleDateString('ar-EG', {
+        // Show both Gregorian and Hijri target date
+        const gregStr = targetDate.toLocaleDateString('ar-EG', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
         });
-
+        let hijriStr = '';
+        try {
+            hijriStr = ' | ' + new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {
+                day: 'numeric', month: 'long', year: 'numeric'
+            }).format(targetDate) + ' هـ';
+        } catch (e) { hijriStr = ''; }
+        calcDateResult.textContent = gregStr + hijriStr;
         const perPrayer = (pagesPerDay / 5).toFixed(1);
-        if (perPrayer < 1) {
-            calcPrayerResult.textContent = `صفحة واحدة كل ${Math.round(1 / perPrayer)} صلاة`;
+        if (parseFloat(perPrayer) < 1) {
+            calcPrayerResult.textContent = `صفحة واحدة كل ${Math.round(1 / parseFloat(perPrayer))} صلاة`;
         } else {
             calcPrayerResult.textContent = `${perPrayer} صفحة بعد كل صلاة`;
         }
     }
 
     function loadQuranData() {
-        if (localStorage.getItem('quran_mode')) document.getElementById('calcMode').value = localStorage.getItem('quran_mode');
-        if (localStorage.getItem('quran_input')) document.getElementById('calcInput').value = localStorage.getItem('quran_input');
-        if (localStorage.getItem('quran_read')) document.getElementById('readPages').value = localStorage.getItem('quran_read');
+        if (localStorage.getItem('quran_mode')) document.getElementById('calcMode').value = localStorage.getItem(
+            'quran_mode');
+        if (localStorage.getItem('quran_input')) document.getElementById('calcInput').value = localStorage.getItem(
+            'quran_input');
+        if (localStorage.getItem('quran_read')) document.getElementById('readPages').value = localStorage.getItem(
+            'quran_read');
         calculateQuran();
     }
 
@@ -1785,8 +2008,11 @@
         return `✨ *خطة ختم القرآن الكريم* ✨\n\n📌 المدة المتبقية: ${days}\n📅 التاريخ المتوقع للختم: ${date}\n🕌 الورد بعد كل صلاة: ${prayer}\n\nتم إنشاؤها عبر حقيبة طالب العلم الرقمية 📚`;
     }
 
-    function copyPlan() {
-        navigator.clipboard.writeText(getPlanText()).then(() => showToast("تم نسخ الخطة بنجاح! ✅"));
+    async function copyPlan() {
+        try {
+            await navigator.clipboard.writeText(getPlanText());
+            showToast("تم نسخ الخطة بنجاح! ✅");
+        } catch { showToast("تعذر النسخ، حاول مرة أخرى"); }
     }
 
     function shareWhatsApp() {
@@ -1794,29 +2020,38 @@
     }
 
     function shareTelegram() {
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(getPlanText())}`, '_blank');
+        window.open(
+            `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(getPlanText())}`,
+            '_blank');
     }
 
     /* ============================================================
-       3. FOCUS TIMER (POMODORO)
+       3. FOCUS TIMER (POMODORO) — with SVG ring
     ============================================================ */
     let timerInterval = null;
     let isTimerRunning = false;
     let currentTimerPresetMinutes = 25;
     let timerSeconds = 25 * 60;
+    const timerProgressCircle = document.getElementById('timerProgressCircle');
 
     function updateTimerDisplay() {
         const mins = Math.floor(timerSeconds / 60);
         const secs = timerSeconds % 60;
         document.getElementById('timerDisplay').innerHTML =
             `${mins.toString().padStart(2, '0')}<span>:</span>${secs.toString().padStart(2, '0')}`;
+        // Update SVG circle
+        const totalSecs = currentTimerPresetMinutes * 60;
+        const progress = timerSeconds / totalSecs;
+        const offset = CIRCLE_CIRCUMFERENCE * (1 - progress);
+        timerProgressCircle.style.strokeDasharray = CIRCLE_CIRCUMFERENCE;
+        timerProgressCircle.style.strokeDashoffset = offset;
     }
 
     function syncTimerButton() {
         const btn = document.getElementById('startTimerBtn');
-        btn.innerHTML = isTimerRunning
-            ? '<i class="fa-solid fa-pause"></i> إيقاف'
-            : '<i class="fa-solid fa-play"></i> بدء';
+        btn.innerHTML = isTimerRunning ?
+            '<i class="fa-solid fa-pause"></i> إيقاف' :
+            '<i class="fa-solid fa-play"></i> بدء';
     }
 
     function startTimer() {
@@ -1830,9 +2065,28 @@
                 clearInterval(timerInterval);
                 isTimerRunning = false;
                 syncTimerButton();
-                showToast("انتهت جلسة التركيز! 🔔");
+                playTimerAlert();
+                showToast("انتهت جلسة التركيز! 🔔", 5000);
             }
         }, 1000);
+    }
+
+    function playTimerAlert() {
+        try {
+            const ctx = new(window.AudioContext || window.webkitAudioContext)();
+            [523.25, 659.25, 783.99].forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.18, ctx.currentTime + i * 0.22);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.22 + 0.5);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(ctx.currentTime + i * 0.22);
+                osc.stop(ctx.currentTime + i * 0.22 + 0.55);
+            });
+        } catch (e) { /* audio not supported */ }
     }
 
     function toggleTimer() {
@@ -1879,9 +2133,8 @@
         });
         document.getElementById('todayDateDisplay').textContent =
             `${hijriFormatter.format(today)} هـ ← ${gregorianFormatter.format(today)} م`;
-
         document.getElementById('gregorianInput').value = today.toISOString().split('T')[0];
-
+        // Use moment-hijri if available for better accuracy
         if (window.moment && typeof moment === 'function' && moment().iYear) {
             const h = moment().format('iYYYY-iMM-iDD').split('-');
             document.getElementById('hijriYear').value = h[0];
@@ -1893,7 +2146,6 @@
             document.getElementById('hijriMonth').value = approx.month;
             document.getElementById('hijriDay').value = approx.day;
         }
-
         renderCalendarMode();
         convertDate();
     }
@@ -1902,9 +2154,9 @@
         const mode = document.getElementById('calendarMode').value;
         document.getElementById('gregorianFields').classList.toggle('active', mode === 'g2h');
         document.getElementById('hijriFields').classList.toggle('active', mode === 'h2g');
-        document.getElementById('calendarResultLabel').textContent = mode === 'g2h'
-            ? 'التاريخ الهجري المقابل (أم القرى):'
-            : 'التاريخ الميلادي المقابل:';
+        document.getElementById('calendarResultLabel').textContent = mode === 'g2h' ?
+            'التاريخ الهجري المقابل (أم القرى):' :
+            'التاريخ الميلادي المقابل:';
     }
 
     function gregorianToHijriText(date) {
@@ -1925,7 +2177,6 @@
     function hijriToGregorianFallback(year, month, day) {
         const islamicToJD = (y, m, d) =>
             d + Math.ceil(29.5 * (m - 1)) + (y - 1) * 354 + Math.floor((3 + 11 * y) / 30) + 1948439.5 - 1;
-
         const jdToGregorian = (jd) => {
             let z = Math.floor(jd + 0.5);
             const alpha = Math.floor((z - 1867216.25) / 36524.25);
@@ -1939,34 +2190,28 @@
             const yearNum = monthNum > 2 ? c - 4716 : c - 4715;
             return new Date(Date.UTC(yearNum, monthNum - 1, dayNum));
         };
-
         return jdToGregorian(islamicToJD(year, month, day));
     }
 
     function convertDate() {
         const mode = document.getElementById('calendarMode').value;
         const resultEl = document.getElementById('calendarResult');
-
         if (mode === 'g2h') {
             const inputVal = document.getElementById('gregorianInput').value;
             if (!inputVal) { resultEl.textContent = '—'; return; }
             resultEl.textContent = `${gregorianToHijriText(new Date(`${inputVal}T12:00:00`))} هـ`;
             return;
         }
-
         const hd = parseInt(document.getElementById('hijriDay').value, 10);
         const hm = parseInt(document.getElementById('hijriMonth').value, 10);
         const hy = parseInt(document.getElementById('hijriYear').value, 10);
-
         if (!hd || !hm || !hy) { resultEl.textContent = '—'; return; }
-
         let gregorianDate = null;
         if (window.moment && typeof moment === 'function' && moment().iYear) {
             const m = moment(`${hy}-${String(hm).padStart(2,'0')}-${String(hd).padStart(2,'0')}`, 'iYYYY-iMM-iDD');
             if (m.isValid()) gregorianDate = m.toDate();
         }
         if (!gregorianDate) gregorianDate = hijriToGregorianFallback(hy, hm, hd);
-
         resultEl.textContent = new Intl.DateTimeFormat('ar-EG', {
             weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
         }).format(gregorianDate) + ' م';
@@ -1979,18 +2224,15 @@
         const cash = parseFloat(document.getElementById('zakatCash').value) || 0;
         const goldGrams = parseFloat(document.getElementById('zakatGold').value) || 0;
         const goldPrice = parseFloat(document.getElementById('goldPrice').value) || 0;
-
         const totalWealth = cash + (goldGrams * goldPrice);
         const nisab = 85 * goldPrice;
         const zakatEl = document.getElementById('zakatValue');
         const statusEl = document.getElementById('zakatStatus');
-
         if (totalWealth <= 0) {
             zakatEl.textContent = '0.00';
             statusEl.textContent = '';
             return;
         }
-
         if (goldPrice > 0 && totalWealth < nisab) {
             zakatEl.textContent = '0.00';
             statusEl.textContent = `لم يبلغ النصاب (النصاب المقدر: ${nisab.toLocaleString('ar-EG')})`;
@@ -2008,8 +2250,14 @@
     ============================================================ */
     function incrementDhikr() {
         dhikrCount++;
-        document.getElementById('dhikrDisplay').textContent = dhikrCount;
+        const display = document.getElementById('dhikrDisplay');
+        display.textContent = dhikrCount;
+        display.classList.remove('flash');
+        void display.offsetWidth; // trigger reflow
+        display.classList.add('flash');
         localStorage.setItem('dhikr_count', dhikrCount);
+        // Haptic feedback on mobile
+        if (navigator.vibrate) navigator.vibrate(15);
     }
 
     function resetDhikr() {
@@ -2022,10 +2270,15 @@
     /* ============================================================
        7. NOTES
     ============================================================ */
+    let notesSaveTimeout;
+
     function saveNotes() {
-        const text = document.getElementById('userNotes').value;
-        localStorage.setItem('user_notes', text);
-        updateNotesStats(text);
+        clearTimeout(notesSaveTimeout);
+        notesSaveTimeout = setTimeout(() => {
+            const text = document.getElementById('userNotes').value;
+            localStorage.setItem('user_notes', text);
+            updateNotesStats(text);
+        }, 300);
     }
 
     function loadNotes() {
@@ -2040,10 +2293,13 @@
         document.getElementById('notesStats').textContent = `${wordCount} كلمة | ${charCount} حرف`;
     }
 
-    function copyNotes() {
+    async function copyNotes() {
         const text = document.getElementById('userNotes').value;
         if (!text) { showToast("الدفتر فارغ!"); return; }
-        navigator.clipboard.writeText(text).then(() => showToast("تم نسخ الفوائد بنجاح! ✅"));
+        try {
+            await navigator.clipboard.writeText(text);
+            showToast("تم نسخ الفوائد بنجاح! ✅");
+        } catch { showToast("تعذر النسخ، حاول مرة أخرى"); }
     }
 
     function downloadNotes() {
@@ -2054,6 +2310,7 @@
         link.href = URL.createObjectURL(blob);
         link.download = 'فوائد_وشوارد_علمية.txt';
         link.click();
+        URL.revokeObjectURL(link.href);
         showToast("تم تحميل الملف بنجاح! ✅");
     }
 
@@ -2097,20 +2354,18 @@
     }
 
     function filterTools() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
         document.querySelectorAll('.tool-card').forEach(card => {
             const title = card.querySelector('h3').textContent.toLowerCase();
             const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
             const cat = card.getAttribute('data-category');
             const id = card.getAttribute('data-id');
-
-            const matchSearch = title.includes(query) || desc.includes(query);
-            const matchCat = currentCategory === 'all'
-                ? true
-                : currentCategory === 'favorites'
-                    ? favorites.includes(id)
-                    : cat === currentCategory;
-
+            const matchSearch = query === '' || title.includes(query) || desc.includes(query);
+            const matchCat = currentCategory === 'all' ?
+                true :
+                currentCategory === 'favorites' ?
+                favorites.includes(id) :
+                cat === currentCategory;
             card.style.display = (matchSearch && matchCat) ? 'flex' : 'none';
         });
     }
@@ -2128,21 +2383,76 @@
     function initScrollReveal() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
             });
-        }, { threshold: 0.08 });
-
+        }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
     /* ============================================================
-       10. TOAST
+       10. BACK TO TOP BUTTON
     ============================================================ */
-    function showToast(message) {
-        const toast = document.getElementById('toast');
+    function initBackToTop() {
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }, { passive: true });
+    }
+
+    /* ============================================================
+       11. TOAST SYSTEM
+    ============================================================ */
+    let toastTimer;
+
+    function showToast(message, duration = 3000) {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
         toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3000);
+        container.appendChild(toast);
+        requestAnimationFrame(() => {
+            toast.classList.add('show');
+        });
+        const hideTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 350);
+        }, duration);
+        toast.addEventListener('click', () => {
+            clearTimeout(hideTimeout);
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 350);
+        });
+    }
+
+    /* ============================================================
+       12. KEYBOARD SHORTCUTS
+    ============================================================ */
+    function initKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+K or / to focus search
+            if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && !e.ctrlKey && !e.metaKey && document
+                    .activeElement === document.body)) {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+            // Space to toggle timer (when not typing in an input)
+            if (e.code === 'Space' && document.activeElement === document.body) {
+                e.preventDefault();
+                toggleTimer();
+            }
+            // Escape to reset timer
+            if (e.code === 'Escape' && document.activeElement === document.body && isTimerRunning) {
+                e.preventDefault();
+                resetTimer();
+            }
+        });
     }
 
     /* ============================================================
@@ -2156,6 +2466,12 @@
         initCalendar();
         document.getElementById('dhikrDisplay').textContent = dhikrCount;
         initScrollReveal();
+        initBackToTop();
+        initKeyboardShortcuts();
+        // Initialize timer SVG ring
+        timerProgressCircle.style.strokeDasharray = CIRCLE_CIRCUMFERENCE;
+        timerProgressCircle.style.strokeDashoffset = '0';
+        updateTimerDisplay();
     });
 </script>
 </body>
