@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#089b96">
     <meta name="description" content="حقيبة طالب العلم الرقمية — دليلك التفاعلي الشامل لأهم المكتبات والأدوات والتطبيقات النافعة لطالب العلم الشرعي">
     <title>حقيبة طالب العلم الرقمية</title>
 
@@ -11,10 +12,8 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Hijri Calendar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-hijri/2.1.2/moment-hijri.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-hijri/2.1.2/moment-hijri.min.js"></script>
 
     <style>
         /* ============================================================
@@ -55,6 +54,7 @@
             --radius-full: 999px;
             --transition: 0.24s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-spring: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-stack: 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         /* ============================================================
@@ -93,9 +93,7 @@
         /* ============================================================
            RESET & BASE
         ============================================================ */
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -108,19 +106,12 @@
             scrollbar-color: var(--primary) transparent;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 20px;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 20px; }
 
         body {
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             background-color: var(--bg-base);
             color: var(--text-body);
             min-height: 100vh;
@@ -129,7 +120,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Ambient background glows */
         body::before {
             content: '';
             position: fixed;
@@ -143,9 +133,6 @@
             transition: opacity 0.45s ease;
         }
 
-        /* ============================================================
-           LAYOUT WRAPPER
-        ============================================================ */
         .page-wrapper {
             position: relative;
             z-index: 1;
@@ -158,6 +145,16 @@
         .container {
             width: 100%;
             max-width: 1140px;
+        }
+
+        /* Focus Mode Hide Rules */
+        body.focus-mode .hadith-banner,
+        body.focus-mode .hero,
+        body.focus-mode .site-footer,
+        body.focus-mode .controls-section,
+        body.focus-mode .tools-grid,
+        body.focus-mode .roadmap-section {
+            display: none !important;
         }
 
         /* ============================================================
@@ -173,15 +170,9 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 {
-            transition-delay: 0.07s;
-        }
-        .reveal-delay-2 {
-            transition-delay: 0.15s;
-        }
-        .reveal-delay-3 {
-            transition-delay: 0.22s;
-        }
+        .reveal-delay-1 { transition-delay: 0.07s; }
+        .reveal-delay-2 { transition-delay: 0.15s; }
+        .reveal-delay-3 { transition-delay: 0.22s; }
 
         /* ============================================================
            TOP NAV BAR
@@ -215,9 +206,7 @@
             flex-shrink: 0;
             transition: transform var(--transition-spring);
         }
-        .topbar-brand-icon:hover {
-            transform: rotate(-6deg) scale(1.06);
-        }
+        .topbar-brand-icon:hover { transform: rotate(-6deg) scale(1.06); }
         .topbar-brand-name {
             font-size: 1.05rem;
             font-weight: 800;
@@ -231,6 +220,11 @@
             color: var(--text-muted);
             display: block;
         }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
         .theme-btn {
             display: flex;
             align-items: center;
@@ -242,7 +236,7 @@
             color: var(--text-muted);
             font-size: 0.88rem;
             font-weight: 700;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             cursor: pointer;
             box-shadow: var(--shadow-sm);
             transition: all var(--transition);
@@ -264,17 +258,13 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-glow);
         }
-        .theme-btn:hover::after {
-            opacity: 1;
-        }
-        .theme-btn i {
-            font-size: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .theme-btn span {
-            position: relative;
-            z-index: 1;
+        .theme-btn:hover::after { opacity: 1; }
+        .theme-btn i, .theme-btn span { position: relative; z-index: 1; }
+
+        .theme-btn.active-focus {
+            background: var(--gold-bg);
+            color: var(--gold);
+            border-color: var(--gold);
         }
 
         /* ============================================================
@@ -306,12 +296,8 @@
             animation: banner-shift 30s linear infinite;
         }
         @keyframes banner-shift {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(60px, 60px);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
         }
         .hadith-banner i {
             font-size: 1.35rem;
@@ -320,13 +306,8 @@
             animation: float-icon 3s ease-in-out infinite;
         }
         @keyframes float-icon {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-6px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
         .hadith-banner span {
             color: #ffffff;
@@ -361,13 +342,8 @@
             animation: pulse-gold 2.5s ease-in-out infinite;
         }
         @keyframes pulse-gold {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 var(--gold-glow);
-            }
-            50% {
-                box-shadow: 0 0 0 12px rgba(194, 116, 6, 0);
-            }
+            0%, 100% { box-shadow: 0 0 0 0 var(--gold-glow); }
+            50% { box-shadow: 0 0 0 12px rgba(194, 116, 6, 0); }
         }
         .hero h1 {
             font-size: clamp(2.2rem, 5vw, 3.3rem);
@@ -386,13 +362,8 @@
             background-size: 200% 200%;
         }
         @keyframes accent-shift {
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .hero p {
             color: var(--text-muted);
@@ -402,7 +373,7 @@
         }
 
         /* ============================================================
-           SECTION TITLE
+           SECTION TITLE & CARDS
         ============================================================ */
         .section-title {
             display: flex;
@@ -429,9 +400,6 @@
             color: var(--text-heading);
         }
 
-        /* ============================================================
-           CARD BASE
-        ============================================================ */
         .card {
             background: var(--bg-surface);
             border: 1px solid var(--border-card);
@@ -460,7 +428,7 @@
         }
 
         /* ============================================================
-           FORM INPUTS
+           FORM INPUTS & BUTTONS
         ============================================================ */
         .field {
             display: flex;
@@ -472,9 +440,7 @@
             font-weight: 700;
             color: var(--text-muted);
         }
-        .field input,
-        .field select,
-        .field textarea {
+        .field input, .field select, .field textarea {
             width: 100%;
             padding: 0.88rem 1.05rem;
             border-radius: var(--radius-md);
@@ -483,14 +449,12 @@
             color: var(--text-body);
             font-size: 1rem;
             font-weight: 600;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             outline: none;
             transition: all var(--transition);
             -webkit-appearance: none;
         }
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
+        .field input:focus, .field select:focus, .field textarea:focus {
             border-color: var(--primary);
             background: var(--bg-surface);
             box-shadow: 0 0 0 4px var(--primary-glow);
@@ -503,9 +467,6 @@
             padding-left: 2.2rem;
         }
 
-        /* ============================================================
-           BUTTONS
-        ============================================================ */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -514,7 +475,7 @@
             padding: 0.7rem 1.25rem;
             border-radius: var(--radius-md);
             border: none;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
@@ -532,23 +493,15 @@
             transition: opacity 0.2s;
             border-radius: inherit;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        .btn:active {
-            transform: translateY(0) scale(0.97);
-        }
-        .btn:hover::after {
-            opacity: 1;
-        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn:active { transform: translateY(0) scale(0.97); }
+        .btn:hover::after { opacity: 1; }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             box-shadow: 0 4px 15px var(--primary-glow);
         }
-        .btn-primary:hover {
-            box-shadow: 0 8px 26px var(--primary-glow-strong);
-        }
+        .btn-primary:hover { box-shadow: 0 8px 26px var(--primary-glow-strong); }
         .btn-ghost {
             background: var(--bg-input);
             color: var(--text-body);
@@ -564,17 +517,13 @@
             color: #fff;
             box-shadow: 0 4px 13px rgba(37, 211, 102, 0.22);
         }
-        .btn-whatsapp:hover {
-            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38);
-        }
+        .btn-whatsapp:hover { box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38); }
         .btn-telegram {
             background: linear-gradient(135deg, #229ED9, #1a7cb8);
             color: #fff;
             box-shadow: 0 4px 13px rgba(34, 158, 217, 0.22);
         }
-        .btn-telegram:hover {
-            box-shadow: 0 8px 22px rgba(34, 158, 217, 0.38);
-        }
+        .btn-telegram:hover { box-shadow: 0 8px 22px rgba(34, 158, 217, 0.38); }
         .btn-danger {
             background: transparent;
             color: var(--danger);
@@ -597,10 +546,8 @@
             margin-bottom: 2.5rem;
         }
 
-        /* ─── Quran Calculator ─── */
-        .quran-calc {
-            padding: 2.1rem 2.1rem 1.7rem;
-        }
+        /* Quran Calculator */
+        .quran-calc { padding: 2.1rem 2.1rem 1.7rem; }
         .quran-calc-accent {
             position: absolute;
             top: 0;
@@ -658,10 +605,7 @@
             text-align: center;
             transition: transform var(--transition);
         }
-        .result-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-sm);
-        }
+        .result-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
         .result-item .result-label {
             font-size: 0.8rem;
             font-weight: 700;
@@ -674,13 +618,9 @@
             color: var(--primary);
             line-height: 1.3;
         }
-        .share-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-        }
+        .share-row { display: flex; flex-wrap: wrap; gap: 0.65rem; }
 
-        /* ─── Widgets Grid ─── */
+        /* Widgets Grid */
         .widgets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -693,11 +633,7 @@
             justify-content: space-between;
             gap: 1.1rem;
         }
-        .widget-head {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
+        .widget-head { display: flex; align-items: center; gap: 0.8rem; }
         .widget-icon {
             width: 42px;
             height: 42px;
@@ -723,12 +659,8 @@
             color: var(--text-heading);
         }
 
-        /* ─── Focus Timer ─── */
-        .timer-presets {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+        /* Focus Timer */
+        .timer-presets { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .preset-btn {
             padding: 0.38rem 0.85rem;
             border-radius: var(--radius-sm);
@@ -737,12 +669,11 @@
             color: var(--text-muted);
             font-size: 0.82rem;
             font-weight: 700;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             cursor: pointer;
             transition: all var(--transition);
         }
-        .preset-btn:hover,
-        .preset-btn.active {
+        .preset-btn:hover, .preset-btn.active {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
@@ -764,11 +695,7 @@
             height: 100%;
             transform: rotate(-90deg);
         }
-        .timer-circle-bg {
-            fill: none;
-            stroke: var(--bg-subtle);
-            stroke-width: 8;
-        }
+        .timer-circle-bg { fill: none; stroke: var(--bg-subtle); stroke-width: 8; }
         .timer-circle-progress {
             fill: none;
             stroke: var(--primary);
@@ -787,15 +714,10 @@
             z-index: 1;
             line-height: 1;
         }
-        .timer-clock-text span {
-            color: var(--primary);
-        }
-        .timer-controls {
-            display: flex;
-            gap: 0.65rem;
-        }
+        .timer-clock-text span { color: var(--primary); }
+        .timer-controls { display: flex; gap: 0.65rem; }
 
-        /* ─── Calendar Badge ─── */
+        /* Calendar Badge */
         .date-badge {
             background: var(--gold-bg);
             border: 1px solid rgba(194, 116, 6, 0.2);
@@ -826,19 +748,11 @@
             color: var(--primary);
             line-height: 1.5;
         }
-        .cal-fields {
-            display: none;
-        }
-        .cal-fields.active {
-            display: block;
-        }
-        .hijri-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.55rem;
-        }
+        .cal-fields { display: none; }
+        .cal-fields.active { display: block; }
+        .hijri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; }
 
-        /* ─── Zakat ─── */
+        /* Zakat */
         .zakat-result {
             background: var(--primary-glow);
             border: 1.5px dashed var(--primary);
@@ -847,37 +761,16 @@
             text-align: center;
             transition: all var(--transition);
         }
-        .zakat-result .z-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 0.28rem;
-        }
-        .zakat-result .z-value {
-            font-size: 1.55rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
-        .zakat-result .z-note {
-            font-size: 0.79rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-top: 0.28rem;
-        }
+        .zakat-result .z-label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.28rem; }
+        .zakat-result .z-value { font-size: 1.55rem; font-weight: 900; color: var(--primary); }
+        .zakat-result .z-note { font-size: 0.79rem; font-weight: 700; color: var(--text-muted); margin-top: 0.28rem; }
 
-        /* ─── Tasbeeh ─── */
+        /* Tasbeeh */
         .tasbeeh-wrap {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.9rem;
-        }
-        .tasbeeh-note {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.6;
         }
         .tasbeeh-btn {
             width: 108px;
@@ -888,7 +781,7 @@
             border: none;
             font-size: 2.3rem;
             font-weight: 900;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             cursor: pointer;
             box-shadow: 0 10px 30px var(--primary-glow-strong), 0 2px 6px rgba(0, 0, 0, 0.1);
             transition: transform var(--transition-spring), box-shadow var(--transition-spring);
@@ -907,23 +800,141 @@
             box-shadow: 0 4px 10px var(--primary-glow);
             transition: transform 0.1s;
         }
-        .tasbeeh-btn.flash {
-            animation: tasbeeh-pop 0.25s ease-out;
-        }
+        .tasbeeh-btn.flash { animation: tasbeeh-pop 0.25s ease-out; }
         @keyframes tasbeeh-pop {
-            0% {
-                transform: scale(1);
-            }
-            40% {
-                transform: scale(1.12);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            40% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+
+        /* Spaced Repetition Widget */
+        .sr-dates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+        }
+        .sr-date-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0.8rem;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        /* Audio Player Widget */
+        .audio-player-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .audio-speed-btn {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.78rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-input);
+            background: var(--bg-input);
+            color: var(--text-body);
+            cursor: pointer;
+        }
+        .audio-speed-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
         }
 
         /* ============================================================
-           SEARCH & FILTER
+           ROADMAP & WEEKLY SCHEDULE SECTIONS
+        ============================================================ */
+        .roadmap-section, .schedule-section {
+            width: 100%;
+            max-width: 1140px;
+            margin-bottom: 2.5rem;
+            padding: 1.9rem 2.1rem;
+        }
+        .roadmap-tabs {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .roadmap-tab-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--border-input);
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .roadmap-tab-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .roadmap-content-box {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-input);
+            border-radius: var(--radius-md);
+            padding: 1.3rem;
+        }
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .roadmap-card-item {
+            background: var(--bg-surface);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-input);
+        }
+        .roadmap-card-item h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .roadmap-card-item ul {
+            list-style: none;
+            padding: 0;
+            font-size: 0.88rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .day-box {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-input);
+            border-radius: var(--radius-md);
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .day-box h4 {
+            font-size: 0.88rem;
+            text-align: center;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border-input);
+            padding-bottom: 0.3rem;
+        }
+        .day-box input {
+            font-size: 0.8rem;
+            padding: 0.4rem;
+        }
+
+        /* ============================================================
+           SEARCH & FILTER & TOOLS GRID
         ============================================================ */
         .controls-section {
             width: 100%;
@@ -933,9 +944,7 @@
             flex-direction: column;
             gap: 1rem;
         }
-        .search-wrap {
-            position: relative;
-        }
+        .search-wrap { position: relative; }
         .search-wrap input {
             width: 100%;
             padding: 1rem 1.25rem 1rem 3.6rem;
@@ -945,7 +954,7 @@
             color: var(--text-body);
             font-size: 1rem;
             font-weight: 600;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             outline: none;
             box-shadow: var(--shadow-sm);
             transition: all var(--transition);
@@ -954,9 +963,7 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 4px var(--primary-glow), var(--shadow-sm);
         }
-        .search-wrap input::placeholder {
-            color: var(--text-faint);
-        }
+        .search-wrap input::placeholder { color: var(--text-faint); }
         .search-icon {
             position: absolute;
             left: 1.3rem;
@@ -967,22 +974,15 @@
             pointer-events: none;
             transition: color var(--transition);
         }
-        .search-wrap input:focus~.search-icon {
-            color: var(--primary);
-        }
-        .filter-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            justify-content: center;
-        }
+        .search-wrap input:focus ~ .search-icon { color: var(--primary); }
+        .filter-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
         .filter-btn {
             padding: 0.55rem 1.3rem;
             border-radius: var(--radius-full);
             border: 1.5px solid var(--border-input);
             background: var(--bg-surface);
             color: var(--text-muted);
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             font-size: 0.89rem;
             font-weight: 700;
             cursor: pointer;
@@ -991,17 +991,13 @@
             align-items: center;
             gap: 6px;
         }
-        .filter-btn:hover,
-        .filter-btn.active {
+        .filter-btn:hover, .filter-btn.active {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
             box-shadow: 0 4px 16px var(--primary-glow);
         }
 
-        /* ============================================================
-           TOOLS GRID
-        ============================================================ */
         .tools-grid {
             width: 100%;
             max-width: 1140px;
@@ -1017,10 +1013,6 @@
             justify-content: space-between;
             gap: 0;
             transition: transform var(--transition-spring), box-shadow var(--transition-spring), border-color var(--transition), opacity 0.3s ease;
-        }
-        .tool-card[style*="display: none"] {
-            opacity: 0;
-            pointer-events: none;
         }
         .fav-btn {
             position: absolute;
@@ -1040,8 +1032,7 @@
             justify-content: center;
             transition: all var(--transition);
         }
-        .fav-btn:hover,
-        .fav-btn.active {
+        .fav-btn:hover, .fav-btn.active {
             color: var(--gold);
             background: var(--gold-bg);
             transform: scale(1.15);
@@ -1140,20 +1131,9 @@
             align-items: center;
             gap: 0.8rem;
         }
-        .notes-head-title i {
-            font-size: 1.55rem;
-            color: var(--gold);
-        }
-        .notes-head-title h2 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--text-heading);
-        }
-        .notes-actions-head {
-            display: flex;
-            gap: 0.55rem;
-            flex-wrap: wrap;
-        }
+        .notes-head-title i { font-size: 1.55rem; color: var(--gold); }
+        .notes-head-title h2 { font-size: 1.35rem; font-weight: 800; color: var(--text-heading); }
+        .notes-actions-head { display: flex; gap: 0.55rem; flex-wrap: wrap; align-items: center; }
         .notes-textarea {
             width: 100%;
             min-height: 185px;
@@ -1163,7 +1143,7 @@
             background: var(--bg-input);
             color: var(--text-body);
             font-size: 1.02rem;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             font-weight: 500;
             line-height: 1.75;
             outline: none;
@@ -1175,9 +1155,7 @@
             background: var(--bg-surface);
             box-shadow: 0 0 0 4px var(--primary-glow);
         }
-        .notes-textarea::placeholder {
-            color: var(--text-faint);
-        }
+        .notes-textarea::placeholder { color: var(--text-faint); }
         .notes-foot {
             display: flex;
             align-items: center;
@@ -1186,14 +1164,10 @@
             gap: 0.65rem;
             margin-top: 0.9rem;
         }
-        .notes-stats {
-            font-size: 0.84rem;
-            font-weight: 700;
-            color: var(--text-faint);
-        }
+        .notes-stats { font-size: 0.84rem; font-weight: 700; color: var(--text-faint); }
 
         /* ============================================================
-           FOOTER
+           FOOTER & FLOATING BUTTONS
         ============================================================ */
         .site-footer {
             width: 100%;
@@ -1203,19 +1177,9 @@
             text-align: center;
             border-top: 1px solid var(--border-input);
         }
-        .site-footer p {
-            color: var(--text-muted);
-            font-size: 0.94rem;
-            font-weight: 600;
-        }
-        .site-footer strong {
-            color: var(--primary);
-            font-weight: 800;
-        }
+        .site-footer p { color: var(--text-muted); font-size: 0.94rem; font-weight: 600; }
+        .site-footer strong { color: var(--primary); font-weight: 800; }
 
-        /* ============================================================
-           FLOATING BUTTONS
-        ============================================================ */
         .yt-fab {
             position: fixed;
             bottom: 22px;
@@ -1229,7 +1193,7 @@
             align-items: center;
             gap: 9px;
             text-decoration: none;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-stack);
             font-weight: 800;
             font-size: 0.91rem;
             box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28);
@@ -1242,17 +1206,10 @@
             box-shadow: 0 14px 38px rgba(255, 0, 0, 0.48);
             color: #fff;
         }
-        .yt-fab i {
-            font-size: 1.3rem;
-        }
+        .yt-fab i { font-size: 1.3rem; }
         @keyframes yt-pulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 0 rgba(255, 0, 0, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 14px rgba(255, 0, 0, 0);
-            }
+            0%, 100% { box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 0 rgba(255, 0, 0, 0.35); }
+            50% { box-shadow: 0 8px 26px rgba(255, 0, 0, 0.28), 0 0 0 14px rgba(255, 0, 0, 0); }
         }
 
         .back-to-top {
@@ -1290,9 +1247,6 @@
             transform: translateY(-4px);
         }
 
-        /* ============================================================
-           TOAST
-        ============================================================ */
         .toast-container {
             position: fixed;
             bottom: 85px;
@@ -1315,108 +1269,44 @@
             opacity: 0;
             transform: translateY(14px);
             transition: all 0.3s var(--transition-spring);
-            pointer-events: none;
-            max-width: 300px;
+            pointer-events: auto;
+            max-width: 320px;
             text-align: center;
-            white-space: nowrap;
+            cursor: pointer;
         }
-        .toast.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .toast.show { opacity: 1; transform: translateY(0); }
 
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
+        /* Responsive */
         @media (max-width: 720px) {
-            .topbar {
-                padding: 1rem 0;
-            }
-            .topbar-brand-name {
-                font-size: 0.9rem;
-            }
-            .theme-btn span {
-                display: none;
-            }
-            .theme-btn {
-                padding: 0.55rem;
-            }
-            .hero h1 {
-                font-size: 1.85rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .hadith-banner {
-                padding: 0.95rem;
-                font-size: 0.88rem;
-            }
-            .quran-calc {
-                padding: 1.3rem;
-            }
-            .widgets-grid {
-                grid-template-columns: 1fr;
-            }
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            .notes-section {
-                padding: 1.3rem;
-            }
-            .timer-display-wrap {
-                width: 130px;
-                height: 130px;
-            }
-            .timer-clock-text {
-                font-size: 1.9rem;
-            }
-            .yt-fab {
-                padding: 0.6rem 1rem;
-                font-size: 0.84rem;
-            }
-            .yt-fab span {
-                display: none;
-            }
-            .result-row {
-                padding: 0.9rem;
-            }
-            .back-to-top {
-                bottom: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-            }
-            .yt-fab {
-                bottom: 16px;
-                left: 16px;
-            }
+            .topbar { padding: 1rem 0; }
+            .topbar-brand-name { font-size: 0.9rem; }
+            .theme-btn span { display: none; }
+            .theme-btn { padding: 0.55rem; }
+            .hero h1 { font-size: 1.85rem; }
+            .hero p { font-size: 1rem; }
+            .hadith-banner { padding: 0.95rem; font-size: 0.88rem; }
+            .quran-calc { padding: 1.3rem; }
+            .widgets-grid, .tools-grid { grid-template-columns: 1fr; }
+            .notes-section { padding: 1.3rem; }
+            .timer-display-wrap { width: 130px; height: 130px; }
+            .timer-clock-text { font-size: 1.9rem; }
+            .yt-fab { padding: 0.6rem 1rem; font-size: 0.84rem; bottom: 16px; left: 16px; }
+            .yt-fab span { display: none; }
+            .result-row { padding: 0.9rem; }
+            .back-to-top { bottom: 16px; right: 16px; width: 38px; height: 38px; }
         }
         @media (max-width: 480px) {
-            .hadith-banner i {
-                display: none;
-            }
-            .calc-inputs-grid {
-                grid-template-columns: 1fr;
-            }
-            .hijri-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 0.4rem;
-            }
-            .toast-container {
-                bottom: 75px;
-            }
+            .hadith-banner i { display: none; }
+            .calc-inputs-grid { grid-template-columns: 1fr; }
+            .hijri-grid { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+            .toast-container { bottom: 75px; }
         }
 
-        /* ============================================================
-           DARK MODE OVERRIDES
-        ============================================================ */
         body.dark .field input,
         body.dark .field select,
         body.dark .field textarea,
         body.dark .search-wrap input,
-        body.dark .notes-textarea {
-            color-scheme: dark;
-        }
+        body.dark .notes-textarea { color-scheme: dark; }
         body.dark .field select {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237090b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
         }
@@ -1426,9 +1316,7 @@
 
     <div class="page-wrapper">
 
-        <!-- ═══════════════════════════════════════
-         TOP NAV
-        ═══════════════════════════════════════ -->
+        <!-- TOP NAV -->
         <div class="topbar container reveal">
             <div class="topbar-brand">
                 <div class="topbar-brand-icon">
@@ -1439,23 +1327,34 @@
                     <span class="topbar-brand-sub">الدليل الرقمي الشامل</span>
                 </div>
             </div>
-            <button class="theme-btn" onclick="toggleTheme()" aria-label="تبديل المظهر">
-                <i class="fa-solid fa-moon" id="themeIcon"></i>
-                <span id="themeText">المظهر الداكن</span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-btn" id="focusModeBtn" onclick="toggleFocusMode()" aria-label="تفعيل وضع التركيز بدون تشتيت" aria-pressed="false">
+                    <i class="fa-solid fa-expand"></i>
+                    <span>وضع التركيز</span>
+                </button>
+                <button class="theme-btn" onclick="exportUserData()" aria-label="تصدير البيانات احتياطياً">
+                    <i class="fa-solid fa-file-export"></i>
+                    <span>نسخ احتياطي</span>
+                </button>
+                <label class="theme-btn" style="cursor:pointer;" aria-label="استرداد البيانات من ملف">
+                    <i class="fa-solid fa-file-import"></i>
+                    <span>استرداد</span>
+                    <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importUserData(event)">
+                </label>
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="تبديل المظهر" aria-pressed="false">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    <span id="themeText">المظهر الداكن</span>
+                </button>
+            </div>
         </div>
 
-        <!-- ═══════════════════════════════════════
-         HADITH BANNER
-        ═══════════════════════════════════════ -->
+        <!-- HADITH BANNER -->
         <div class="hadith-banner container reveal reveal-delay-1">
             <i class="fa-solid fa-graduation-cap"></i>
             <span>قال رسول الله ﷺ: «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ»</span>
         </div>
 
-        <!-- ═══════════════════════════════════════
-         HERO
-        ═══════════════════════════════════════ -->
+        <!-- HERO HEADER -->
         <header class="hero reveal reveal-delay-2">
             <div class="hero-eyebrow">
                 <i class="fa-solid fa-star" style="font-size:0.75rem;"></i>
@@ -1465,12 +1364,10 @@
             <p>دليلك التفاعلي الشامل لأهم المكتبات والأدوات والتطبيقات النافعة لطالب العلم الشرعي</p>
         </header>
 
-        <!-- ═══════════════════════════════════════
-         INTERACTIVE TOOLS
-        ═══════════════════════════════════════ -->
+        <!-- INTERACTIVE SECTION -->
         <div class="interactive-section">
 
-            <!-- ── Quran Calculator ── -->
+            <!-- Quran Calculator -->
             <section class="card quran-calc reveal" aria-labelledby="quranCalcTitle">
                 <div class="quran-calc-accent"></div>
                 <div class="section-title" style="margin-bottom:1.5rem;">
@@ -1482,7 +1379,7 @@
                 <div class="calc-inputs-grid">
                     <div class="field">
                         <label for="calcMode">طريقة التخطيط:</label>
-                        <select id="calcMode" onchange="calculateQuran()">
+                        <select id="calcMode" onchange="calculateQuran()" aria-label="طريقة تخطيط الختمة">
                             <option value="pages">حسب عدد الصفحات اليومية</option>
                             <option value="days">حسب عدد الأيام المستهدفة</option>
                             <option value="juz">حسب الأجزاء اليومية</option>
@@ -1490,11 +1387,11 @@
                     </div>
                     <div class="field">
                         <label id="inputLabel" for="calcInput">عدد الصفحات يومياً:</label>
-                        <input type="number" id="calcInput" value="10" min="1" oninput="calculateQuran()">
+                        <input type="number" id="calcInput" value="10" min="1" oninput="calculateQuran()" aria-label="الكمية اليومية">
                     </div>
                     <div class="field">
                         <label for="readPages">كم صفحة قرأت حتى الآن؟</label>
-                        <input type="number" id="readPages" value="0" min="0" max="604" oninput="calculateQuran()">
+                        <input type="number" id="readPages" value="0" min="0" max="604" oninput="calculateQuran()" aria-label="عدد الصفحات المقروءة سابقاً">
                     </div>
                 </div>
                 <div>
@@ -1527,7 +1424,7 @@
                 </div>
             </section>
 
-            <!-- ── Widgets Row ── -->
+            <!-- Widgets Grid -->
             <div class="widgets-grid">
 
                 <!-- Widget 1: Focus Timer -->
@@ -1538,9 +1435,9 @@
                             <h3 id="timerTitle">مؤقت التركيز والدراسة</h3>
                         </div>
                         <div class="timer-presets">
-                            <button class="preset-btn active" onclick="setTimerPreset(25, this)">25 د تركيز</button>
-                            <button class="preset-btn" onclick="setTimerPreset(5, this)">5 د راحة</button>
-                            <button class="preset-btn" onclick="setTimerPreset(15, this)">15 د راحة</button>
+                            <button class="preset-btn active" onclick="setTimerPreset(25, this)" aria-label="جلسة 25 دقيقة">25 د تركيز</button>
+                            <button class="preset-btn" onclick="setTimerPreset(5, this)" aria-label="راحة 5 دقائق">5 د راحة</button>
+                            <button class="preset-btn" onclick="setTimerPreset(15, this)" aria-label="راحة 15 دقيقة">15 د راحة</button>
                         </div>
                         <div class="timer-display-wrap">
                             <svg class="timer-svg" viewBox="0 0 160 160">
@@ -1560,8 +1457,56 @@
                     </div>
                 </div>
 
-                <!-- Widget 2: Calendar Converter -->
-                <div class="card widget reveal reveal-delay-1" aria-labelledby="calTitle">
+                <!-- Widget 2: Spaced Repetition Planner -->
+                <div class="card widget reveal reveal-delay-1" aria-labelledby="srTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:1rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h3 id="srTitle">حاسبة التكرار المتباعد</h3>
+                        </div>
+                        <div class="field">
+                            <label for="srTextName">اسم المتن / الدرس:</label>
+                            <input type="text" id="srTextName" placeholder="مثال: البيقونية / الأربعين" oninput="calculateSpacedRepetition()">
+                        </div>
+                        <div class="sr-dates-list" id="srDatesContainer">
+                            <div class="sr-date-item"><span>المراجعة 1 (غداً):</span> <strong id="sr1">—</strong></div>
+                            <div class="sr-date-item"><span>المراجعة 2 (بعد 3 أيام):</span> <strong id="sr2">—</strong></div>
+                            <div class="sr-date-item"><span>المراجعة 3 (بعد أسبوع):</span> <strong id="sr3">—</strong></div>
+                            <div class="sr-date-item"><span>المراجعة 4 (بعد شهر):</span> <strong id="sr4">—</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget 3: Audio Player -->
+                <div class="card widget reveal reveal-delay-2" aria-labelledby="audioTitle">
+                    <div>
+                        <div class="widget-head" style="margin-bottom:0.8rem;">
+                            <div class="widget-icon"><i class="fa-solid fa-headphones"></i></div>
+                            <h3 id="audioTitle">مشغل المتون والدروس</h3>
+                        </div>
+                        <div class="audio-player-controls">
+                            <div class="field">
+                                <label for="audioSelect">اختر المادة الصوتية:</label>
+                                <select id="audioSelect" onchange="changeAudioSource()" aria-label="اختر التسجيل">
+                                    <option value="https://server8.mp3quran.net/afs/001.mp3">سورة الفاتحة - مشاري العفاسي</option>
+                                    <option value="https://server8.mp3quran.net/afs/067.mp3">سورة الملك - مشاري العفاسي</option>
+                                    <option value="https://server8.mp3quran.net/afs/112.mp3">سورة الإخلاص - مشاري العفاسي</option>
+                                </select>
+                            </div>
+                            <audio id="mainAudioPlayer" controls style="width:100%; height:40px; border-radius:8px;"></audio>
+                            <div style="display:flex; gap:0.4rem; justify-content:center; align-items:center;">
+                                <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">سرعة التشغيل:</span>
+                                <button class="audio-speed-btn active" onclick="setAudioSpeed(1, this)">1x</button>
+                                <button class="audio-speed-btn" onclick="setAudioSpeed(1.25, this)">1.25x</button>
+                                <button class="audio-speed-btn" onclick="setAudioSpeed(1.5, this)">1.5x</button>
+                                <button class="audio-speed-btn" onclick="setAudioSpeed(2, this)">2x</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget 4: Calendar Converter -->
+                <div class="card widget reveal" aria-labelledby="calTitle">
                     <div>
                         <div class="widget-head" style="margin-bottom:1rem;">
                             <div class="widget-icon"><i class="fa-solid fa-calendar-days"></i></div>
@@ -1571,30 +1516,30 @@
                         <div style="margin-top:0.9rem; display:flex; flex-direction:column; gap:0.8rem;">
                             <div class="field">
                                 <label for="calendarMode">نوع التحويل:</label>
-                                <select id="calendarMode" onchange="renderCalendarMode(); convertDate();">
+                                <select id="calendarMode" onchange="renderCalendarMode(); convertDate();" aria-label="نوع التحويل التقويمي">
                                     <option value="g2h">من الميلادي إلى الهجري</option>
                                     <option value="h2g">من الهجري إلى الميلادي</option>
                                 </select>
                             </div>
                             <div class="cal-fields active" id="gregorianFields">
                                 <div class="field">
-                                    <label>اختر تاريخاً ميلادياً:</label>
-                                    <input type="date" id="gregorianInput" onchange="convertDate()">
+                                    <label for="gregorianInput">اختر تاريخاً ميلادياً:</label>
+                                    <input type="date" id="gregorianInput" onchange="convertDate()" aria-label="التاريخ الميلادي">
                                 </div>
                             </div>
                             <div class="cal-fields" id="hijriFields">
                                 <div class="hijri-grid">
                                     <div class="field">
-                                        <label>اليوم</label>
-                                        <input type="number" id="hijriDay" min="1" max="30" placeholder="١" oninput="convertDate()">
+                                        <label for="hijriDay">اليوم</label>
+                                        <input type="number" id="hijriDay" min="1" max="30" placeholder="١" oninput="convertDate()" aria-label="اليوم الهجري">
                                     </div>
                                     <div class="field">
-                                        <label>الشهر</label>
-                                        <input type="number" id="hijriMonth" min="1" max="12" placeholder="١" oninput="convertDate()">
+                                        <label for="hijriMonth">الشهر</label>
+                                        <input type="number" id="hijriMonth" min="1" max="12" placeholder="١" oninput="convertDate()" aria-label="الشهر الهجري">
                                     </div>
                                     <div class="field">
-                                        <label>السنة</label>
-                                        <input type="number" id="hijriYear" min="1" max="1600" placeholder="١٤٤٧" oninput="convertDate()">
+                                        <label for="hijriYear">السنة</label>
+                                        <input type="number" id="hijriYear" min="1" max="1600" placeholder="١٤٤٧" oninput="convertDate()" aria-label="السنة الهجرية">
                                     </div>
                                 </div>
                             </div>
@@ -1606,47 +1551,71 @@
                     </div>
                 </div>
 
-                <!-- Widget 3: Zakat Calculator -->
-                <div class="card widget reveal reveal-delay-2" aria-labelledby="zakatTitle">
+                <!-- Widget 5: Zakat Calculator -->
+                <div class="card widget reveal reveal-delay-1" aria-labelledby="zakatTitle">
                     <div>
-                        <div class="widget-head" style="margin-bottom:1rem;">
+                        <div class="widget-head" style="margin-bottom:0.8rem;">
                             <div class="widget-icon"><i class="fa-solid fa-calculator"></i></div>
                             <h3 id="zakatTitle">حاسبة الزكاة الشرعية</h3>
                         </div>
-                        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                        <div style="display:flex; flex-direction:column; gap:0.65rem;">
                             <div class="field">
-                                <label>المبلغ النقدي والمدخرات:</label>
-                                <input type="number" id="zakatCash" placeholder="المبلغ بالعملة المحلية" oninput="calculateZakat()">
+                                <label for="zakatCash">المبلغ النقدي والمدخرات:</label>
+                                <input type="number" id="zakatCash" placeholder="المبلغ بالعملة المحلية" oninput="calculateZakat()" aria-label="المبلغ النقدي">
                             </div>
-                            <div class="field">
-                                <label>وزن الذهب (بالجرام):</label>
-                                <input type="number" id="zakatGold" placeholder="وزن الذهب المملوك" oninput="calculateZakat()">
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.55rem;">
+                                <div class="field">
+                                    <label for="zakatGold">وزن الذهب (جرام):</label>
+                                    <input type="number" id="zakatGold" placeholder="الوزن" oninput="calculateZakat()" aria-label="وزن الذهب">
+                                </div>
+                                <div class="field">
+                                    <label for="goldPrice">سعر جرام الذهب:</label>
+                                    <input type="number" id="goldPrice" placeholder="السعر" oninput="calculateZakat()" aria-label="سعر جرام الذهب">
+                                </div>
                             </div>
-                            <div class="field">
-                                <label>سعر جرام الذهب اليوم (اختياري):</label>
-                                <input type="number" id="goldPrice" placeholder="سعر جرام الذهب" oninput="calculateZakat()">
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.55rem;">
+                                <div class="field">
+                                    <label for="zakatSilver">وزن الفضة (جرام):</label>
+                                    <input type="number" id="zakatSilver" placeholder="الوزن" oninput="calculateZakat()" aria-label="وزن الفضة">
+                                </div>
+                                <div class="field">
+                                    <label for="silverPrice">سعر جرام الفضة:</label>
+                                    <input type="number" id="silverPrice" placeholder="السعر" oninput="calculateZakat()" aria-label="سعر جرام الفضة">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="zakat-result" style="margin-top:0.8rem;">
-                        <div class="z-label">مقدار الزكاة الواجبة (2.5%):</div>
-                        <div class="z-value" id="zakatValue">0.00</div>
-                        <div class="z-note" id="zakatStatus"></div>
+                    <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.8rem;">
+                        <div class="zakat-result">
+                            <div class="z-label">مقدار الزكاة الواجبة (2.5%):</div>
+                            <div class="z-value" id="zakatValue">0.00</div>
+                            <div class="z-note" id="zakatStatus"></div>
+                        </div>
+                        <button class="btn btn-ghost" style="padding:0.4rem; font-size:0.8rem;" onclick="resetZakat()" aria-label="تصفير حاسبة الزكاة">
+                            <i class="fa-solid fa-rotate-right"></i> تصفير حاسبة الزكاة
+                        </button>
                     </div>
                 </div>
 
-                <!-- Widget 4: Digital Tasbeeh -->
-                <div class="card widget reveal" aria-labelledby="tasbeehTitle">
+                <!-- Widget 6: Digital Tasbeeh -->
+                <div class="card widget reveal reveal-delay-2" aria-labelledby="tasbeehTitle">
                     <div>
                         <div class="widget-head" style="margin-bottom:0.5rem;">
                             <div class="widget-icon"><i class="fa-solid fa-fingerprint"></i></div>
-                            <h3 id="tasbeehTitle">السبحة الرقمية</h3>
+                            <h3 id="tasbeehTitle">السبحة الرقمية والتنبيهات</h3>
                         </div>
-                        <p class="tasbeeh-note">عداد حر بدون أذكار جاهزة، حتى تظل أذكارك مفتوحة كما تريد.</p>
+                        <div class="field" style="margin-bottom:0.6rem;">
+                            <label for="tasbeehTarget">الهدف والتنبيه:</label>
+                            <select id="tasbeehTarget" onchange="changeTasbeehTarget()" aria-label="حدد هدف التسبيح">
+                                <option value="0">عداد حر (بدون هدف)</option>
+                                <option value="33">33 تسبيحة</option>
+                                <option value="100">100 تسبيحة</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="tasbeeh-wrap">
                         <button class="tasbeeh-btn" onclick="incrementDhikr()" id="dhikrDisplay" aria-label="اضغط للتسبيح">0</button>
-                        <button class="btn btn-ghost" style="width:100%;" onclick="resetDhikr()">
+                        <button class="btn btn-ghost" style="width:100%;" onclick="resetDhikr()" aria-label="تصفير العداد">
                             <i class="fa-solid fa-rotate-right"></i> تصفير العداد
                         </button>
                     </div>
@@ -1655,9 +1624,35 @@
             </div><!-- /widgets-grid -->
         </div><!-- /interactive-section -->
 
-        <!-- ═══════════════════════════════════════
-         SEARCH & FILTER
-        ═══════════════════════════════════════ -->
+        <!-- ROADMAP SECTION (شجرة العلوم الشرعية) -->
+        <section class="card roadmap-section reveal" aria-labelledby="roadmapTitle">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="fa-solid fa-sitemap"></i></div>
+                <h2 id="roadmapTitle">شجرة العلوم والتدرج العلمي</h2>
+            </div>
+            <div class="roadmap-tabs">
+                <button class="roadmap-tab-btn active" onclick="switchRoadmapTab('mubtadi', this)">مرحلة المبتدئ (المقدمات)</button>
+                <button class="roadmap-tab-btn" onclick="switchRoadmapTab('mutawassit', this)">مرحلة المتوسط (التأصيل)</button>
+                <button class="roadmap-tab-btn" onclick="switchRoadmapTab('mutaqaddim', this)">مرحلة المتقدم (التمكين)</button>
+            </div>
+            <div class="roadmap-content-box" id="roadmapContent">
+                <!-- Content inserted via JavaScript -->
+            </div>
+        </section>
+
+        <!-- WEEKLY LESSON SCHEDULE -->
+        <section class="card schedule-section reveal" aria-labelledby="scheduleTitle">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="fa-solid fa-calendar-week"></i></div>
+                <h2 id="scheduleTitle">منظم الجدول العلمي الأسبوعي</h2>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0.5rem;">سجل مواعيد دروسك العلمية اليومية ليتم حفظها تلقائياً:</p>
+            <div class="schedule-grid" id="weeklyScheduleGrid">
+                <!-- Days populated via JS -->
+            </div>
+        </section>
+
+        <!-- SEARCH & FILTER -->
         <div class="controls-section reveal">
             <div class="search-wrap">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -1673,9 +1668,7 @@
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════
-         TOOLS GRID
-        ═══════════════════════════════════════ -->
+        <!-- TOOLS GRID -->
         <main class="tools-grid" id="toolsGrid">
 
             <!-- 1: المكتبة الشاملة -->
@@ -1840,11 +1833,63 @@
                 </a>
             </div>
 
+            <!-- 10: منصة زادي -->
+            <div class="card tool-card reveal" data-id="zadi" data-category="mutoon">
+                <button class="fav-btn" onclick="toggleFavorite('zadi', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <div class="tool-meta">
+                            <h3>منصة زادي</h3>
+                            <span class="badge">تعلم موجه</span>
+                        </div>
+                    </div>
+                    <p class="tool-desc">منصة مساقات تعليمية مفتوحة تعنى بالعلوم الشرعية والتربوية في مسارات تعليمية منظمة.</p>
+                </div>
+                <a href="https://zadi.net/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- 11: الشاملة الحديثة -->
+            <div class="card tool-card reveal reveal-delay-1" data-id="shamela-mod" data-category="libraries">
+                <button class="fav-btn" onclick="toggleFavorite('shamela-mod', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div class="tool-meta">
+                            <h3>الشاملة الحديثة</h3>
+                            <span class="badge">مكتبة سريعة</span>
+                        </div>
+                    </div>
+                    <p class="tool-desc">واجهة حديثة وسريعة متوافقة مع جميع الأجهزة للبحث القوي والسريع في مصادر وكتب الشاملة.</p>
+                </div>
+                <a href="https://turath.io/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- 12: إسلام ويب المكتبة -->
+            <div class="card tool-card reveal reveal-delay-2" data-id="islamweb-lib" data-category="libraries">
+                <button class="fav-btn" onclick="toggleFavorite('islamweb-lib', this)" aria-label="إضافة للمفضلة"><i class="fa-regular fa-star"></i></button>
+                <div>
+                    <div class="tool-header">
+                        <div class="tool-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="tool-meta">
+                            <h3>مكتبة إسلام ويب</h3>
+                            <span class="badge">الموسوعة الإسلامية</span>
+                        </div>
+                    </div>
+                    <p class="tool-desc">مكتبة ضخمة تضم أمهات الكتب الفقهية، والحديثية، وعلوم القرآن مع التبويب والشروح المفصلة.</p>
+                </div>
+                <a href="https://www.islamweb.net/ar/library/" target="_blank" rel="noopener" class="tool-link">
+                    زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
         </main>
 
-        <!-- ═══════════════════════════════════════
-         NOTES SECTION
-        ═══════════════════════════════════════ -->
+        <!-- NOTES SECTION -->
         <section class="card notes-section reveal" aria-labelledby="notesTitle">
             <div class="notes-head">
                 <div class="notes-head-title">
@@ -1852,73 +1897,65 @@
                     <h2 id="notesTitle">دفتر الفوائد والشوارد العلمية</h2>
                 </div>
                 <div class="notes-actions-head">
+                    <div style="position:relative; flex:1; min-width:180px;">
+                        <input type="text" id="notesSearchInput" placeholder="بحث داخل الفوائد…" oninput="searchNotes()"
+                            style="padding:0.45rem 0.8rem; font-size:0.85rem; border-radius:var(--radius-sm); border:1px solid var(--border-input); background:var(--bg-input); color:var(--text-body); width:100%;" aria-label="بحث في الملاحظات">
+                    </div>
                     <button class="btn btn-primary" onclick="copyNotes()"><i class="fa-solid fa-copy"></i> نسخ الفوائد</button>
+                    <button class="btn btn-ghost" onclick="printNotes()"><i class="fa-solid fa-print"></i> طباعة</button>
                     <button class="btn btn-ghost" onclick="downloadNotes()"><i class="fa-solid fa-download"></i> تصدير TXT</button>
                 </div>
             </div>
             <textarea class="notes-textarea" id="userNotes"
-        placeholder="سجّل هنا ما تقتنصه من الفوائد والنكات العلمية أثناء قراءتك… (يتم حفظها تلقائياً في متصفحك)"
-        oninput="saveNotes()" aria-label="دفتر الفوائد"></textarea>
-        <div class="notes-foot">
-            <span class="notes-stats" id="notesStats">0 كلمة | 0 حرف</span>
-            <button class="btn btn-danger" onclick="clearNotes()">
-                <i class="fa-solid fa-trash"></i> مسح الدفتر
-            </button>
-        </div>
-    </section>
+                placeholder="سجّل هنا ما تقتنصه من الفوائد والنكات العلمية أثناء قراءتك… (يتم حفظها تلقائياً في متصفحك)"
+                oninput="saveNotes()" aria-label="دفتر الفوائد"></textarea>
+            <div class="notes-foot">
+                <span class="notes-stats" id="notesStats">0 كلمة | 0 حرف</span>
+                <button class="btn btn-danger" onclick="clearNotes()" aria-label="مسح كافة الفوائد المكتوبة">
+                    <i class="fa-solid fa-trash"></i> مسح الدفتر
+                </button>
+            </div>
+        </section>
 
-    <!-- ═══════════════════════════════════════
-     FOOTER
-    ═══════════════════════════════════════ -->
-    <footer class="site-footer reveal">
-        <p>مطور هذا الموقع هو الفقير إلى عفو ربه <strong>البراء أحمد فواز</strong> © 2026</p>
-    </footer>
+        <!-- FOOTER -->
+        <footer class="site-footer reveal">
+            <p>مطور هذا الموقع هو الفقير إلى عفو ربه <strong>البراء أحمد فواز</strong> © 2026</p>
+        </footer>
 
-</div><!-- /page-wrapper -->
+    </div><!-- /page-wrapper -->
 
-<!-- ═══════════════════════════════════════
- FLOATING BUTTONS
-═══════════════════════════════════════ -->
-<a href="https://youtube.com/@tilawen21?si=7wV1QpgGieTr8wOH" target="_blank" rel="noopener" class="yt-fab" title="اشترك في القناة" aria-label="اشترك في قناة اليوتيوب">
-    <i class="fa-brands fa-youtube"></i>
-    <span>اشترك في القناة</span>
-</a>
+    <!-- FLOATING BUTTONS -->
+    <a href="https://youtube.com/@tilawen21?si=7wV1QpgGieTr8wOH" target="_blank" rel="noopener" class="yt-fab" title="اشترك في القناة" aria-label="اشترك في قناة اليوتيوب">
+        <i class="fa-brands fa-youtube"></i>
+        <span>اشترك في القناة</span>
+    </a>
 
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى" title="العودة للأعلى">
-    <i class="fa-solid fa-chevron-up"></i>
-</button>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى" title="العودة للأعلى">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
 
-<!-- Toast Container -->
-<div class="toast-container" id="toastContainer"></div>
-
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
 <script>
-    /* ============================================================
-       STATE
-    ============================================================ */
-    let currentCategory = 'all';
+    /* STATE */
+    let currentCategory = localStorage.getItem('active_category') || 'all';
     const TOTAL_QURAN_PAGES = 604;
     let favorites = JSON.parse(localStorage.getItem('fav_tools')) || [];
     let dhikrCount = parseInt(localStorage.getItem('dhikr_count')) || 0;
-    const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 70; // ≈ 439.82
+    let tasbeehTarget = parseInt(localStorage.getItem('dhikr_target')) || 0;
+    const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 70;
 
-    /* ============================================================
-       1. THEME TOGGLE
-    ============================================================ */
+    /* 1. THEME & FOCUS MODE TOGGLE */
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('themeIcon');
         const text = document.getElementById('themeText');
         body.classList.toggle('dark');
-        if (body.classList.contains('dark')) {
-            icon.className = 'fa-solid fa-sun';
-            text.textContent = 'المظهر الفاتح';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.className = 'fa-solid fa-moon';
-            text.textContent = 'المظهر الداكن';
-            localStorage.setItem('theme', 'light');
-        }
+        const isDark = body.classList.contains('dark');
+        icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        text.textContent = isDark ? 'المظهر الفاتح' : 'المظهر الداكن';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
     function loadTheme() {
@@ -1929,27 +1966,76 @@
         }
     }
 
-    /* ============================================================
-       2. QURAN CALCULATOR
-    ============================================================ */
+    function toggleFocusMode() {
+        document.body.classList.toggle('focus-mode');
+        const btn = document.getElementById('focusModeBtn');
+        const isFocus = document.body.classList.contains('focus-mode');
+        btn.classList.toggle('active-focus', isFocus);
+        btn.setAttribute('aria-pressed', isFocus);
+        showToast(isFocus ? "تم تفعيل وضع التركيز بدون تشتيت 🎯" : "تم إلغاء وضع التركيز");
+    }
+
+    /* 2. DATA IMPORT / EXPORT (BACKUP) */
+    function exportUserData() {
+        const data = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            data[key] = localStorage.getItem(key);
+        }
+        const jsonStr = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `حقيبة_طالب_العلم_نسخة_احتياطية_${new Date().toISOString().slice(0,10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("تم تصدير نسخة احتياطية من بياناتك بنجاح! 💾");
+    }
+
+    function importUserData(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const data = JSON.parse(e.target.result);
+                Object.keys(data).forEach(key => {
+                    localStorage.setItem(key, data[key]);
+                });
+                showToast("تم استرداد بياناتك بنجاح! جاري تحديث الصفحة… 🔄");
+                setTimeout(() => location.reload(), 1200);
+            } catch (err) {
+                showToast("حدث خطأ في قراءة ملف النسخة الاحتياطية!");
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    /* 3. QURAN CALCULATOR */
     function calculateQuran() {
         const mode = document.getElementById('calcMode').value;
         let inputVal = parseFloat(document.getElementById('calcInput').value) || 0;
         let readPages = parseFloat(document.getElementById('readPages').value) || 0;
         readPages = Math.min(Math.max(readPages, 0), TOTAL_QURAN_PAGES);
+
         localStorage.setItem('quran_mode', mode);
         localStorage.setItem('quran_input', inputVal);
         localStorage.setItem('quran_read', readPages);
+
         const remainingPages = TOTAL_QURAN_PAGES - readPages;
         const progressPercent = Math.min(100, Math.round((readPages / TOTAL_QURAN_PAGES) * 100));
         document.getElementById('progressBar').style.width = `${progressPercent}%`;
         document.getElementById('progressPercent').textContent = `${progressPercent}%`;
+
         const inputLabel = document.getElementById('inputLabel');
         const calcDaysResult = document.getElementById('calcDaysResult');
         const calcDateResult = document.getElementById('calcDateResult');
         const calcPrayerResult = document.getElementById('calcPrayerResult');
+
         let daysNeeded = 0;
         let pagesPerDay = 0;
+
         if (mode === 'pages') {
             inputLabel.textContent = 'عدد الصفحات يومياً:';
             pagesPerDay = inputVal;
@@ -1963,16 +2049,18 @@
             pagesPerDay = inputVal * 20;
             if (pagesPerDay > 0) daysNeeded = Math.ceil(remainingPages / pagesPerDay);
         }
+
         if (daysNeeded <= 0 || pagesPerDay <= 0) {
             calcDaysResult.textContent = '0 يوم';
             calcDateResult.textContent = '—';
             calcPrayerResult.textContent = '—';
             return;
         }
+
         calcDaysResult.textContent = `${daysNeeded} يومًا`;
         const targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + daysNeeded);
-        // Show both Gregorian and Hijri target date
+
         const gregStr = targetDate.toLocaleDateString('ar-EG', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
         });
@@ -1982,7 +2070,9 @@
                 day: 'numeric', month: 'long', year: 'numeric'
             }).format(targetDate) + ' هـ';
         } catch (e) { hijriStr = ''; }
+
         calcDateResult.textContent = gregStr + hijriStr;
+
         const perPrayer = (pagesPerDay / 5).toFixed(1);
         if (parseFloat(perPrayer) < 1) {
             calcPrayerResult.textContent = `صفحة واحدة كل ${Math.round(1 / parseFloat(perPrayer))} صلاة`;
@@ -1992,12 +2082,9 @@
     }
 
     function loadQuranData() {
-        if (localStorage.getItem('quran_mode')) document.getElementById('calcMode').value = localStorage.getItem(
-            'quran_mode');
-        if (localStorage.getItem('quran_input')) document.getElementById('calcInput').value = localStorage.getItem(
-            'quran_input');
-        if (localStorage.getItem('quran_read')) document.getElementById('readPages').value = localStorage.getItem(
-            'quran_read');
+        if (localStorage.getItem('quran_mode')) document.getElementById('calcMode').value = localStorage.getItem('quran_mode');
+        if (localStorage.getItem('quran_input')) document.getElementById('calcInput').value = localStorage.getItem('quran_input');
+        if (localStorage.getItem('quran_read')) document.getElementById('readPages').value = localStorage.getItem('quran_read');
         calculateQuran();
     }
 
@@ -2020,14 +2107,10 @@
     }
 
     function shareTelegram() {
-        window.open(
-            `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(getPlanText())}`,
-            '_blank');
+        window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(getPlanText())}`, '_blank');
     }
 
-    /* ============================================================
-       3. FOCUS TIMER (POMODORO) — with SVG ring
-    ============================================================ */
+    /* 4. FOCUS TIMER */
     let timerInterval = null;
     let isTimerRunning = false;
     let currentTimerPresetMinutes = 25;
@@ -2039,7 +2122,6 @@
         const secs = timerSeconds % 60;
         document.getElementById('timerDisplay').innerHTML =
             `${mins.toString().padStart(2, '0')}<span>:</span>${secs.toString().padStart(2, '0')}`;
-        // Update SVG circle
         const totalSecs = currentTimerPresetMinutes * 60;
         const progress = timerSeconds / totalSecs;
         const offset = CIRCLE_CIRCUMFERENCE * (1 - progress);
@@ -2073,7 +2155,10 @@
 
     function playTimerAlert() {
         try {
-            const ctx = new(window.AudioContext || window.webkitAudioContext)();
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return;
+            const ctx = new AudioContextClass();
+            if (ctx.state === 'suspended') ctx.resume();
             [523.25, 659.25, 783.99].forEach((freq, i) => {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
@@ -2086,7 +2171,7 @@
                 osc.start(ctx.currentTime + i * 0.22);
                 osc.stop(ctx.currentTime + i * 0.22 + 0.55);
             });
-        } catch (e) { /* audio not supported */ }
+        } catch (e) { }
     }
 
     function toggleTimer() {
@@ -2120,9 +2205,101 @@
         resetTimer();
     }
 
-    /* ============================================================
-       4. CALENDAR CONVERTER
-    ============================================================ */
+    /* 5. SPACED REPETITION CALCULATOR */
+    function calculateSpacedRepetition() {
+        const textName = document.getElementById('srTextName').value.trim();
+        const dates = [1, 3, 7, 30];
+        dates.forEach((d, index) => {
+            const el = document.getElementById(`sr${index + 1}`);
+            if (!textName) {
+                el.textContent = '—';
+                return;
+            }
+            const date = new Date();
+            date.setDate(date.getDate() + d);
+            el.textContent = date.toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' });
+        });
+    }
+
+    /* 6. AUDIO PLAYER CONTROL */
+    function changeAudioSource() {
+        const player = document.getElementById('mainAudioPlayer');
+        const select = document.getElementById('audioSelect');
+        player.src = select.value;
+        player.play();
+    }
+
+    function setAudioSpeed(speed, btn) {
+        const player = document.getElementById('mainAudioPlayer');
+        player.playbackRate = speed;
+        document.querySelectorAll('.audio-speed-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    /* 7. ISLAMIC SCIENCES ROADMAP */
+    const roadmapData = {
+        mubtadi: [
+            { category: 'العقيدة', items: ['ثلاثة الأصول', 'القواعد الأربع', 'كتاب التوحيد'] },
+            { category: 'الحديث', items: ['الأربعون النووية', 'عمدة الأحكام'] },
+            { category: 'الفقه', items: ['متن أبي شجاع (شافعي)', 'زاد المستقنع (حنبي)'] },
+            { category: 'اللغة العربيّة', items: ['الآجرومية', 'متممة الآجرومية'] }
+        ],
+        mutawassit: [
+            { category: 'العقيدة', items: ['الواسطية ابن تيمية', 'الطهاوية'] },
+            { category: 'مصطلح الحديث', items: ['المنظومة البيقونية', 'نخبة الفكر'] },
+            { category: 'أصول الفقه', items: ['الورقات للإمام الجويني'] },
+            { category: 'النحو والصرف', items: ['ألفية ابن مالك (البدايات)'] }
+        ],
+        mutaqaddim: [
+            { category: 'العقيدة', items: ['الحموية والتدمرية', 'معارج القبول'] },
+            { category: 'الحديث والشروح', items: ['فتح الباري ابن حجر', 'المنهاج النووي'] },
+            { category: 'أصول الفقه', items: ['مذكرة أصول الفقه الشنقيطي'] },
+            { category: 'التفسير', items: ['تفسير ابن كثير', 'تفسير القرطبي'] }
+        ]
+    };
+
+    function switchRoadmapTab(level, btn) {
+        document.querySelectorAll('.roadmap-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const container = document.getElementById('roadmapContent');
+        const levelData = roadmapData[level];
+        let html = '<div class="roadmap-grid">';
+        levelData.forEach(item => {
+            html += `<div class="roadmap-card-item">
+                <h4>${item.category}</h4>
+                <ul>${item.items.map(i => `<li>• ${i}</li>`).join('')}</ul>
+            </div>`;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    /* 8. WEEKLY SCHEDULE ORGANIZER */
+    const daysOfWeek = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+
+    function initWeeklySchedule() {
+        const grid = document.getElementById('weeklyScheduleGrid');
+        grid.innerHTML = '';
+        const savedSchedule = JSON.parse(localStorage.getItem('weekly_schedule')) || {};
+        daysOfWeek.forEach((day, i) => {
+            const val = savedSchedule[i] || '';
+            const box = document.createElement('div');
+            box.className = 'day-box';
+            box.innerHTML = `
+                <h4>${day}</h4>
+                <input type="text" value="${val}" placeholder="درس اليوم…" oninput="saveWeeklySchedule(${i}, this.value)" aria-label="درس يوم ${day}">
+            `;
+            grid.appendChild(box);
+        });
+    }
+
+    function saveWeeklySchedule(dayIndex, value) {
+        const schedule = JSON.parse(localStorage.getItem('weekly_schedule')) || {};
+        schedule[dayIndex] = value;
+        localStorage.setItem('weekly_schedule', JSON.stringify(schedule));
+    }
+
+    /* 9. CALENDAR CONVERTER */
     function initCalendar() {
         const today = new Date();
         const hijriFormatter = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {
@@ -2134,7 +2311,7 @@
         document.getElementById('todayDateDisplay').textContent =
             `${hijriFormatter.format(today)} هـ ← ${gregorianFormatter.format(today)} م`;
         document.getElementById('gregorianInput').value = today.toISOString().split('T')[0];
-        // Use moment-hijri if available for better accuracy
+
         if (window.moment && typeof moment === 'function' && moment().iYear) {
             const h = moment().format('iYYYY-iMM-iDD').split('-');
             document.getElementById('hijriYear').value = h[0];
@@ -2217,47 +2394,82 @@
         }).format(gregorianDate) + ' م';
     }
 
-    /* ============================================================
-       5. ZAKAT CALCULATOR
-    ============================================================ */
+    /* 10. ZAKAT CALCULATOR */
     function calculateZakat() {
         const cash = parseFloat(document.getElementById('zakatCash').value) || 0;
         const goldGrams = parseFloat(document.getElementById('zakatGold').value) || 0;
         const goldPrice = parseFloat(document.getElementById('goldPrice').value) || 0;
-        const totalWealth = cash + (goldGrams * goldPrice);
-        const nisab = 85 * goldPrice;
+        const silverGrams = parseFloat(document.getElementById('zakatSilver').value) || 0;
+        const silverPrice = parseFloat(document.getElementById('silverPrice').value) || 0;
+
+        const totalGoldVal = goldGrams * goldPrice;
+        const totalSilverVal = silverGrams * silverPrice;
+        const totalWealth = cash + totalGoldVal + totalSilverVal;
+
+        const goldNisab = 85 * goldPrice;
+        const silverNisab = 595 * silverPrice;
+
         const zakatEl = document.getElementById('zakatValue');
         const statusEl = document.getElementById('zakatStatus');
+
         if (totalWealth <= 0) {
             zakatEl.textContent = '0.00';
             statusEl.textContent = '';
             return;
         }
-        if (goldPrice > 0 && totalWealth < nisab) {
+
+        let nisabLimit = 0;
+        if (goldPrice > 0 && silverPrice > 0) {
+            nisabLimit = Math.min(goldNisab, silverNisab);
+        } else if (goldPrice > 0) {
+            nisabLimit = goldNisab;
+        } else if (silverPrice > 0) {
+            nisabLimit = silverNisab;
+        }
+
+        if (nisabLimit > 0 && totalWealth < nisabLimit) {
             zakatEl.textContent = '0.00';
-            statusEl.textContent = `لم يبلغ النصاب (النصاب المقدر: ${nisab.toLocaleString('ar-EG')})`;
+            statusEl.textContent = `لم يبلغ النصاب (النصاب المقدر: ${nisabLimit.toLocaleString('ar-EG')})`;
             statusEl.style.color = 'var(--text-muted)';
         } else {
             const zakat = totalWealth * 0.025;
             zakatEl.textContent = zakat.toLocaleString('ar-EG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            statusEl.textContent = goldPrice > 0 ? 'بلغ النصاب وجبت الزكاة (2.5%)' : 'تم الحساب بنسبة 2.5%';
+            statusEl.textContent = nisabLimit > 0 ? 'بلغ النصاب وجبت الزكاة (2.5%)' : 'تم الحساب بنسبة 2.5%';
             statusEl.style.color = 'var(--primary)';
         }
     }
 
-    /* ============================================================
-       6. DIGITAL TASBEEH
-    ============================================================ */
+    function resetZakat() {
+        document.getElementById('zakatCash').value = '';
+        document.getElementById('zakatGold').value = '';
+        document.getElementById('goldPrice').value = '';
+        document.getElementById('zakatSilver').value = '';
+        document.getElementById('silverPrice').value = '';
+        calculateZakat();
+        showToast("تم إعادة ضبط حاسبة الزكاة");
+    }
+
+    /* 11. DIGITAL TASBEEH */
+    function changeTasbeehTarget() {
+        tasbeehTarget = parseInt(document.getElementById('tasbeehTarget').value) || 0;
+        localStorage.setItem('dhikr_target', tasbeehTarget);
+    }
+
     function incrementDhikr() {
         dhikrCount++;
         const display = document.getElementById('dhikrDisplay');
         display.textContent = dhikrCount;
         display.classList.remove('flash');
-        void display.offsetWidth; // trigger reflow
+        void display.offsetWidth;
         display.classList.add('flash');
         localStorage.setItem('dhikr_count', dhikrCount);
-        // Haptic feedback on mobile
         if (navigator.vibrate) navigator.vibrate(15);
+
+        if (tasbeehTarget > 0 && dhikrCount === tasbeehTarget) {
+            playTimerAlert();
+            showToast(`أتممت الهدف المحدد (${tasbeehTarget} تسبيحة)! 🎯`, 4000);
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+        }
     }
 
     function resetDhikr() {
@@ -2267,9 +2479,7 @@
         showToast("تم تصفير العداد");
     }
 
-    /* ============================================================
-       7. NOTES
-    ============================================================ */
+    /* 12. NOTES WITH LIVE SEARCH & EXPORT */
     let notesSaveTimeout;
 
     function saveNotes() {
@@ -2293,25 +2503,73 @@
         document.getElementById('notesStats').textContent = `${wordCount} كلمة | ${charCount} حرف`;
     }
 
+    function searchNotes() {
+        const query = document.getElementById('notesSearchInput').value.toLowerCase().trim();
+        const textarea = document.getElementById('userNotes');
+        if (!query) return;
+        const text = textarea.value;
+        const index = text.toLowerCase().indexOf(query);
+        if (index !== -1) {
+            textarea.focus();
+            textarea.setSelectionRange(index, index + query.length);
+        }
+    }
+
+    function getFormattedNotesHeader() {
+        const now = new Date().toLocaleString('ar-EG');
+        return `--- دفتر الفوائد والشوارد العلمية ---\nتاريخ التصدير: ${now}\n-----------------------------------\n\n`;
+    }
+
     async function copyNotes() {
         const text = document.getElementById('userNotes').value;
         if (!text) { showToast("الدفتر فارغ!"); return; }
         try {
-            await navigator.clipboard.writeText(text);
-            showToast("تم نسخ الفوائد بنجاح! ✅");
+            await navigator.clipboard.writeText(getFormattedNotesHeader() + text);
+            showToast("تم نسخ الفوائد مع التوثيق! ✅");
         } catch { showToast("تعذر النسخ، حاول مرة أخرى"); }
     }
 
     function downloadNotes() {
         const text = document.getElementById('userNotes').value;
         if (!text) { showToast("الدفتر فارغ!"); return; }
-        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const fullContent = getFormattedNotesHeader() + text;
+        const blob = new Blob([fullContent], { type: 'text/plain;charset=utf-8' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = 'فوائد_وشوارد_علمية.txt';
         link.click();
         URL.revokeObjectURL(link.href);
         showToast("تم تحميل الملف بنجاح! ✅");
+    }
+
+    function printNotes() {
+        const text = document.getElementById('userNotes').value;
+        if (!text) { showToast("الدفتر فارغ!"); return; }
+        const printWindow = window.open('', '_blank');
+        const now = new Date().toLocaleString('ar-EG');
+        printWindow.document.write(`
+            <!DOCTYPE html>
+            <html lang="ar" dir="rtl">
+            <head>
+                <meta charset="UTF-8">
+                <title>دفتر الفوائد والشوارد</title>
+                <style>
+                    body { font-family: 'Tajawal', sans-serif; padding: 2.5rem; line-height: 1.8; color: #1a2638; }
+                    h1 { color: #089b96; border-bottom: 2px solid #089b96; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
+                    .date { color: #5a6a82; font-size: 0.9rem; margin-bottom: 2rem; }
+                    .content { white-space: pre-wrap; font-size: 1.15rem; }
+                </style>
+            </head>
+            <body>
+                <h1>دفتر الفوائد والشوارد العلمية</h1>
+                <div class="date">تاريخ الطباعة: ${now}</div>
+                <div class="content">${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>
+            </body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(() => { printWindow.print(); printWindow.close(); }, 250);
     }
 
     function clearNotes() {
@@ -2322,9 +2580,7 @@
         }
     }
 
-    /* ============================================================
-       8. FAVORITES & FILTERING
-    ============================================================ */
+    /* 13. FAVORITES & PERSISTENT FILTERING */
     function toggleFavorite(id, btnElement) {
         const icon = btnElement.querySelector('i');
         if (favorites.includes(id)) {
@@ -2360,26 +2616,29 @@
             const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
             const cat = card.getAttribute('data-category');
             const id = card.getAttribute('data-id');
+
             const matchSearch = query === '' || title.includes(query) || desc.includes(query);
-            const matchCat = currentCategory === 'all' ?
-                true :
-                currentCategory === 'favorites' ?
-                favorites.includes(id) :
-                cat === currentCategory;
+            const matchCat = currentCategory === 'all' ? true :
+                currentCategory === 'favorites' ? favorites.includes(id) : cat === currentCategory;
+
             card.style.display = (matchSearch && matchCat) ? 'flex' : 'none';
         });
     }
 
     function filterCategory(category, button) {
         currentCategory = category;
+        localStorage.setItem('active_category', category);
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
+        if (button) {
+            button.classList.add('active');
+        } else {
+            const btnMatch = document.querySelector(`.filter-btn[onclick*="'${category}'"]`);
+            if (btnMatch) btnMatch.classList.add('active');
+        }
         filterTools();
     }
 
-    /* ============================================================
-       9. SCROLL REVEAL
-    ============================================================ */
+    /* 14. SCROLL REVEAL & UTILS */
     function initScrollReveal() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2392,9 +2651,6 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    /* ============================================================
-       10. BACK TO TOP BUTTON
-    ============================================================ */
     function initBackToTop() {
         const btn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -2406,24 +2662,19 @@
         }, { passive: true });
     }
 
-    /* ============================================================
-       11. TOAST SYSTEM
-    ============================================================ */
-    let toastTimer;
-
     function showToast(message, duration = 3000) {
         const container = document.getElementById('toastContainer');
         const toast = document.createElement('div');
         toast.className = 'toast';
         toast.textContent = message;
         container.appendChild(toast);
-        requestAnimationFrame(() => {
-            toast.classList.add('show');
-        });
+        requestAnimationFrame(() => toast.classList.add('show'));
+
         const hideTimeout = setTimeout(() => {
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 350);
         }, duration);
+
         toast.addEventListener('click', () => {
             clearTimeout(hideTimeout);
             toast.classList.remove('show');
@@ -2431,44 +2682,47 @@
         });
     }
 
-    /* ============================================================
-       12. KEYBOARD SHORTCUTS
-    ============================================================ */
+    /* 15. KEYBOARD SHORTCUTS */
     function initKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
-            // Ctrl+K or / to focus search
-            if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && !e.ctrlKey && !e.metaKey && document
-                    .activeElement === document.body)) {
+            const activeTag = document.activeElement.tagName;
+            const isTyping = ['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag) || document.activeElement.isContentEditable;
+
+            if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && !isTyping && !e.ctrlKey && !e.metaKey)) {
                 e.preventDefault();
                 document.getElementById('searchInput').focus();
             }
-            // Space to toggle timer (when not typing in an input)
-            if (e.code === 'Space' && document.activeElement === document.body) {
+            if (e.code === 'Space' && !isTyping) {
                 e.preventDefault();
                 toggleTimer();
             }
-            // Escape to reset timer
-            if (e.code === 'Escape' && document.activeElement === document.body && isTimerRunning) {
+            if (e.code === 'Escape' && !isTyping && isTimerRunning) {
                 e.preventDefault();
                 resetTimer();
             }
         });
     }
 
-    /* ============================================================
-       INIT
-    ============================================================ */
+    /* INIT */
     window.addEventListener('DOMContentLoaded', () => {
         loadTheme();
         loadQuranData();
         loadFavoritesUI();
         loadNotes();
         initCalendar();
+        initWeeklySchedule();
+        switchRoadmapTab('mubtadi', document.querySelector('.roadmap-tab-btn'));
         document.getElementById('dhikrDisplay').textContent = dhikrCount;
+        document.getElementById('tasbeehTarget').value = tasbeehTarget;
+
+        if (currentCategory !== 'all') {
+            filterCategory(currentCategory, null);
+        }
+
         initScrollReveal();
         initBackToTop();
         initKeyboardShortcuts();
-        // Initialize timer SVG ring
+
         timerProgressCircle.style.strokeDasharray = CIRCLE_CIRCUMFERENCE;
         timerProgressCircle.style.strokeDashoffset = '0';
         updateTimerDisplay();
